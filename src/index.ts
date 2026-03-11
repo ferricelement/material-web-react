@@ -87,6 +87,10 @@ export { List, ListItem } from './components/list/index.js';
 export type { MdList } from '@material/web/list/list.js';
 export type { MdListItem } from '@material/web/list/list-item.js';
 
+// Slider
+export { Slider } from './components/slider/index.js';
+export type { MdSlider } from '@material/web/slider/slider.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

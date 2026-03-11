@@ -147,6 +147,16 @@
         "default": "./dist/components/icon/index.cjs"
       }
     },
+    "./slider": {
+      "import": {
+        "types": "./dist/components/slider/index.d.ts",
+        "default": "./dist/components/slider/index.js"
+      },
+      "require": {
+        "types": "./dist/components/slider/index.d.cts",
+        "default": "./dist/components/slider/index.cjs"
+      }
+    },
     "./list": {
       "import": {
         "types": "./dist/components/list/index.d.ts",

@@ -44,6 +44,7 @@ import { Menu, MenuItem } from '../src/components/menu/index.js';
 import { Tabs, PrimaryTab, SecondaryTab } from '../src/components/tabs/index.js';
 import { CircularProgress, LinearProgress } from '../src/components/progress/index.js';
 import { List, ListItem } from '../src/components/list/index.js';
+import { Slider } from '../src/components/slider/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -445,6 +446,15 @@ export function App() {
               </FilledButton>
             </div>
           </Dialog>
+        </div>
+
+        {/* Slider */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Slider</div>
+          <span style={styles.label}>Basic Slider</span>
+          <Slider value={50} onChange={(e: any) => console.log('Slider changed', e.target.value)} />
+          <span style={styles.label}>Range Slider</span>
+          <Slider range valueStart={25} valueEnd={75} />
         </div>
 
         {/* List */}
