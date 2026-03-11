@@ -24,6 +24,13 @@ import {
 } from '../src/components/select/index.js';
 import { Dialog } from '../src/components/dialog/index.js';
 import { Icon } from '../src/components/icon/index.js';
+import {
+  ChipSet,
+  AssistChip,
+  FilterChip,
+  InputChip,
+  SuggestionChip,
+} from '../src/components/chips/index.js';
 import { Fab, BrandedFab } from '../src/components/fab/index.js';
 import {
   IconButton,
@@ -203,6 +210,35 @@ export function App() {
             <FilledButton disabled>Disabled</FilledButton>
             <OutlinedButton disabled>Disabled</OutlinedButton>
           </div>
+        </div>
+
+        {/* Chips */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Chips</div>
+          <span style={styles.label}>Assist</span>
+          <ChipSet>
+            <AssistChip label="Assist"><Icon slot="icon">event</Icon></AssistChip>
+            <AssistChip label="Directions"><Icon slot="icon">directions</Icon></AssistChip>
+          </ChipSet>
+          <span style={styles.label}>Filter</span>
+          <ChipSet>
+            <FilterChip label="Extra soft" elevated />
+            <FilterChip label="Soft" selected />
+            <FilterChip label="Medium" />
+            <FilterChip label="Hard" />
+          </ChipSet>
+          <span style={styles.label}>Input</span>
+          <ChipSet>
+            <InputChip label="Apple" />
+            <InputChip label="Banana" />
+            <InputChip label="Cherry" removable />
+          </ChipSet>
+          <span style={styles.label}>Suggestion</span>
+          <ChipSet>
+            <SuggestionChip label="Price: Low to High" />
+            <SuggestionChip label="Most Recent" />
+            <SuggestionChip label="Top Rated" />
+          </ChipSet>
         </div>
 
         {/* FAB */}

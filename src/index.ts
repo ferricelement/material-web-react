@@ -45,6 +45,14 @@ export { MdSnackbar } from './components/snackbar/md-snackbar.js';
 export { Icon } from './components/icon/index.js';
 export type { MdIcon } from '@material/web/icon/icon.js';
 
+// Chips
+export { ChipSet, AssistChip, FilterChip, InputChip, SuggestionChip } from './components/chips/index.js';
+export type { MdChipSet } from '@material/web/chips/chip-set.js';
+export type { MdAssistChip } from '@material/web/chips/assist-chip.js';
+export type { MdFilterChip } from '@material/web/chips/filter-chip.js';
+export type { MdInputChip } from '@material/web/chips/input-chip.js';
+export type { MdSuggestionChip } from '@material/web/chips/suggestion-chip.js';
+
 // FAB
 export { Fab, BrandedFab } from './components/fab/index.js';
 export type { MdFab } from '@material/web/fab/fab.js';
