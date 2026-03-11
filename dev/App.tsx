@@ -24,6 +24,7 @@ import {
 } from '../src/components/select/index.js';
 import { Dialog } from '../src/components/dialog/index.js';
 import { Icon } from '../src/components/icon/index.js';
+import { Fab, BrandedFab } from '../src/components/fab/index.js';
 import {
   IconButton,
   FilledIconButton,
@@ -201,6 +202,17 @@ export function App() {
           <div style={styles.row}>
             <FilledButton disabled>Disabled</FilledButton>
             <OutlinedButton disabled>Disabled</OutlinedButton>
+          </div>
+        </div>
+
+        {/* FAB */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Floating Action Button</div>
+          <div style={styles.row}>
+            <Fab label="Create"><Icon slot="icon">add</Icon></Fab>
+            <Fab><Icon slot="icon">edit</Icon></Fab>
+            <Fab size="small"><Icon slot="icon">add</Icon></Fab>
+            <Fab size="large"><Icon slot="icon">add</Icon></Fab>
           </div>
         </div>
 

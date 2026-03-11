@@ -45,6 +45,11 @@ export { MdSnackbar } from './components/snackbar/md-snackbar.js';
 export { Icon } from './components/icon/index.js';
 export type { MdIcon } from '@material/web/icon/icon.js';
 
+// FAB
+export { Fab, BrandedFab } from './components/fab/index.js';
+export type { MdFab } from '@material/web/fab/fab.js';
+export type { MdBrandedFab } from '@material/web/fab/branded-fab.js';
+
 // Icon Button
 export { IconButton, FilledIconButton, FilledTonalIconButton, OutlinedIconButton } from './components/icon-button/index.js';
 export type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
