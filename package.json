@@ -1,0 +1,178 @@
+{
+  "name": "react-material-web",
+  "version": "0.1.0",
+  "description": "React components wrapping Google's @material/web (Material Design 3)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./button": {
+      "import": {
+        "types": "./dist/components/button/index.d.ts",
+        "default": "./dist/components/button/index.js"
+      },
+      "require": {
+        "types": "./dist/components/button/index.d.cts",
+        "default": "./dist/components/button/index.cjs"
+      }
+    },
+    "./text-field": {
+      "import": {
+        "types": "./dist/components/text-field/index.d.ts",
+        "default": "./dist/components/text-field/index.js"
+      },
+      "require": {
+        "types": "./dist/components/text-field/index.d.cts",
+        "default": "./dist/components/text-field/index.cjs"
+      }
+    },
+    "./checkbox": {
+      "import": {
+        "types": "./dist/components/checkbox/index.d.ts",
+        "default": "./dist/components/checkbox/index.js"
+      },
+      "require": {
+        "types": "./dist/components/checkbox/index.d.cts",
+        "default": "./dist/components/checkbox/index.cjs"
+      }
+    },
+    "./radio": {
+      "import": {
+        "types": "./dist/components/radio/index.d.ts",
+        "default": "./dist/components/radio/index.js"
+      },
+      "require": {
+        "types": "./dist/components/radio/index.d.cts",
+        "default": "./dist/components/radio/index.cjs"
+      }
+    },
+    "./switch": {
+      "import": {
+        "types": "./dist/components/switch/index.d.ts",
+        "default": "./dist/components/switch/index.js"
+      },
+      "require": {
+        "types": "./dist/components/switch/index.d.cts",
+        "default": "./dist/components/switch/index.cjs"
+      }
+    },
+    "./select": {
+      "import": {
+        "types": "./dist/components/select/index.d.ts",
+        "default": "./dist/components/select/index.js"
+      },
+      "require": {
+        "types": "./dist/components/select/index.d.cts",
+        "default": "./dist/components/select/index.cjs"
+      }
+    },
+    "./card": {
+      "import": {
+        "types": "./dist/components/card/index.d.ts",
+        "default": "./dist/components/card/index.js"
+      },
+      "require": {
+        "types": "./dist/components/card/index.d.cts",
+        "default": "./dist/components/card/index.cjs"
+      }
+    },
+    "./dialog": {
+      "import": {
+        "types": "./dist/components/dialog/index.d.ts",
+        "default": "./dist/components/dialog/index.js"
+      },
+      "require": {
+        "types": "./dist/components/dialog/index.d.cts",
+        "default": "./dist/components/dialog/index.cjs"
+      }
+    },
+    "./snackbar": {
+      "import": {
+        "types": "./dist/components/snackbar/index.d.ts",
+        "default": "./dist/components/snackbar/index.js"
+      },
+      "require": {
+        "types": "./dist/components/snackbar/index.d.cts",
+        "default": "./dist/components/snackbar/index.cjs"
+      }
+    },
+    "./icon": {
+      "import": {
+        "types": "./dist/components/icon/index.d.ts",
+        "default": "./dist/components/icon/index.js"
+      },
+      "require": {
+        "types": "./dist/components/icon/index.d.cts",
+        "default": "./dist/components/icon/index.cjs"
+      }
+    },
+    "./theme": {
+      "import": {
+        "types": "./dist/theme/index.d.ts",
+        "default": "./dist/theme/index.js"
+      },
+      "require": {
+        "types": "./dist/theme/index.d.cts",
+        "default": "./dist/theme/index.cjs"
+      }
+    },
+    "./theme/baseline.css": "./dist/baseline.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "vite build && cp src/theme/baseline.css dist/baseline.css",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@lit/react": "^1.0.6",
+    "@material/web": "^2.2.0",
+    "lit": "^3.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "happy-dom": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^3.0.0"
+  },
+  "keywords": [
+    "react",
+    "material-design",
+    "material-web",
+    "md3",
+    "material-you",
+    "web-components",
+    "lit"
+  ],
+  "license": "MIT"
+}
