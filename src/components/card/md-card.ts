@@ -1,11 +1,17 @@
 import { LitElement, html, css, nothing } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
 import '@material/web/elevation/elevation.js';
 
-@customElement('md-card')
 export class MdCard extends LitElement {
-  @property({ type: String, reflect: true })
-  variant: 'elevated' | 'filled' | 'outlined' = 'elevated';
+  static override properties = {
+    variant: { type: String, reflect: true },
+  };
+
+  declare variant: 'elevated' | 'filled' | 'outlined';
+
+  constructor() {
+    super();
+    this.variant = 'elevated';
+  }
 
   static override styles = css`
     :host {
@@ -41,6 +47,8 @@ export class MdCard extends LitElement {
     `;
   }
 }
+
+customElements.define('md-card', MdCard);
 
 declare global {
   interface HTMLElementTagNameMap {

@@ -1,22 +1,29 @@
-import { LitElement, html, css, nothing } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
 import '@material/web/elevation/elevation.js';
 
-@customElement('md-snackbar')
 export class MdSnackbar extends LitElement {
-  @property({ type: Boolean, reflect: true })
-  open = false;
+  static override properties = {
+    open: { type: Boolean, reflect: true },
+    message: { type: String },
+    autoCloseDuration: { type: Number, attribute: 'auto-close-duration' },
+    closeOnEscape: { type: Boolean, attribute: 'close-on-escape' },
+  };
 
-  @property({ type: String })
-  message = '';
-
-  @property({ type: Number, attribute: 'auto-close-duration' })
-  autoCloseDuration = 5000;
-
-  @property({ type: Boolean, attribute: 'close-on-escape' })
-  closeOnEscape = true;
+  declare open: boolean;
+  declare message: string;
+  declare autoCloseDuration: number;
+  declare closeOnEscape: boolean;
 
   private _autoCloseTimer?: ReturnType<typeof setTimeout>;
+  private _boundHandleKeydown = this._handleKeydown.bind(this);
+
+  constructor() {
+    super();
+    this.open = false;
+    this.message = '';
+    this.autoCloseDuration = 5000;
+    this.closeOnEscape = true;
+  }
 
   static override styles = css`
     :host {
@@ -67,15 +74,12 @@ export class MdSnackbar extends LitElement {
 
   override connectedCallback() {
     super.connectedCallback();
-    if (this.closeOnEscape) {
-      this._handleKeydown = this._handleKeydown.bind(this);
-      document.addEventListener('keydown', this._handleKeydown);
-    }
+    document.addEventListener('keydown', this._boundHandleKeydown);
   }
 
   override disconnectedCallback() {
     super.disconnectedCallback();
-    document.removeEventListener('keydown', this._handleKeydown);
+    document.removeEventListener('keydown', this._boundHandleKeydown);
     this._clearAutoClose();
   }
 
@@ -130,6 +134,8 @@ export class MdSnackbar extends LitElement {
     `;
   }
 }
+
+customElements.define('md-snackbar', MdSnackbar);
 
 declare global {
   interface HTMLElementTagNameMap {

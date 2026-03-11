@@ -138,6 +138,7 @@
     "LICENSE"
   ],
   "scripts": {
+    "dev": "vite --config dev/vite.config.ts",
     "build": "vite build && cp src/theme/baseline.css dist/baseline.css",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -157,6 +158,7 @@
     "@testing-library/react": "^16.1.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.1.4",
     "happy-dom": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
