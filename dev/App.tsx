@@ -42,6 +42,7 @@ import { Card } from '../src/components/card/index.js';
 import { Snackbar } from '../src/components/snackbar/index.js';
 import { Menu, MenuItem } from '../src/components/menu/index.js';
 import { Tabs, PrimaryTab, SecondaryTab } from '../src/components/tabs/index.js';
+import { CircularProgress, LinearProgress } from '../src/components/progress/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -443,6 +444,23 @@ export function App() {
               </FilledButton>
             </div>
           </Dialog>
+        </div>
+
+        {/* Progress */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Progress</div>
+          <span style={styles.label}>Circular</span>
+          <div style={styles.row}>
+            <CircularProgress indeterminate />
+            <CircularProgress value={0.7} />
+          </div>
+          <span style={styles.label}>Linear</span>
+          <div style={styles.row}>
+            <LinearProgress indeterminate style={{ width: '100%' }} />
+          </div>
+          <div style={styles.row}>
+            <LinearProgress value={0.7} style={{ width: '100%' }} />
+          </div>
         </div>
 
         {/* Tabs */}

@@ -147,6 +147,16 @@
         "default": "./dist/components/icon/index.cjs"
       }
     },
+    "./progress": {
+      "import": {
+        "types": "./dist/components/progress/index.d.ts",
+        "default": "./dist/components/progress/index.js"
+      },
+      "require": {
+        "types": "./dist/components/progress/index.d.cts",
+        "default": "./dist/components/progress/index.cjs"
+      }
+    },
     "./tabs": {
       "import": {
         "types": "./dist/components/tabs/index.d.ts",

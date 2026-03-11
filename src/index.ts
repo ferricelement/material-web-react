@@ -77,6 +77,11 @@ export type { MdTabs } from '@material/web/tabs/tabs.js';
 export type { MdPrimaryTab } from '@material/web/tabs/primary-tab.js';
 export type { MdSecondaryTab } from '@material/web/tabs/secondary-tab.js';
 
+// Progress
+export { CircularProgress, LinearProgress } from './components/progress/index.js';
+export type { MdCircularProgress } from '@material/web/progress/circular-progress.js';
+export type { MdLinearProgress } from '@material/web/progress/linear-progress.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

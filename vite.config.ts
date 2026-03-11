@@ -28,6 +28,7 @@ export default defineConfig({
         'components/chips/index': resolve(__dirname, 'src/components/chips/index.ts'),
         'components/menu/index': resolve(__dirname, 'src/components/menu/index.ts'),
         'components/tabs/index': resolve(__dirname, 'src/components/tabs/index.ts'),
+        'components/progress/index': resolve(__dirname, 'src/components/progress/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],
