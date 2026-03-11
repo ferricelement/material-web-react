@@ -43,6 +43,7 @@ import { Snackbar } from '../src/components/snackbar/index.js';
 import { Menu, MenuItem } from '../src/components/menu/index.js';
 import { Tabs, PrimaryTab, SecondaryTab } from '../src/components/tabs/index.js';
 import { CircularProgress, LinearProgress } from '../src/components/progress/index.js';
+import { List, ListItem } from '../src/components/list/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -444,6 +445,31 @@ export function App() {
               </FilledButton>
             </div>
           </Dialog>
+        </div>
+
+        {/* List */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>List</div>
+          <List style={{ maxWidth: 360, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12 }}>
+            <ListItem>
+              <Icon slot="start">inbox</Icon>
+              <div slot="headline">Inbox</div>
+              <div slot="supporting-text">5 new messages</div>
+            </ListItem>
+            <ListItem>
+              <Icon slot="start">send</Icon>
+              <div slot="headline">Sent</div>
+            </ListItem>
+            <ListItem>
+              <Icon slot="start">drafts</Icon>
+              <div slot="headline">Drafts</div>
+              <div slot="supporting-text">2 unsaved drafts</div>
+            </ListItem>
+            <ListItem>
+              <Icon slot="start">delete</Icon>
+              <div slot="headline">Trash</div>
+            </ListItem>
+          </List>
         </div>
 
         {/* Progress */}

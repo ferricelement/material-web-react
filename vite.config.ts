@@ -29,6 +29,7 @@ export default defineConfig({
         'components/menu/index': resolve(__dirname, 'src/components/menu/index.ts'),
         'components/tabs/index': resolve(__dirname, 'src/components/tabs/index.ts'),
         'components/progress/index': resolve(__dirname, 'src/components/progress/index.ts'),
+        'components/list/index': resolve(__dirname, 'src/components/list/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

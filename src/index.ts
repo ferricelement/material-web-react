@@ -82,6 +82,11 @@ export { CircularProgress, LinearProgress } from './components/progress/index.js
 export type { MdCircularProgress } from '@material/web/progress/circular-progress.js';
 export type { MdLinearProgress } from '@material/web/progress/linear-progress.js';
 
+// List
+export { List, ListItem } from './components/list/index.js';
+export type { MdList } from '@material/web/list/list.js';
+export type { MdListItem } from '@material/web/list/list-item.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';
