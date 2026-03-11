@@ -119,6 +119,12 @@ export class MdBottomSheet extends LitElement {
       overflow-y: auto;
       padding: 0 24px 24px;
     }
+
+    /* Reset slotted list background to match sheet surface */
+    ::slotted(md-list) {
+      background: transparent;
+      --md-list-container-color: transparent;
+    }
   `;
 
   override render() {
