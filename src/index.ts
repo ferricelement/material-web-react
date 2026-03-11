@@ -95,6 +95,18 @@ export type { MdSlider } from '@material/web/slider/slider.js';
 export { Divider } from './components/divider/index.js';
 export type { MdDivider } from '@material/web/divider/divider.js';
 
+// Ripple
+export { Ripple } from './components/ripple/index.js';
+export type { MdRipple } from '@material/web/ripple/ripple.js';
+
+// Elevation
+export { Elevation } from './components/elevation/index.js';
+export type { MdElevation } from '@material/web/elevation/elevation.js';
+
+// Focus Ring
+export { FocusRing } from './components/focus-ring/index.js';
+export type { MdFocusRing } from '@material/web/focus/md-focus-ring.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

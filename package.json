@@ -147,6 +147,36 @@
         "default": "./dist/components/icon/index.cjs"
       }
     },
+    "./ripple": {
+      "import": {
+        "types": "./dist/components/ripple/index.d.ts",
+        "default": "./dist/components/ripple/index.js"
+      },
+      "require": {
+        "types": "./dist/components/ripple/index.d.cts",
+        "default": "./dist/components/ripple/index.cjs"
+      }
+    },
+    "./elevation": {
+      "import": {
+        "types": "./dist/components/elevation/index.d.ts",
+        "default": "./dist/components/elevation/index.js"
+      },
+      "require": {
+        "types": "./dist/components/elevation/index.d.cts",
+        "default": "./dist/components/elevation/index.cjs"
+      }
+    },
+    "./focus-ring": {
+      "import": {
+        "types": "./dist/components/focus-ring/index.d.ts",
+        "default": "./dist/components/focus-ring/index.js"
+      },
+      "require": {
+        "types": "./dist/components/focus-ring/index.d.cts",
+        "default": "./dist/components/focus-ring/index.cjs"
+      }
+    },
     "./divider": {
       "import": {
         "types": "./dist/components/divider/index.d.ts",
