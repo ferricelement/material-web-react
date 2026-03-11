@@ -142,6 +142,11 @@ export { MdNavigationRailItem } from './components/navigation-rail/md-navigation
 export { SearchBar } from './components/search-bar/index.js';
 export { MdSearchBar } from './components/search-bar/md-search-bar.js';
 
+// Navigation Drawer
+export { NavigationDrawer, NavigationDrawerModal } from './components/navigation-drawer/index.js';
+export type { MdNavigationDrawer } from '@material/web/labs/navigationdrawer/navigation-drawer.js';
+export type { MdNavigationDrawerModal } from '@material/web/labs/navigationdrawer/navigation-drawer-modal.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

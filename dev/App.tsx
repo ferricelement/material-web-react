@@ -54,6 +54,7 @@ import { TopAppBar } from '../src/components/top-app-bar/index.js';
 import { BottomAppBar } from '../src/components/bottom-app-bar/index.js';
 import { NavigationRail, NavigationRailItem } from '../src/components/navigation-rail/index.js';
 import { SearchBar } from '../src/components/search-bar/index.js';
+import { NavigationDrawer, NavigationDrawerModal } from '../src/components/navigation-drawer/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -163,6 +164,7 @@ export function App() {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [textValue, setTextValue] = useState('');
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const dialogRef = useRef<MdDialog>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
@@ -534,6 +536,66 @@ export function App() {
                 <Icon>settings</Icon>
               </NavigationRailItem>
             </NavigationRail>
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--md-sys-color-on-surface-variant)' }}>
+              Content area
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Drawer */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Navigation Drawer</div>
+          <span style={styles.label}>Modal Drawer</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setDrawerOpen(true)}>
+              Open Modal Drawer
+            </FilledButton>
+          </div>
+          <NavigationDrawerModal
+            opened={drawerOpen}
+            onNavigationDrawerChanged={(e: any) => setDrawerOpen(e.detail.opened)}
+          >
+            <div style={{ padding: '16px 24px', fontSize: 22, fontWeight: 500, color: 'var(--md-sys-color-on-surface)' }}>
+              Mail
+            </div>
+            <List>
+              <ListItem onClick={() => setDrawerOpen(false)}>
+                <Icon slot="start">inbox</Icon>
+                <div slot="headline">Inbox</div>
+                <div slot="trailing-supporting-text">24</div>
+              </ListItem>
+              <ListItem onClick={() => setDrawerOpen(false)}>
+                <Icon slot="start">send</Icon>
+                <div slot="headline">Outbox</div>
+              </ListItem>
+              <ListItem onClick={() => setDrawerOpen(false)}>
+                <Icon slot="start">favorite</Icon>
+                <div slot="headline">Favorites</div>
+              </ListItem>
+              <ListItem onClick={() => setDrawerOpen(false)}>
+                <Icon slot="start">delete</Icon>
+                <div slot="headline">Trash</div>
+              </ListItem>
+            </List>
+          </NavigationDrawerModal>
+          <span style={{ ...styles.label, marginTop: 16 }}>Standard Drawer (inline)</span>
+          <div style={{ display: 'flex', height: 240, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <NavigationDrawer opened>
+              <List>
+                <ListItem>
+                  <Icon slot="start">home</Icon>
+                  <div slot="headline">Home</div>
+                </ListItem>
+                <ListItem>
+                  <Icon slot="start">info</Icon>
+                  <div slot="headline">About</div>
+                </ListItem>
+                <ListItem>
+                  <Icon slot="start">settings</Icon>
+                  <div slot="headline">Settings</div>
+                </ListItem>
+              </List>
+            </NavigationDrawer>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--md-sys-color-on-surface-variant)' }}>
               Content area
             </div>

@@ -327,6 +327,16 @@
         "default": "./dist/components/search-bar/index.cjs"
       }
     },
+    "./navigation-drawer": {
+      "import": {
+        "types": "./dist/components/navigation-drawer/index.d.ts",
+        "default": "./dist/components/navigation-drawer/index.js"
+      },
+      "require": {
+        "types": "./dist/components/navigation-drawer/index.d.cts",
+        "default": "./dist/components/navigation-drawer/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [
