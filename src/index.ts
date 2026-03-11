@@ -65,6 +65,12 @@ export type { MdFilledIconButton } from '@material/web/iconbutton/filled-icon-bu
 export type { MdFilledTonalIconButton } from '@material/web/iconbutton/filled-tonal-icon-button.js';
 export type { MdOutlinedIconButton } from '@material/web/iconbutton/outlined-icon-button.js';
 
+// Menu
+export { Menu, MenuItem, SubMenu } from './components/menu/index.js';
+export type { MdMenu } from '@material/web/menu/menu.js';
+export type { MdMenuItem } from '@material/web/menu/menu-item.js';
+export type { MdSubMenu } from '@material/web/menu/sub-menu.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

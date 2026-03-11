@@ -26,6 +26,7 @@ export default defineConfig({
         'components/icon-button/index': resolve(__dirname, 'src/components/icon-button/index.ts'),
         'components/fab/index': resolve(__dirname, 'src/components/fab/index.ts'),
         'components/chips/index': resolve(__dirname, 'src/components/chips/index.ts'),
+        'components/menu/index': resolve(__dirname, 'src/components/menu/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

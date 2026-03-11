@@ -40,6 +40,7 @@ import {
 } from '../src/components/icon-button/index.js';
 import { Card } from '../src/components/card/index.js';
 import { Snackbar } from '../src/components/snackbar/index.js';
+import { Menu, MenuItem } from '../src/components/menu/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -145,6 +146,7 @@ export function App() {
   const [themeKey, setThemeKey] = useState<keyof typeof THEME_PRESETS>('purple');
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [switchChecked, setSwitchChecked] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [textValue, setTextValue] = useState('');
@@ -440,6 +442,27 @@ export function App() {
               </FilledButton>
             </div>
           </Dialog>
+        </div>
+
+        {/* Menu */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Menu</div>
+          <div style={{ ...styles.row, position: 'relative' }}>
+            <FilledButton id="menu-anchor" onClick={() => setMenuOpen(!menuOpen)}>
+              Open Menu
+            </FilledButton>
+            <Menu anchor="menu-anchor" open={menuOpen} onClosed={() => setMenuOpen(false)}>
+              <MenuItem onClick={() => console.log('Cut')}>
+                <div slot="headline">Cut</div>
+              </MenuItem>
+              <MenuItem onClick={() => console.log('Copy')}>
+                <div slot="headline">Copy</div>
+              </MenuItem>
+              <MenuItem onClick={() => console.log('Paste')}>
+                <div slot="headline">Paste</div>
+              </MenuItem>
+            </Menu>
+          </div>
         </div>
 
         {/* Snackbar */}
