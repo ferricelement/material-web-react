@@ -347,6 +347,46 @@
         "default": "./dist/components/bottom-sheet/index.cjs"
       }
     },
+    "./date-picker": {
+      "import": {
+        "types": "./dist/components/date-picker/index.d.ts",
+        "default": "./dist/components/date-picker/index.js"
+      },
+      "require": {
+        "types": "./dist/components/date-picker/index.d.cts",
+        "default": "./dist/components/date-picker/index.cjs"
+      }
+    },
+    "./time-picker": {
+      "import": {
+        "types": "./dist/components/time-picker/index.d.ts",
+        "default": "./dist/components/time-picker/index.js"
+      },
+      "require": {
+        "types": "./dist/components/time-picker/index.d.cts",
+        "default": "./dist/components/time-picker/index.cjs"
+      }
+    },
+    "./carousel": {
+      "import": {
+        "types": "./dist/components/carousel/index.d.ts",
+        "default": "./dist/components/carousel/index.js"
+      },
+      "require": {
+        "types": "./dist/components/carousel/index.d.cts",
+        "default": "./dist/components/carousel/index.cjs"
+      }
+    },
+    "./side-sheet": {
+      "import": {
+        "types": "./dist/components/side-sheet/index.d.ts",
+        "default": "./dist/components/side-sheet/index.js"
+      },
+      "require": {
+        "types": "./dist/components/side-sheet/index.d.cts",
+        "default": "./dist/components/side-sheet/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [

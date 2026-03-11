@@ -56,6 +56,10 @@ import { NavigationRail, NavigationRailItem } from '../src/components/navigation
 import { SearchBar } from '../src/components/search-bar/index.js';
 import { NavigationDrawer, NavigationDrawerModal } from '../src/components/navigation-drawer/index.js';
 import { BottomSheet } from '../src/components/bottom-sheet/index.js';
+import { DatePicker } from '../src/components/date-picker/index.js';
+import { TimePicker } from '../src/components/time-picker/index.js';
+import { Carousel } from '../src/components/carousel/index.js';
+import { SideSheet } from '../src/components/side-sheet/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -167,6 +171,16 @@ export function App() {
   const [textValue, setTextValue] = useState('');
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [dateRangePickerOpen, setDateRangePickerOpen] = useState(false);
+  const [rangeStart, setRangeStart] = useState('');
+  const [rangeEnd, setRangeEnd] = useState('');
+  const [timePickerOpen, setTimePickerOpen] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('');
+  const [timePicker12Open, setTimePicker12Open] = useState(false);
+  const [selectedTime12, setSelectedTime12] = useState('');
+  const [sideSheetOpen, setSideSheetOpen] = useState(false);
   const dialogRef = useRef<MdDialog>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
@@ -890,6 +904,188 @@ export function App() {
               </ListItem>
             </List>
           </BottomSheet>
+        </div>
+
+        {/* Date Picker */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Date Picker</div>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setDatePickerOpen(true)}>
+              Pick a Date
+            </FilledButton>
+            {selectedDate && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                Selected: {selectedDate}
+              </span>
+            )}
+          </div>
+          <DatePicker
+            open={datePickerOpen}
+            value={selectedDate}
+            onDatePickerChanged={(e: any) => setDatePickerOpen(e.detail.open)}
+            onDatePickerValueChanged={(e: any) => setSelectedDate(e.detail.value)}
+          />
+          <span style={styles.label}>Date Range</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setDateRangePickerOpen(true)}>
+              Pick a Date Range
+            </FilledButton>
+            {rangeStart && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                {rangeStart} – {rangeEnd || '...'}
+              </span>
+            )}
+          </div>
+          <DatePicker
+            type="daterange"
+            open={dateRangePickerOpen}
+            value={rangeStart}
+            valueEnd={rangeEnd}
+            onDatePickerChanged={(e: any) => setDateRangePickerOpen(e.detail.open)}
+            onDatePickerValueChanged={(e: any) => {
+              setRangeStart(e.detail.value);
+              setRangeEnd(e.detail.valueEnd || '');
+            }}
+          />
+        </div>
+
+        {/* Time Picker */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Time Picker</div>
+          <span style={styles.label}>24-Hour Format</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setTimePickerOpen(true)}>
+              Pick a Time
+            </FilledButton>
+            {selectedTime && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                Selected: {selectedTime}
+              </span>
+            )}
+          </div>
+          <TimePicker
+            open={timePickerOpen}
+            value={selectedTime}
+            onTimePickerChanged={(e: any) => setTimePickerOpen(e.detail.open)}
+            onTimePickerValueChanged={(e: any) => setSelectedTime(e.detail.value)}
+          />
+          <span style={styles.label}>12-Hour Format</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setTimePicker12Open(true)}>
+              Pick a Time (12h)
+            </FilledButton>
+            {selectedTime12 && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                Selected: {selectedTime12}
+              </span>
+            )}
+          </div>
+          <TimePicker
+            format="12h"
+            open={timePicker12Open}
+            value={selectedTime12}
+            onTimePickerChanged={(e: any) => setTimePicker12Open(e.detail.open)}
+            onTimePickerValueChanged={(e: any) => setSelectedTime12(e.detail.value)}
+          />
+        </div>
+
+        {/* Carousel */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Carousel</div>
+          <span style={styles.label}>Multi-Browse (default)</span>
+          <Carousel itemWidth={240} gap={12} padding={0}>
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} style={{
+                width: 240,
+                height: 160,
+                background: `hsl(${i * 50 + 200}, 40%, ${60 + i * 3}%)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontSize: 20,
+                fontWeight: 500,
+                borderRadius: 28,
+              }}>
+                Card {i}
+              </div>
+            ))}
+          </Carousel>
+          <span style={{ ...styles.label, marginTop: 16 }}>Hero</span>
+          <Carousel variant="hero" gap={12} padding={0}>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} style={{
+                height: 200,
+                background: `hsl(${i * 40 + 10}, 50%, 55%)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontSize: 20,
+                fontWeight: 500,
+                borderRadius: 28,
+              }}>
+                Slide {i}
+              </div>
+            ))}
+          </Carousel>
+          <span style={{ ...styles.label, marginTop: 16 }}>Uncontained</span>
+          <Carousel variant="uncontained" itemWidth={180} gap={8} padding={0}>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              <div key={i} style={{
+                width: 180,
+                height: 120,
+                background: `hsl(${i * 30 + 120}, 45%, 50%)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontSize: 16,
+                fontWeight: 500,
+                borderRadius: 28,
+              }}>
+                Item {i}
+              </div>
+            ))}
+          </Carousel>
+        </div>
+
+        {/* Side Sheet */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Side Sheet</div>
+          <span style={styles.label}>Modal Side Sheet</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setSideSheetOpen(true)}>
+              Open Side Sheet
+            </FilledButton>
+          </div>
+          <SideSheet
+            open={sideSheetOpen}
+            variant="modal"
+            onSideSheetChanged={(e: any) => setSideSheetOpen(e.detail.open)}
+          >
+            <div style={{ fontSize: 22, fontWeight: 500, marginBottom: 16, color: 'var(--md-sys-color-on-surface)' }}>
+              Filters
+            </div>
+            <List>
+              <ListItem type="button">
+                <Icon slot="start">sort</Icon>
+                <div slot="headline">Sort by</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">filter_list</Icon>
+                <div slot="headline">Filter</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">date_range</Icon>
+                <div slot="headline">Date range</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">label</Icon>
+                <div slot="headline">Labels</div>
+              </ListItem>
+            </List>
+          </SideSheet>
         </div>
 
         {/* Snackbar */}

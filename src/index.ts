@@ -151,6 +151,22 @@ export type { MdNavigationDrawerModal } from '@material/web/labs/navigationdrawe
 export { BottomSheet } from './components/bottom-sheet/index.js';
 export { MdBottomSheet } from './components/bottom-sheet/md-bottom-sheet.js';
 
+// Date Picker
+export { DatePicker } from './components/date-picker/index.js';
+export { MdDatePicker } from './components/date-picker/md-date-picker.js';
+
+// Time Picker
+export { TimePicker } from './components/time-picker/index.js';
+export { MdTimePicker } from './components/time-picker/md-time-picker.js';
+
+// Carousel
+export { Carousel } from './components/carousel/index.js';
+export { MdCarousel } from './components/carousel/md-carousel.js';
+
+// Side Sheet
+export { SideSheet } from './components/side-sheet/index.js';
+export { MdSideSheet } from './components/side-sheet/md-side-sheet.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';
