@@ -147,6 +147,10 @@ export { NavigationDrawer, NavigationDrawerModal } from './components/navigation
 export type { MdNavigationDrawer } from '@material/web/labs/navigationdrawer/navigation-drawer.js';
 export type { MdNavigationDrawerModal } from '@material/web/labs/navigationdrawer/navigation-drawer-modal.js';
 
+// Bottom Sheet
+export { BottomSheet } from './components/bottom-sheet/index.js';
+export { MdBottomSheet } from './components/bottom-sheet/md-bottom-sheet.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

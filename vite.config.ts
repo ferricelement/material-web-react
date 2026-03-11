@@ -44,6 +44,7 @@ export default defineConfig({
         'components/navigation-rail/index': resolve(__dirname, 'src/components/navigation-rail/index.ts'),
         'components/search-bar/index': resolve(__dirname, 'src/components/search-bar/index.ts'),
         'components/navigation-drawer/index': resolve(__dirname, 'src/components/navigation-drawer/index.ts'),
+        'components/bottom-sheet/index': resolve(__dirname, 'src/components/bottom-sheet/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

@@ -55,6 +55,7 @@ import { BottomAppBar } from '../src/components/bottom-app-bar/index.js';
 import { NavigationRail, NavigationRailItem } from '../src/components/navigation-rail/index.js';
 import { SearchBar } from '../src/components/search-bar/index.js';
 import { NavigationDrawer, NavigationDrawerModal } from '../src/components/navigation-drawer/index.js';
+import { BottomSheet } from '../src/components/bottom-sheet/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -165,6 +166,7 @@ export function App() {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [textValue, setTextValue] = useState('');
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
   const dialogRef = useRef<MdDialog>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
@@ -850,6 +852,44 @@ export function App() {
               </Tooltip>
             </span>
           </div>
+        </div>
+
+        {/* Bottom Sheet */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Bottom Sheet</div>
+          <span style={styles.label}>Modal Bottom Sheet</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setBottomSheetOpen(true)}>
+              Open Bottom Sheet
+            </FilledButton>
+          </div>
+          <BottomSheet
+            open={bottomSheetOpen}
+            variant="modal"
+            onBottomSheetChanged={(e: any) => setBottomSheetOpen(e.detail.open)}
+          >
+            <div style={{ fontSize: 22, fontWeight: 500, marginBottom: 16, color: 'var(--md-sys-color-on-surface)' }}>
+              Share
+            </div>
+            <List>
+              <ListItem type="button">
+                <Icon slot="start">link</Icon>
+                <div slot="headline">Copy link</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">mail</Icon>
+                <div slot="headline">Email</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">chat</Icon>
+                <div slot="headline">Messages</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">share</Icon>
+                <div slot="headline">More options</div>
+              </ListItem>
+            </List>
+          </BottomSheet>
         </div>
 
         {/* Snackbar */}

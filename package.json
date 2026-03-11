@@ -337,6 +337,16 @@
         "default": "./dist/components/navigation-drawer/index.cjs"
       }
     },
+    "./bottom-sheet": {
+      "import": {
+        "types": "./dist/components/bottom-sheet/index.d.ts",
+        "default": "./dist/components/bottom-sheet/index.js"
+      },
+      "require": {
+        "types": "./dist/components/bottom-sheet/index.d.cts",
+        "default": "./dist/components/bottom-sheet/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [
