@@ -116,6 +116,11 @@ export { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from './component
 export type { MdOutlinedSegmentedButton } from '@material/web/labs/segmentedbutton/outlined-segmented-button.js';
 export type { MdOutlinedSegmentedButtonSet } from '@material/web/labs/segmentedbuttonset/outlined-segmented-button-set.js';
 
+// Navigation Bar
+export { NavigationBar, NavigationTab } from './components/navigation-bar/index.js';
+export type { MdNavigationBar } from '@material/web/labs/navigationbar/navigation-bar.js';
+export type { MdNavigationTab } from '@material/web/labs/navigationtab/navigation-tab.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

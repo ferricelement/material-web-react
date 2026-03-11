@@ -37,6 +37,7 @@ export default defineConfig({
         'components/focus-ring/index': resolve(__dirname, 'src/components/focus-ring/index.ts'),
         'components/badge/index': resolve(__dirname, 'src/components/badge/index.ts'),
         'components/segmented-button/index': resolve(__dirname, 'src/components/segmented-button/index.ts'),
+        'components/navigation-bar/index': resolve(__dirname, 'src/components/navigation-bar/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

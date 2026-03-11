@@ -48,6 +48,7 @@ import { Slider } from '../src/components/slider/index.js';
 import { Divider } from '../src/components/divider/index.js';
 import { Badge } from '../src/components/badge/index.js';
 import { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from '../src/components/segmented-button/index.js';
+import { NavigationBar as NavBar, NavigationTab as NavTab } from '../src/components/navigation-bar/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -598,6 +599,29 @@ export function App() {
               <Icon slot="icon">format_underlined</Icon>
             </OutlinedSegmentedButton>
           </OutlinedSegmentedButtonSet>
+        </div>
+
+        {/* Navigation Bar */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Navigation Bar</div>
+          <NavBar activeIndex={0} style={{ maxWidth: 400, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12 }}>
+            <NavTab label="Home">
+              <Icon slot="inactive-icon">home</Icon>
+              <Icon slot="active-icon">home</Icon>
+            </NavTab>
+            <NavTab label="Explore">
+              <Icon slot="inactive-icon">explore</Icon>
+              <Icon slot="active-icon">explore</Icon>
+            </NavTab>
+            <NavTab label="Favorites" showBadge badgeValue="3">
+              <Icon slot="inactive-icon">favorite_border</Icon>
+              <Icon slot="active-icon">favorite</Icon>
+            </NavTab>
+            <NavTab label="Profile">
+              <Icon slot="inactive-icon">person_outline</Icon>
+              <Icon slot="active-icon">person</Icon>
+            </NavTab>
+          </NavBar>
         </div>
 
         {/* Snackbar */}
