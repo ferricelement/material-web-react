@@ -559,20 +559,20 @@ export function App() {
               Mail
             </div>
             <List>
-              <ListItem onClick={() => setDrawerOpen(false)}>
+              <ListItem type="button" onClick={() => setDrawerOpen(false)}>
                 <Icon slot="start">inbox</Icon>
                 <div slot="headline">Inbox</div>
                 <div slot="trailing-supporting-text">24</div>
               </ListItem>
-              <ListItem onClick={() => setDrawerOpen(false)}>
+              <ListItem type="button" onClick={() => setDrawerOpen(false)}>
                 <Icon slot="start">send</Icon>
                 <div slot="headline">Outbox</div>
               </ListItem>
-              <ListItem onClick={() => setDrawerOpen(false)}>
+              <ListItem type="button" onClick={() => setDrawerOpen(false)}>
                 <Icon slot="start">favorite</Icon>
                 <div slot="headline">Favorites</div>
               </ListItem>
-              <ListItem onClick={() => setDrawerOpen(false)}>
+              <ListItem type="button" onClick={() => setDrawerOpen(false)}>
                 <Icon slot="start">delete</Icon>
                 <div slot="headline">Trash</div>
               </ListItem>
