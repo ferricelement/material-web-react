@@ -60,6 +60,15 @@ import { DatePicker } from '../src/components/date-picker/index.js';
 import { TimePicker } from '../src/components/time-picker/index.js';
 import { Carousel } from '../src/components/carousel/index.js';
 import { SideSheet } from '../src/components/side-sheet/index.js';
+import { Accordion, AccordionItem } from '../src/components/accordion/index.js';
+import { DataTable } from '../src/components/data-table/index.js';
+import { Autocomplete } from '../src/components/autocomplete/index.js';
+import { Stepper, StepperStep } from '../src/components/stepper/index.js';
+import { Skeleton } from '../src/components/skeleton/index.js';
+import { Popover } from '../src/components/popover/index.js';
+import { Rating } from '../src/components/rating/index.js';
+import { Timeline, TimelineItem } from '../src/components/timeline/index.js';
+import { Avatar } from '../src/components/avatar/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -181,6 +190,8 @@ export function App() {
   const [timePicker12Open, setTimePicker12Open] = useState(false);
   const [selectedTime12, setSelectedTime12] = useState('');
   const [sideSheetOpen, setSideSheetOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [ratingValue, setRatingValue] = useState(3);
   const dialogRef = useRef<MdDialog>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
@@ -1086,6 +1097,149 @@ export function App() {
               </ListItem>
             </List>
           </SideSheet>
+        </div>
+
+        {/* Accordion */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Accordion</div>
+          <Accordion>
+            <AccordionItem>
+              <span slot="header">Getting Started</span>
+              <div>Install the package with npm install react-material-web and import the components you need.</div>
+            </AccordionItem>
+            <AccordionItem>
+              <span slot="header">Configuration</span>
+              <div>Wrap your app in a ThemeProvider and pass a theme object to customize the design tokens.</div>
+            </AccordionItem>
+            <AccordionItem>
+              <span slot="header">Advanced Usage</span>
+              <div>Use the component refs to access the underlying web component APIs for advanced use cases.</div>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        {/* Data Table */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Data Table</div>
+          <DataTable
+            columns={["Name", "Role", "Status"]}
+            rows={[["Alice Johnson", "Engineer", "Active"], ["Bob Smith", "Designer", "Away"], ["Carol White", "Manager", "Active"], ["Dave Brown", "Developer", "Offline"]]}
+            sortable
+            paginated
+            pageSize={3}
+          />
+        </div>
+
+        {/* Autocomplete */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Autocomplete</div>
+          <div style={styles.row}>
+            <Autocomplete
+              label="Select a framework"
+              options={["React", "Angular", "Vue", "Svelte", "Solid", "Preact", "Lit", "Ember", "Next.js", "Nuxt"]}
+              variant="outlined"
+            />
+          </div>
+        </div>
+
+        {/* Stepper */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Stepper</div>
+          <span style={styles.label}>Horizontal</span>
+          <Stepper activeStep={1}>
+            <StepperStep label="Account" description="Create your account" />
+            <StepperStep label="Profile" description="Set up your profile" />
+            <StepperStep label="Review" description="Review and confirm" />
+          </Stepper>
+          <div style={{ height: 24 }} />
+          <span style={styles.label}>Vertical</span>
+          <Stepper activeStep={2} orientation="vertical">
+            <StepperStep label="Order placed" description="March 10, 2026" />
+            <StepperStep label="Processing" description="March 11, 2026" />
+            <StepperStep label="Shipped" description="March 12, 2026" />
+            <StepperStep label="Delivered" description="Estimated March 14" />
+          </Stepper>
+        </div>
+
+        {/* Skeleton */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Skeleton</div>
+          <div style={styles.row}>
+            <Skeleton variant="circular" width="48" height="48" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
+              <Skeleton variant="text" width="60%" height="20" />
+              <Skeleton variant="text" width="80%" height="16" />
+            </div>
+          </div>
+          <Skeleton variant="rectangular" width="100%" height="120" />
+        </div>
+
+        {/* Popover */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Popover</div>
+          <div style={styles.row}>
+            <FilledButton id="popover-anchor" onClick={() => setPopoverOpen(!popoverOpen)}>
+              Toggle Popover
+            </FilledButton>
+            <Popover open={popoverOpen} anchor="popover-anchor" position="bottom" onPopoverChanged={(e: any) => setPopoverOpen(e.detail.open)}>
+              <div style={{ padding: 16 }}>
+                <div style={{ fontWeight: 500, marginBottom: 8 }}>Popover Content</div>
+                <div style={{ color: 'var(--md-sys-color-on-surface-variant)' }}>This is a popover panel with custom content.</div>
+              </div>
+            </Popover>
+          </div>
+        </div>
+
+        {/* Rating */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Rating</div>
+          <div style={styles.row}>
+            <span style={styles.label}>Interactive:</span>
+            <Rating value={ratingValue} onRatingChanged={(e: any) => setRatingValue(e.detail.value)} />
+            <span style={{ fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)' }}>{ratingValue} / 5</span>
+          </div>
+          <div style={styles.row}>
+            <span style={styles.label}>Read-only:</span>
+            <Rating value={4} readonly />
+          </div>
+          <div style={styles.row}>
+            <span style={styles.label}>Large:</span>
+            <Rating value={3} size="large" readonly />
+          </div>
+        </div>
+
+        {/* Timeline */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Timeline</div>
+          <Timeline>
+            <TimelineItem>
+              <span slot="time">9:00 AM</span>
+              <span slot="heading">Project Kickoff</span>
+              <span slot="content">Initial meeting with the team to discuss project scope and goals.</span>
+            </TimelineItem>
+            <TimelineItem variant="filled">
+              <span slot="time">11:30 AM</span>
+              <span slot="heading">Design Review</span>
+              <span slot="content">Reviewed wireframes and mockups with the design team.</span>
+            </TimelineItem>
+            <TimelineItem>
+              <span slot="time">2:00 PM</span>
+              <span slot="heading">Development Sprint</span>
+              <span slot="content">Started implementation of the core features.</span>
+            </TimelineItem>
+          </Timeline>
+        </div>
+
+        {/* Avatar */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Avatar</div>
+          <div style={styles.row}>
+            <Avatar initials="AJ" size="small" />
+            <Avatar initials="BS" size="medium" />
+            <Avatar initials="CW" size="large" />
+            <Avatar src="https://i.pravatar.cc/96?img=3" size="medium" />
+            <Avatar size="medium" />
+          </div>
         </div>
 
         {/* Snackbar */}

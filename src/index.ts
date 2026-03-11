@@ -167,6 +167,42 @@ export { MdCarousel } from './components/carousel/md-carousel.js';
 export { SideSheet } from './components/side-sheet/index.js';
 export { MdSideSheet } from './components/side-sheet/md-side-sheet.js';
 
+// Accordion
+export { Accordion, AccordionItem } from './components/accordion/index.js';
+export { MdAccordion, MdAccordionItem } from './components/accordion/md-accordion.js';
+
+// Data Table
+export { DataTable } from './components/data-table/index.js';
+export { MdDataTable } from './components/data-table/md-data-table.js';
+
+// Autocomplete
+export { Autocomplete } from './components/autocomplete/index.js';
+export { MdAutocomplete } from './components/autocomplete/md-autocomplete.js';
+
+// Stepper
+export { Stepper, StepperStep } from './components/stepper/index.js';
+export { MdStepper, MdStepperStep } from './components/stepper/md-stepper.js';
+
+// Skeleton
+export { Skeleton } from './components/skeleton/index.js';
+export { MdSkeleton } from './components/skeleton/md-skeleton.js';
+
+// Popover
+export { Popover } from './components/popover/index.js';
+export { MdPopover } from './components/popover/md-popover.js';
+
+// Rating
+export { Rating } from './components/rating/index.js';
+export { MdRating } from './components/rating/md-rating.js';
+
+// Timeline
+export { Timeline, TimelineItem } from './components/timeline/index.js';
+export { MdTimeline, MdTimelineItem } from './components/timeline/md-timeline.js';
+
+// Avatar
+export { Avatar } from './components/avatar/index.js';
+export { MdAvatar } from './components/avatar/md-avatar.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

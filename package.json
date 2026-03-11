@@ -387,6 +387,96 @@
         "default": "./dist/components/side-sheet/index.cjs"
       }
     },
+    "./accordion": {
+      "import": {
+        "types": "./dist/components/accordion/index.d.ts",
+        "default": "./dist/components/accordion/index.js"
+      },
+      "require": {
+        "types": "./dist/components/accordion/index.d.cts",
+        "default": "./dist/components/accordion/index.cjs"
+      }
+    },
+    "./data-table": {
+      "import": {
+        "types": "./dist/components/data-table/index.d.ts",
+        "default": "./dist/components/data-table/index.js"
+      },
+      "require": {
+        "types": "./dist/components/data-table/index.d.cts",
+        "default": "./dist/components/data-table/index.cjs"
+      }
+    },
+    "./autocomplete": {
+      "import": {
+        "types": "./dist/components/autocomplete/index.d.ts",
+        "default": "./dist/components/autocomplete/index.js"
+      },
+      "require": {
+        "types": "./dist/components/autocomplete/index.d.cts",
+        "default": "./dist/components/autocomplete/index.cjs"
+      }
+    },
+    "./stepper": {
+      "import": {
+        "types": "./dist/components/stepper/index.d.ts",
+        "default": "./dist/components/stepper/index.js"
+      },
+      "require": {
+        "types": "./dist/components/stepper/index.d.cts",
+        "default": "./dist/components/stepper/index.cjs"
+      }
+    },
+    "./skeleton": {
+      "import": {
+        "types": "./dist/components/skeleton/index.d.ts",
+        "default": "./dist/components/skeleton/index.js"
+      },
+      "require": {
+        "types": "./dist/components/skeleton/index.d.cts",
+        "default": "./dist/components/skeleton/index.cjs"
+      }
+    },
+    "./popover": {
+      "import": {
+        "types": "./dist/components/popover/index.d.ts",
+        "default": "./dist/components/popover/index.js"
+      },
+      "require": {
+        "types": "./dist/components/popover/index.d.cts",
+        "default": "./dist/components/popover/index.cjs"
+      }
+    },
+    "./rating": {
+      "import": {
+        "types": "./dist/components/rating/index.d.ts",
+        "default": "./dist/components/rating/index.js"
+      },
+      "require": {
+        "types": "./dist/components/rating/index.d.cts",
+        "default": "./dist/components/rating/index.cjs"
+      }
+    },
+    "./timeline": {
+      "import": {
+        "types": "./dist/components/timeline/index.d.ts",
+        "default": "./dist/components/timeline/index.js"
+      },
+      "require": {
+        "types": "./dist/components/timeline/index.d.cts",
+        "default": "./dist/components/timeline/index.cjs"
+      }
+    },
+    "./avatar": {
+      "import": {
+        "types": "./dist/components/avatar/index.d.ts",
+        "default": "./dist/components/avatar/index.js"
+      },
+      "require": {
+        "types": "./dist/components/avatar/index.d.cts",
+        "default": "./dist/components/avatar/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [
