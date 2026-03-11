@@ -49,6 +49,7 @@ import { Divider } from '../src/components/divider/index.js';
 import { Badge } from '../src/components/badge/index.js';
 import { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from '../src/components/segmented-button/index.js';
 import { NavigationBar as NavBar, NavigationTab as NavTab } from '../src/components/navigation-bar/index.js';
+import { Tooltip } from '../src/components/tooltip/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -622,6 +623,62 @@ export function App() {
               <Icon slot="active-icon">person</Icon>
             </NavTab>
           </NavBar>
+        </div>
+
+        {/* Tooltip */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Tooltip</div>
+          <span style={styles.label}>Plain Tooltip (hover to see)</span>
+          <div style={styles.row}>
+            <span
+              style={{ position: 'relative', display: 'inline-flex' }}
+              onMouseEnter={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = true;
+              }}
+              onMouseLeave={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = false;
+              }}
+            >
+              <IconButton><Icon>delete</Icon></IconButton>
+              <Tooltip position="bottom">Delete item</Tooltip>
+            </span>
+            <span
+              style={{ position: 'relative', display: 'inline-flex' }}
+              onMouseEnter={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = true;
+              }}
+              onMouseLeave={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = false;
+              }}
+            >
+              <IconButton><Icon>share</Icon></IconButton>
+              <Tooltip position="top">Share this item</Tooltip>
+            </span>
+          </div>
+          <span style={styles.label}>Rich Tooltip</span>
+          <div style={styles.row}>
+            <span
+              style={{ position: 'relative', display: 'inline-flex' }}
+              onMouseEnter={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = true;
+              }}
+              onMouseLeave={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = false;
+              }}
+            >
+              <IconButton><Icon>info</Icon></IconButton>
+              <Tooltip variant="rich" position="right">
+                <span slot="headline">Rich Tooltip</span>
+                This tooltip provides more detailed information with a headline and supporting text.
+              </Tooltip>
+            </span>
+          </div>
         </div>
 
         {/* Snackbar */}

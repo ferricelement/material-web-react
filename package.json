@@ -277,6 +277,16 @@
         "default": "./dist/components/navigation-bar/index.cjs"
       }
     },
+    "./tooltip": {
+      "import": {
+        "types": "./dist/components/tooltip/index.d.ts",
+        "default": "./dist/components/tooltip/index.js"
+      },
+      "require": {
+        "types": "./dist/components/tooltip/index.d.cts",
+        "default": "./dist/components/tooltip/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [
