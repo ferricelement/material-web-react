@@ -27,6 +27,7 @@ export default defineConfig({
         'components/fab/index': resolve(__dirname, 'src/components/fab/index.ts'),
         'components/chips/index': resolve(__dirname, 'src/components/chips/index.ts'),
         'components/menu/index': resolve(__dirname, 'src/components/menu/index.ts'),
+        'components/tabs/index': resolve(__dirname, 'src/components/tabs/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

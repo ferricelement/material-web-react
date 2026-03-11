@@ -71,6 +71,12 @@ export type { MdMenu } from '@material/web/menu/menu.js';
 export type { MdMenuItem } from '@material/web/menu/menu-item.js';
 export type { MdSubMenu } from '@material/web/menu/sub-menu.js';
 
+// Tabs
+export { Tabs, PrimaryTab, SecondaryTab } from './components/tabs/index.js';
+export type { MdTabs } from '@material/web/tabs/tabs.js';
+export type { MdPrimaryTab } from '@material/web/tabs/primary-tab.js';
+export type { MdSecondaryTab } from '@material/web/tabs/secondary-tab.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

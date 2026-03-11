@@ -41,6 +41,7 @@ import {
 import { Card } from '../src/components/card/index.js';
 import { Snackbar } from '../src/components/snackbar/index.js';
 import { Menu, MenuItem } from '../src/components/menu/index.js';
+import { Tabs, PrimaryTab, SecondaryTab } from '../src/components/tabs/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -442,6 +443,32 @@ export function App() {
               </FilledButton>
             </div>
           </Dialog>
+        </div>
+
+        {/* Tabs */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Tabs</div>
+          <span style={styles.label}>Primary Tabs</span>
+          <Tabs onChange={(e: any) => console.log('Tab changed', e)}>
+            <PrimaryTab>
+              <Icon slot="icon">flight</Icon>
+              Flights
+            </PrimaryTab>
+            <PrimaryTab>
+              <Icon slot="icon">hotel</Icon>
+              Hotels
+            </PrimaryTab>
+            <PrimaryTab>
+              <Icon slot="icon">explore</Icon>
+              Explore
+            </PrimaryTab>
+          </Tabs>
+          <span style={{ ...styles.label, marginTop: 16 }}>Secondary Tabs</span>
+          <Tabs>
+            <SecondaryTab>Overview</SecondaryTab>
+            <SecondaryTab>Details</SecondaryTab>
+            <SecondaryTab>Reviews</SecondaryTab>
+          </Tabs>
         </div>
 
         {/* Menu */}

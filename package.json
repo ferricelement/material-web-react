@@ -147,6 +147,16 @@
         "default": "./dist/components/icon/index.cjs"
       }
     },
+    "./tabs": {
+      "import": {
+        "types": "./dist/components/tabs/index.d.ts",
+        "default": "./dist/components/tabs/index.js"
+      },
+      "require": {
+        "types": "./dist/components/tabs/index.d.cts",
+        "default": "./dist/components/tabs/index.cjs"
+      }
+    },
     "./menu": {
       "import": {
         "types": "./dist/components/menu/index.d.ts",
