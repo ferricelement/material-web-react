@@ -129,6 +129,10 @@ export { MdTooltip } from './components/tooltip/md-tooltip.js';
 export { TopAppBar } from './components/top-app-bar/index.js';
 export { MdTopAppBar } from './components/top-app-bar/md-top-app-bar.js';
 
+// Bottom App Bar
+export { BottomAppBar } from './components/bottom-app-bar/index.js';
+export { MdBottomAppBar } from './components/bottom-app-bar/md-bottom-app-bar.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

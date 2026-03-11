@@ -51,6 +51,7 @@ import { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from '../src/comp
 import { NavigationBar as NavBar, NavigationTab as NavTab } from '../src/components/navigation-bar/index.js';
 import { Tooltip } from '../src/components/tooltip/index.js';
 import { TopAppBar } from '../src/components/top-app-bar/index.js';
+import { BottomAppBar } from '../src/components/bottom-app-bar/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -496,6 +497,19 @@ export function App() {
               <IconButton slot="trailing"><Icon>filter_list</Icon></IconButton>
               <IconButton slot="trailing"><Icon>more_vert</Icon></IconButton>
             </TopAppBar>
+          </div>
+        </div>
+
+        {/* Bottom App Bar */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Bottom App Bar</div>
+          <div style={{ position: 'relative', height: 80, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <BottomAppBar style={{ position: 'absolute' }}>
+              <IconButton slot="icons"><Icon>search</Icon></IconButton>
+              <IconButton slot="icons"><Icon>delete</Icon></IconButton>
+              <IconButton slot="icons"><Icon>archive</Icon></IconButton>
+              <Fab slot="fab" size="small"><Icon slot="icon">add</Icon></Fab>
+            </BottomAppBar>
           </div>
         </div>
 
