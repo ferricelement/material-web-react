@@ -45,6 +45,13 @@ export { MdSnackbar } from './components/snackbar/md-snackbar.js';
 export { Icon } from './components/icon/index.js';
 export type { MdIcon } from '@material/web/icon/icon.js';
 
+// Icon Button
+export { IconButton, FilledIconButton, FilledTonalIconButton, OutlinedIconButton } from './components/icon-button/index.js';
+export type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
+export type { MdFilledIconButton } from '@material/web/iconbutton/filled-icon-button.js';
+export type { MdFilledTonalIconButton } from '@material/web/iconbutton/filled-tonal-icon-button.js';
+export type { MdOutlinedIconButton } from '@material/web/iconbutton/outlined-icon-button.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

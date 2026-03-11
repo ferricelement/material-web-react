@@ -23,6 +23,7 @@ export default defineConfig({
         'components/dialog/index': resolve(__dirname, 'src/components/dialog/index.ts'),
         'components/snackbar/index': resolve(__dirname, 'src/components/snackbar/index.ts'),
         'components/icon/index': resolve(__dirname, 'src/components/icon/index.ts'),
+        'components/icon-button/index': resolve(__dirname, 'src/components/icon-button/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],
