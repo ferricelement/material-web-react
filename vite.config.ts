@@ -39,6 +39,7 @@ export default defineConfig({
         'components/segmented-button/index': resolve(__dirname, 'src/components/segmented-button/index.ts'),
         'components/navigation-bar/index': resolve(__dirname, 'src/components/navigation-bar/index.ts'),
         'components/tooltip/index': resolve(__dirname, 'src/components/tooltip/index.ts'),
+        'components/top-app-bar/index': resolve(__dirname, 'src/components/top-app-bar/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

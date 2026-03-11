@@ -50,6 +50,7 @@ import { Badge } from '../src/components/badge/index.js';
 import { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from '../src/components/segmented-button/index.js';
 import { NavigationBar as NavBar, NavigationTab as NavTab } from '../src/components/navigation-bar/index.js';
 import { Tooltip } from '../src/components/tooltip/index.js';
+import { TopAppBar } from '../src/components/top-app-bar/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -459,6 +460,43 @@ export function App() {
           <p style={{ margin: '8px 0' }}>Content above the divider</p>
           <Divider />
           <p style={{ margin: '8px 0' }}>Content below the divider</p>
+        </div>
+
+        {/* Top App Bar */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Top App Bar</div>
+          <span style={styles.label}>Small (default)</span>
+          <div style={{ border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <TopAppBar variant="small" headline="Page Title">
+              <IconButton slot="leading"><Icon>menu</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>search</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>more_vert</Icon></IconButton>
+            </TopAppBar>
+          </div>
+          <span style={{ ...styles.label, marginTop: 16 }}>Center Aligned</span>
+          <div style={{ border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <TopAppBar variant="center-aligned" headline="Centered">
+              <IconButton slot="leading"><Icon>arrow_back</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>account_circle</Icon></IconButton>
+            </TopAppBar>
+          </div>
+          <span style={{ ...styles.label, marginTop: 16 }}>Medium</span>
+          <div style={{ border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <TopAppBar variant="medium" headline="Medium Title">
+              <IconButton slot="leading"><Icon>arrow_back</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>attach_file</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>today</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>more_vert</Icon></IconButton>
+            </TopAppBar>
+          </div>
+          <span style={{ ...styles.label, marginTop: 16 }}>Large</span>
+          <div style={{ border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <TopAppBar variant="large" headline="Large Title">
+              <IconButton slot="leading"><Icon>arrow_back</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>filter_list</Icon></IconButton>
+              <IconButton slot="trailing"><Icon>more_vert</Icon></IconButton>
+            </TopAppBar>
+          </div>
         </div>
 
         {/* Slider */}

@@ -125,6 +125,10 @@ export type { MdNavigationTab } from '@material/web/labs/navigationtab/navigatio
 export { Tooltip } from './components/tooltip/index.js';
 export { MdTooltip } from './components/tooltip/md-tooltip.js';
 
+// Top App Bar
+export { TopAppBar } from './components/top-app-bar/index.js';
+export { MdTopAppBar } from './components/top-app-bar/md-top-app-bar.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

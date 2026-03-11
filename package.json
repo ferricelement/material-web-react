@@ -287,6 +287,16 @@
         "default": "./dist/components/tooltip/index.cjs"
       }
     },
+    "./top-app-bar": {
+      "import": {
+        "types": "./dist/components/top-app-bar/index.d.ts",
+        "default": "./dist/components/top-app-bar/index.js"
+      },
+      "require": {
+        "types": "./dist/components/top-app-bar/index.d.cts",
+        "default": "./dist/components/top-app-bar/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [
