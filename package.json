@@ -307,6 +307,16 @@
         "default": "./dist/components/bottom-app-bar/index.cjs"
       }
     },
+    "./navigation-rail": {
+      "import": {
+        "types": "./dist/components/navigation-rail/index.d.ts",
+        "default": "./dist/components/navigation-rail/index.js"
+      },
+      "require": {
+        "types": "./dist/components/navigation-rail/index.d.cts",
+        "default": "./dist/components/navigation-rail/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [

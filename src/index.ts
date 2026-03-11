@@ -133,6 +133,11 @@ export { MdTopAppBar } from './components/top-app-bar/md-top-app-bar.js';
 export { BottomAppBar } from './components/bottom-app-bar/index.js';
 export { MdBottomAppBar } from './components/bottom-app-bar/md-bottom-app-bar.js';
 
+// Navigation Rail
+export { NavigationRail, NavigationRailItem } from './components/navigation-rail/index.js';
+export { MdNavigationRail } from './components/navigation-rail/md-navigation-rail.js';
+export { MdNavigationRailItem } from './components/navigation-rail/md-navigation-rail-item.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

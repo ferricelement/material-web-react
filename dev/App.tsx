@@ -52,6 +52,7 @@ import { NavigationBar as NavBar, NavigationTab as NavTab } from '../src/compone
 import { Tooltip } from '../src/components/tooltip/index.js';
 import { TopAppBar } from '../src/components/top-app-bar/index.js';
 import { BottomAppBar } from '../src/components/bottom-app-bar/index.js';
+import { NavigationRail, NavigationRailItem } from '../src/components/navigation-rail/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -510,6 +511,31 @@ export function App() {
               <IconButton slot="icons"><Icon>archive</Icon></IconButton>
               <Fab slot="fab" size="small"><Icon slot="icon">add</Icon></Fab>
             </BottomAppBar>
+          </div>
+        </div>
+
+        {/* Navigation Rail */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Navigation Rail</div>
+          <div style={{ display: 'flex', height: 320, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
+            <NavigationRail alignment="center">
+              <Fab slot="fab" size="small"><Icon slot="icon">edit</Icon></Fab>
+              <NavigationRailItem label="Home" active>
+                <Icon>home</Icon>
+              </NavigationRailItem>
+              <NavigationRailItem label="Search">
+                <Icon>search</Icon>
+              </NavigationRailItem>
+              <NavigationRailItem label="Explore">
+                <Icon>explore</Icon>
+              </NavigationRailItem>
+              <NavigationRailItem label="Settings">
+                <Icon>settings</Icon>
+              </NavigationRailItem>
+            </NavigationRail>
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--md-sys-color-on-surface-variant)' }}>
+              Content area
+            </div>
           </div>
         </div>
 
