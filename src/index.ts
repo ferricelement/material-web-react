@@ -111,6 +111,11 @@ export type { MdFocusRing } from '@material/web/focus/md-focus-ring.js';
 export { Badge } from './components/badge/index.js';
 export type { MdBadge } from '@material/web/labs/badge/badge.js';
 
+// Segmented Button
+export { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from './components/segmented-button/index.js';
+export type { MdOutlinedSegmentedButton } from '@material/web/labs/segmentedbutton/outlined-segmented-button.js';
+export type { MdOutlinedSegmentedButtonSet } from '@material/web/labs/segmentedbuttonset/outlined-segmented-button-set.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

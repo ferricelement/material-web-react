@@ -47,6 +47,7 @@ import { List, ListItem } from '../src/components/list/index.js';
 import { Slider } from '../src/components/slider/index.js';
 import { Divider } from '../src/components/divider/index.js';
 import { Badge } from '../src/components/badge/index.js';
+import { OutlinedSegmentedButton, OutlinedSegmentedButtonSet } from '../src/components/segmented-button/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -573,6 +574,30 @@ export function App() {
               <Badge style={{ position: 'absolute', top: -4, right: -4 }} />
             </span>
           </div>
+        </div>
+
+        {/* Segmented Button */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Segmented Button</div>
+          <span style={styles.label}>Single Select</span>
+          <OutlinedSegmentedButtonSet onSelectionChange={(e: any) => console.log('Selection:', e.detail)}>
+            <OutlinedSegmentedButton label="Day" selected />
+            <OutlinedSegmentedButton label="Week" />
+            <OutlinedSegmentedButton label="Month" />
+            <OutlinedSegmentedButton label="Year" />
+          </OutlinedSegmentedButtonSet>
+          <span style={{ ...styles.label, marginTop: 16 }}>Multi Select</span>
+          <OutlinedSegmentedButtonSet multiselect>
+            <OutlinedSegmentedButton label="Bold">
+              <Icon slot="icon">format_bold</Icon>
+            </OutlinedSegmentedButton>
+            <OutlinedSegmentedButton label="Italic">
+              <Icon slot="icon">format_italic</Icon>
+            </OutlinedSegmentedButton>
+            <OutlinedSegmentedButton label="Underline">
+              <Icon slot="icon">format_underlined</Icon>
+            </OutlinedSegmentedButton>
+          </OutlinedSegmentedButtonSet>
         </div>
 
         {/* Snackbar */}
