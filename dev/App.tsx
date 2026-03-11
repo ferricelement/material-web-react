@@ -53,6 +53,7 @@ import { Tooltip } from '../src/components/tooltip/index.js';
 import { TopAppBar } from '../src/components/top-app-bar/index.js';
 import { BottomAppBar } from '../src/components/bottom-app-bar/index.js';
 import { NavigationRail, NavigationRailItem } from '../src/components/navigation-rail/index.js';
+import { SearchBar } from '../src/components/search-bar/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -536,6 +537,36 @@ export function App() {
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--md-sys-color-on-surface-variant)' }}>
               Content area
             </div>
+          </div>
+        </div>
+
+        {/* Search Bar */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Search Bar</div>
+          <div style={{ maxWidth: 480 }}>
+            <SearchBar
+              placeholder="Search..."
+              onSearchInput={(e: any) => console.log('Search:', e.detail.value)}
+            >
+              <Icon slot="leading">search</Icon>
+              <IconButton slot="trailing"><Icon>mic</Icon></IconButton>
+              <div slot="suggestions">
+                <List>
+                  <ListItem>
+                    <Icon slot="start">history</Icon>
+                    <div slot="headline">Recent search 1</div>
+                  </ListItem>
+                  <ListItem>
+                    <Icon slot="start">history</Icon>
+                    <div slot="headline">Recent search 2</div>
+                  </ListItem>
+                  <ListItem>
+                    <Icon slot="start">trending_up</Icon>
+                    <div slot="headline">Trending topic</div>
+                  </ListItem>
+                </List>
+              </div>
+            </SearchBar>
           </div>
         </div>
 

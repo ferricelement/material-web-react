@@ -42,6 +42,7 @@ export default defineConfig({
         'components/top-app-bar/index': resolve(__dirname, 'src/components/top-app-bar/index.ts'),
         'components/bottom-app-bar/index': resolve(__dirname, 'src/components/bottom-app-bar/index.ts'),
         'components/navigation-rail/index': resolve(__dirname, 'src/components/navigation-rail/index.ts'),
+        'components/search-bar/index': resolve(__dirname, 'src/components/search-bar/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

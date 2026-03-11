@@ -138,6 +138,10 @@ export { NavigationRail, NavigationRailItem } from './components/navigation-rail
 export { MdNavigationRail } from './components/navigation-rail/md-navigation-rail.js';
 export { MdNavigationRailItem } from './components/navigation-rail/md-navigation-rail-item.js';
 
+// Search Bar
+export { SearchBar } from './components/search-bar/index.js';
+export { MdSearchBar } from './components/search-bar/md-search-bar.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

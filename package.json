@@ -317,6 +317,16 @@
         "default": "./dist/components/navigation-rail/index.cjs"
       }
     },
+    "./search-bar": {
+      "import": {
+        "types": "./dist/components/search-bar/index.d.ts",
+        "default": "./dist/components/search-bar/index.js"
+      },
+      "require": {
+        "types": "./dist/components/search-bar/index.d.cts",
+        "default": "./dist/components/search-bar/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [
