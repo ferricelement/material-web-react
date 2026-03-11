@@ -31,6 +31,7 @@ export default defineConfig({
         'components/progress/index': resolve(__dirname, 'src/components/progress/index.ts'),
         'components/list/index': resolve(__dirname, 'src/components/list/index.ts'),
         'components/slider/index': resolve(__dirname, 'src/components/slider/index.ts'),
+        'components/divider/index': resolve(__dirname, 'src/components/divider/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

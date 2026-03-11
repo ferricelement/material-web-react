@@ -91,6 +91,10 @@ export type { MdListItem } from '@material/web/list/list-item.js';
 export { Slider } from './components/slider/index.js';
 export type { MdSlider } from '@material/web/slider/slider.js';
 
+// Divider
+export { Divider } from './components/divider/index.js';
+export type { MdDivider } from '@material/web/divider/divider.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

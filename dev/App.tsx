@@ -45,6 +45,7 @@ import { Tabs, PrimaryTab, SecondaryTab } from '../src/components/tabs/index.js'
 import { CircularProgress, LinearProgress } from '../src/components/progress/index.js';
 import { List, ListItem } from '../src/components/list/index.js';
 import { Slider } from '../src/components/slider/index.js';
+import { Divider } from '../src/components/divider/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -446,6 +447,14 @@ export function App() {
               </FilledButton>
             </div>
           </Dialog>
+        </div>
+
+        {/* Divider */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Divider</div>
+          <p style={{ margin: '8px 0' }}>Content above the divider</p>
+          <Divider />
+          <p style={{ margin: '8px 0' }}>Content below the divider</p>
         </div>
 
         {/* Slider */}
