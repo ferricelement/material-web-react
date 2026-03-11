@@ -46,6 +46,7 @@ import { CircularProgress, LinearProgress } from '../src/components/progress/ind
 import { List, ListItem } from '../src/components/list/index.js';
 import { Slider } from '../src/components/slider/index.js';
 import { Divider } from '../src/components/divider/index.js';
+import { Badge } from '../src/components/badge/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -552,6 +553,25 @@ export function App() {
                 <div slot="headline">Paste</div>
               </MenuItem>
             </Menu>
+          </div>
+        </div>
+
+        {/* Badge */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Badge</div>
+          <div style={styles.row}>
+            <span style={{ position: 'relative', display: 'inline-flex' }}>
+              <Icon style={{ fontSize: 32 }}>notifications</Icon>
+              <Badge value="3" style={{ position: 'absolute', top: -4, right: -4 }} />
+            </span>
+            <span style={{ position: 'relative', display: 'inline-flex' }}>
+              <Icon style={{ fontSize: 32 }}>mail</Icon>
+              <Badge value="99+" style={{ position: 'absolute', top: -4, right: -4 }} />
+            </span>
+            <span style={{ position: 'relative', display: 'inline-flex' }}>
+              <Icon style={{ fontSize: 32 }}>chat</Icon>
+              <Badge style={{ position: 'absolute', top: -4, right: -4 }} />
+            </span>
           </div>
         </div>
 

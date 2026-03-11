@@ -35,6 +35,7 @@ export default defineConfig({
         'components/ripple/index': resolve(__dirname, 'src/components/ripple/index.ts'),
         'components/elevation/index': resolve(__dirname, 'src/components/elevation/index.ts'),
         'components/focus-ring/index': resolve(__dirname, 'src/components/focus-ring/index.ts'),
+        'components/badge/index': resolve(__dirname, 'src/components/badge/index.ts'),
         'theme/index': resolve(__dirname, 'src/theme/index.ts'),
       },
       formats: ['es', 'cjs'],

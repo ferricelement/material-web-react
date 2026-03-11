@@ -107,6 +107,10 @@ export type { MdElevation } from '@material/web/elevation/elevation.js';
 export { FocusRing } from './components/focus-ring/index.js';
 export type { MdFocusRing } from '@material/web/focus/md-focus-ring.js';
 
+// Badge
+export { Badge } from './components/badge/index.js';
+export type { MdBadge } from '@material/web/labs/badge/badge.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';
