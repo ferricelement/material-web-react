@@ -47,6 +47,10 @@ export class MdDataTable extends LitElement {
       overflow: hidden;
     }
 
+    .table-scroll {
+      overflow-x: auto;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -201,6 +205,7 @@ export class MdDataTable extends LitElement {
   override render() {
     const cols = this._normalizedColumns;
     return html`
+      <div class="table-scroll">
       <table>
         <thead>
           <tr>
@@ -236,6 +241,7 @@ export class MdDataTable extends LitElement {
           `)}
         </tbody>
       </table>
+      </div>
       ${this.paginated ? html`
         <div class="pagination">
           <span class="page-info">

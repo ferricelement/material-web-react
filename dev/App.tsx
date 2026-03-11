@@ -1128,6 +1128,16 @@ export function App() {
             paginated
             pageSize={3}
           />
+          <span style={{ ...styles.label, marginTop: 16 }}>Wide table (scrollable)</span>
+          <DataTable
+            columns={["ID", "Name", "Email", "Department", "Location", "Start Date", "Salary", "Status"]}
+            rows={[
+              ["001", "Alice Johnson", "alice@example.com", "Engineering", "San Francisco", "2023-01-15", "$120,000", "Active"],
+              ["002", "Bob Smith", "bob@example.com", "Design", "New York", "2022-06-01", "$105,000", "Active"],
+              ["003", "Carol White", "carol@example.com", "Product", "London", "2024-03-10", "$115,000", "Away"],
+            ]}
+            sortable
+          />
         </div>
 
         {/* Autocomplete */}
