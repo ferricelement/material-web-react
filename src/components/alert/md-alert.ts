@@ -64,14 +64,14 @@ export class MdAlert extends LitElement {
       letter-spacing: var(--md-sys-typescale-body-medium-tracking, 0.015625rem);
     }
 
-    /* Standard variant */
+    /* Standard variant — tonal surface */
     :host([variant='standard']) .alert {
       background: var(--_container);
       color: var(--_on-container);
-      border-left: 4px solid var(--_color);
+      border-radius: var(--md-sys-shape-corner-medium, 12px);
     }
 
-    /* Filled variant */
+    /* Filled variant — prominent, uses main color */
     :host([variant='filled']) .alert {
       background: var(--_color);
       color: #fff;

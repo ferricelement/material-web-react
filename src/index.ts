@@ -215,6 +215,54 @@ export { MdAlert, MdBanner } from './components/alert/md-alert.js';
 export { FileUpload } from './components/file-upload/index.js';
 export { MdFileUpload } from './components/file-upload/md-file-upload.js';
 
+// Pagination
+export { Pagination } from './components/pagination/index.js';
+export { MdPagination } from './components/pagination/md-pagination.js';
+
+// Chip Input
+export { ChipInput } from './components/chip-input/index.js';
+export { MdChipInput } from './components/chip-input/md-chip-input.js';
+
+// Speed Dial
+export { SpeedDial, SpeedDialAction } from './components/speed-dial/index.js';
+export { MdSpeedDial, MdSpeedDialAction } from './components/speed-dial/md-speed-dial.js';
+
+// Swipe Actions
+export { SwipeActions, SwipeAction } from './components/swipe-actions/index.js';
+export { MdSwipeActions, MdSwipeAction } from './components/swipe-actions/md-swipe-actions.js';
+
+// Pull to Refresh
+export { PullToRefresh } from './components/pull-to-refresh/index.js';
+export { MdPullToRefresh } from './components/pull-to-refresh/md-pull-to-refresh.js';
+
+// Tree View
+export { TreeView, TreeItem } from './components/tree-view/index.js';
+export { MdTreeView, MdTreeItem } from './components/tree-view/md-tree-view.js';
+
+// Image List
+export { ImageList, ImageListItem } from './components/image-list/index.js';
+export { MdImageList, MdImageListItem } from './components/image-list/md-image-list.js';
+
+// Virtual List
+export { VirtualList } from './components/virtual-list/index.js';
+export { MdVirtualList } from './components/virtual-list/md-virtual-list.js';
+
+// Color Picker
+export { ColorPicker } from './components/color-picker/index.js';
+export { MdColorPicker } from './components/color-picker/md-color-picker.js';
+
+// Date Range Picker
+export { DateRangePicker } from './components/date-range-picker/index.js';
+export { MdDateRangePicker } from './components/date-range-picker/md-date-range-picker.js';
+
+// Multi-Select
+export { MultiSelect } from './components/multi-select/index.js';
+export { MdMultiSelect } from './components/multi-select/md-multi-select.js';
+
+// Parallax Header
+export { ParallaxHeader, HeroTransition } from './components/parallax-header/index.js';
+export { MdParallaxHeader, MdHeroTransition } from './components/parallax-header/md-parallax-header.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';

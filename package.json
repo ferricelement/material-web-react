@@ -507,6 +507,126 @@
         "default": "./dist/components/file-upload/index.cjs"
       }
     },
+    "./pagination": {
+      "import": {
+        "types": "./dist/components/pagination/index.d.ts",
+        "default": "./dist/components/pagination/index.js"
+      },
+      "require": {
+        "types": "./dist/components/pagination/index.d.cts",
+        "default": "./dist/components/pagination/index.cjs"
+      }
+    },
+    "./chip-input": {
+      "import": {
+        "types": "./dist/components/chip-input/index.d.ts",
+        "default": "./dist/components/chip-input/index.js"
+      },
+      "require": {
+        "types": "./dist/components/chip-input/index.d.cts",
+        "default": "./dist/components/chip-input/index.cjs"
+      }
+    },
+    "./speed-dial": {
+      "import": {
+        "types": "./dist/components/speed-dial/index.d.ts",
+        "default": "./dist/components/speed-dial/index.js"
+      },
+      "require": {
+        "types": "./dist/components/speed-dial/index.d.cts",
+        "default": "./dist/components/speed-dial/index.cjs"
+      }
+    },
+    "./swipe-actions": {
+      "import": {
+        "types": "./dist/components/swipe-actions/index.d.ts",
+        "default": "./dist/components/swipe-actions/index.js"
+      },
+      "require": {
+        "types": "./dist/components/swipe-actions/index.d.cts",
+        "default": "./dist/components/swipe-actions/index.cjs"
+      }
+    },
+    "./pull-to-refresh": {
+      "import": {
+        "types": "./dist/components/pull-to-refresh/index.d.ts",
+        "default": "./dist/components/pull-to-refresh/index.js"
+      },
+      "require": {
+        "types": "./dist/components/pull-to-refresh/index.d.cts",
+        "default": "./dist/components/pull-to-refresh/index.cjs"
+      }
+    },
+    "./tree-view": {
+      "import": {
+        "types": "./dist/components/tree-view/index.d.ts",
+        "default": "./dist/components/tree-view/index.js"
+      },
+      "require": {
+        "types": "./dist/components/tree-view/index.d.cts",
+        "default": "./dist/components/tree-view/index.cjs"
+      }
+    },
+    "./image-list": {
+      "import": {
+        "types": "./dist/components/image-list/index.d.ts",
+        "default": "./dist/components/image-list/index.js"
+      },
+      "require": {
+        "types": "./dist/components/image-list/index.d.cts",
+        "default": "./dist/components/image-list/index.cjs"
+      }
+    },
+    "./virtual-list": {
+      "import": {
+        "types": "./dist/components/virtual-list/index.d.ts",
+        "default": "./dist/components/virtual-list/index.js"
+      },
+      "require": {
+        "types": "./dist/components/virtual-list/index.d.cts",
+        "default": "./dist/components/virtual-list/index.cjs"
+      }
+    },
+    "./color-picker": {
+      "import": {
+        "types": "./dist/components/color-picker/index.d.ts",
+        "default": "./dist/components/color-picker/index.js"
+      },
+      "require": {
+        "types": "./dist/components/color-picker/index.d.cts",
+        "default": "./dist/components/color-picker/index.cjs"
+      }
+    },
+    "./date-range-picker": {
+      "import": {
+        "types": "./dist/components/date-range-picker/index.d.ts",
+        "default": "./dist/components/date-range-picker/index.js"
+      },
+      "require": {
+        "types": "./dist/components/date-range-picker/index.d.cts",
+        "default": "./dist/components/date-range-picker/index.cjs"
+      }
+    },
+    "./multi-select": {
+      "import": {
+        "types": "./dist/components/multi-select/index.d.ts",
+        "default": "./dist/components/multi-select/index.js"
+      },
+      "require": {
+        "types": "./dist/components/multi-select/index.d.cts",
+        "default": "./dist/components/multi-select/index.cjs"
+      }
+    },
+    "./parallax-header": {
+      "import": {
+        "types": "./dist/components/parallax-header/index.d.ts",
+        "default": "./dist/components/parallax-header/index.js"
+      },
+      "require": {
+        "types": "./dist/components/parallax-header/index.d.cts",
+        "default": "./dist/components/parallax-header/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [

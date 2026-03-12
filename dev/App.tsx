@@ -72,6 +72,18 @@ import { Avatar } from '../src/components/avatar/index.js';
 import { Breadcrumbs, BreadcrumbItem } from '../src/components/breadcrumbs/index.js';
 import { Alert, Banner } from '../src/components/alert/index.js';
 import { FileUpload } from '../src/components/file-upload/index.js';
+import { Pagination } from '../src/components/pagination/index.js';
+import { ChipInput } from '../src/components/chip-input/index.js';
+import { SpeedDial, SpeedDialAction } from '../src/components/speed-dial/index.js';
+import { SwipeActions, SwipeAction } from '../src/components/swipe-actions/index.js';
+import { PullToRefresh } from '../src/components/pull-to-refresh/index.js';
+import { TreeView, TreeItem } from '../src/components/tree-view/index.js';
+import { ImageList, ImageListItem } from '../src/components/image-list/index.js';
+import { VirtualList } from '../src/components/virtual-list/index.js';
+import { ColorPicker } from '../src/components/color-picker/index.js';
+import { DateRangePicker } from '../src/components/date-range-picker/index.js';
+import { MultiSelect } from '../src/components/multi-select/index.js';
+import { ParallaxHeader, HeroTransition } from '../src/components/parallax-header/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -195,7 +207,10 @@ export function App() {
   const [sideSheetOpen, setSideSheetOpen] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [ratingValue, setRatingValue] = useState(3);
+  const [virtualRange, setVirtualRange] = useState({ start: 0, end: 20 });
   const dialogRef = useRef<MdDialog>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
 
@@ -296,6 +311,24 @@ export function App() {
             <Fab><Icon slot="icon">edit</Icon></Fab>
             <Fab size="small"><Icon slot="icon">add</Icon></Fab>
             <Fab size="large"><Icon slot="icon">add</Icon></Fab>
+          </div>
+        </div>
+
+        {/* Speed Dial */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Speed Dial</div>
+          <div style={styles.row}>
+            <SpeedDial onOpen={() => console.log('Speed dial opened')} onClose={() => console.log('Speed dial closed')}>
+              <SpeedDialAction label="Add" onActionClick={() => console.log('Add clicked')}>
+                <Icon>add</Icon>
+              </SpeedDialAction>
+              <SpeedDialAction label="Edit" onActionClick={() => console.log('Edit clicked')}>
+                <Icon>edit</Icon>
+              </SpeedDialAction>
+              <SpeedDialAction label="Share" onActionClick={() => console.log('Share clicked')}>
+                <Icon>share</Icon>
+              </SpeedDialAction>
+            </SpeedDial>
           </div>
         </div>
 
@@ -1380,6 +1413,339 @@ export function App() {
             />
 
             <FileUpload disabled />
+          </div>
+        </div>
+
+        {/* Pagination */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Pagination</div>
+          <div style={{...styles.row, flexDirection: 'column', alignItems: 'flex-start', gap: 16}}>
+            <Pagination
+              page={1}
+              totalPages={10}
+              onPageChange={(e: any) => console.log('Page:', e.detail.page)}
+            />
+
+            <Pagination
+              page={5}
+              totalPages={20}
+              siblingCount={2}
+              onPageChange={(e: any) => console.log('Page:', e.detail.page)}
+            />
+
+            <Pagination
+              page={1}
+              totalItems={95}
+              pageSize={10}
+              showFirstLast
+              onPageChange={(e: any) => console.log('Page:', e.detail.page)}
+            />
+
+            <Pagination page={3} totalPages={5} disabled />
+          </div>
+        </div>
+
+        {/* Chip Input */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Chip Input</div>
+          <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 16}}>
+            <ChipInput
+              label="Tags"
+              placeholder="Type and press Enter"
+              values={['React', 'TypeScript']}
+              onValuesChange={(e: any) => console.log('Values:', e.detail.values)}
+            />
+
+            <ChipInput
+              variant="filled"
+              label="Skills"
+              placeholder="Add a skill"
+              values={['JavaScript', 'CSS', 'HTML']}
+              onValuesChange={(e: any) => console.log('Skills:', e.detail.values)}
+            />
+
+            <ChipInput
+              label="Invite (max 3)"
+              placeholder="Enter email"
+              maxChips={3}
+              values={['alice@example.com']}
+              onValuesChange={(e: any) => console.log('Emails:', e.detail.values)}
+            />
+
+            <ChipInput label="Disabled" disabled values={['Locked', 'Values']} />
+          </div>
+        </div>
+
+        {/* Swipe Actions */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Swipe Actions</div>
+          <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 1, overflow: 'hidden', borderRadius: 12, border: '1px solid var(--md-sys-color-outline-variant)'}}>
+            <SwipeActions onSwipeEnd={(e: any) => console.log('Swiped:', e.detail.direction)}>
+              <SwipeAction slot="start" label="Archive">
+                <Icon>archive</Icon>
+              </SwipeAction>
+              <SwipeAction slot="end" label="Delete">
+                <Icon>delete</Icon>
+              </SwipeAction>
+              <div style={{padding: '16px', display: 'flex', alignItems: 'center', gap: 12}}>
+                <Icon>mail</Icon>
+                <div>
+                  <div style={{fontWeight: 500}}>Project Update</div>
+                  <div style={{fontSize: 12, color: 'var(--md-sys-color-on-surface-variant)'}}>Swipe left or right to reveal actions</div>
+                </div>
+              </div>
+            </SwipeActions>
+            <SwipeActions>
+              <SwipeAction slot="end" label="Delete">
+                <Icon>delete</Icon>
+              </SwipeAction>
+              <div style={{padding: '16px', display: 'flex', alignItems: 'center', gap: 12}}>
+                <Icon>mail</Icon>
+                <div>
+                  <div style={{fontWeight: 500}}>Meeting Reminder</div>
+                  <div style={{fontSize: 12, color: 'var(--md-sys-color-on-surface-variant)'}}>Swipe left to delete</div>
+                </div>
+              </div>
+            </SwipeActions>
+          </div>
+        </div>
+
+        {/* Pull to Refresh */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Pull to Refresh</div>
+          <PullToRefresh
+            style={{height: 200, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12}}
+            onRefresh={(e: any) => {
+              const el = e.target;
+              el.refreshing = true;
+              setTimeout(() => { el.refreshing = false; }, 2000);
+            }}
+          >
+            <div style={{padding: 16}}>
+              <p style={{margin: '0 0 8px', fontWeight: 500}}>Pull down to refresh</p>
+              <p style={{margin: 0, fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Drag from the top of this container to trigger a refresh.</p>
+              <p style={{margin: '16px 0 0', fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Item 1 — Sample content</p>
+              <p style={{margin: '8px 0 0', fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Item 2 — Sample content</p>
+              <p style={{margin: '8px 0 0', fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Item 3 — Sample content</p>
+              <p style={{margin: '8px 0 0', fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Item 4 — Sample content</p>
+              <p style={{margin: '8px 0 0', fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Item 5 — Sample content</p>
+              <p style={{margin: '8px 0 0', fontSize: 14, color: 'var(--md-sys-color-on-surface-variant)'}}>Item 6 — Sample content</p>
+            </div>
+          </PullToRefresh>
+        </div>
+
+        {/* Tree View */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Tree View</div>
+          <TreeView>
+            <TreeItem label="src" value="src" expanded>
+              <TreeItem label="components" value="components" expanded>
+                <TreeItem label="Button.tsx" value="button" leaf selected />
+                <TreeItem label="Card.tsx" value="card" leaf />
+                <TreeItem label="Dialog.tsx" value="dialog" leaf />
+              </TreeItem>
+              <TreeItem label="utils" value="utils">
+                <TreeItem label="helpers.ts" value="helpers" leaf />
+                <TreeItem label="constants.ts" value="constants" leaf />
+              </TreeItem>
+              <TreeItem label="index.ts" value="index" leaf />
+            </TreeItem>
+            <TreeItem label="public" value="public">
+              <TreeItem label="favicon.ico" value="favicon" leaf />
+              <TreeItem label="index.html" value="html" leaf />
+            </TreeItem>
+            <TreeItem label="package.json" value="pkg" leaf />
+            <TreeItem label="README.md" value="readme" leaf disabled />
+          </TreeView>
+        </div>
+
+        {/* Image List */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Image List</div>
+          <span style={styles.label}>Standard (3 columns)</span>
+          <ImageList columns={3} gap={8}>
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <ImageListItem key={n} label={`Photo ${n}`} supportingText="Picsum image">
+                <img src={`https://picsum.photos/seed/${n}/300/300`} alt={`Sample ${n}`} />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </div>
+
+        {/* Virtual List */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Virtual List</div>
+          <p style={{ marginBottom: 8, color: 'var(--md-sys-color-on-surface-variant)', fontSize: 14 }}>
+            10,000 items — only {virtualRange.end - virtualRange.start} rendered (range: {virtualRange.start}–{virtualRange.end})
+          </p>
+          <VirtualList
+            itemCount={10000}
+            itemHeight={48}
+            overscan={5}
+            style={{ height: '360px' }}
+            onRangeChange={(e: CustomEvent) => setVirtualRange(e.detail)}
+          >
+            {Array.from({ length: virtualRange.end - virtualRange.start }, (_, i) => {
+              const index = virtualRange.start + i;
+              return (
+                <div
+                  key={index}
+                  style={{
+                    height: 48,
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0 16px',
+                    borderBottom: '1px solid var(--md-sys-color-outline-variant, #cac4d0)',
+                    boxSizing: 'border-box',
+                    fontSize: 14,
+                  }}
+                >
+                  <span style={{ fontWeight: 500, marginRight: 12, color: 'var(--md-sys-color-primary)' }}>
+                    #{index}
+                  </span>
+                  Item row {index}
+                </div>
+              );
+            })}
+          </VirtualList>
+        </div>
+
+        {/* Color Picker */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Color Picker</div>
+          <div style={{...styles.row, alignItems: 'flex-start', gap: 24}}>
+            <ColorPicker
+              value="#6750a4"
+              onChange={(e: any) => console.log('Color changed:', e.detail.value)}
+            />
+            <ColorPicker value="#b3261e" disabled />
+          </div>
+        </div>
+
+        {/* Date Range Picker */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Date Range Picker</div>
+          <DateRangePicker
+            onChange={(e: any) => {
+              console.log('Date range selected:', e.detail);
+            }}
+          />
+        </div>
+
+        {/* Multi-Select */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Multi-Select</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 360 }}>
+            <MultiSelect
+              label="Fruits"
+              options={JSON.stringify([
+                { value: 'apple', label: 'Apple' },
+                { value: 'banana', label: 'Banana' },
+                { value: 'cherry', label: 'Cherry' },
+                { value: 'grape', label: 'Grape' },
+                { value: 'mango', label: 'Mango' },
+                { value: 'orange', label: 'Orange' },
+              ])}
+              values={JSON.stringify(['apple', 'cherry'])}
+              onChange={(e: any) => console.log('Selected:', e.detail.values)}
+            />
+            <MultiSelect
+              label="Colors (grouped)"
+              options={JSON.stringify([
+                { value: 'red', label: 'Red', group: 'Warm' },
+                { value: 'orange', label: 'Orange', group: 'Warm' },
+                { value: 'blue', label: 'Blue', group: 'Cool' },
+                { value: 'green', label: 'Green', group: 'Cool' },
+                { value: 'gray', label: 'Gray', group: 'Neutral' },
+              ])}
+              values={JSON.stringify(['blue', 'green'])}
+              onChange={(e: any) => console.log('Colors:', e.detail.values)}
+            />
+          </div>
+        </div>
+
+        {/* Parallax Header */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Parallax Header</div>
+          <div
+            ref={parallaxRef}
+            style={{
+              height: 500,
+              overflowY: 'auto',
+              borderRadius: 12,
+              border: '1px solid var(--md-sys-color-outline-variant)',
+            }}
+          >
+            <ParallaxHeader
+              height={300}
+              parallaxFactor={0.5}
+              src="https://picsum.photos/seed/parallax/800/400"
+              overlay
+              onScrollProgress={(e: any) =>
+                console.log('parallax:', e.detail.progress)
+              }
+            >
+              <div style={{ color: 'white' }}>
+                <div style={{ fontSize: 32, fontWeight: 400, margin: 0 }}>
+                  Mountain Vista
+                </div>
+                <div style={{ fontSize: 14, marginTop: 8, opacity: 0.85 }}>
+                  Parallax scrolling header — scroll to see the effect
+                </div>
+              </div>
+            </ParallaxHeader>
+            {Array.from({ length: 20 }, (_, i) => (
+              <div
+                key={i}
+                style={{
+                  padding: '16px 24px',
+                  borderBottom:
+                    '1px solid var(--md-sys-color-outline-variant)',
+                  fontSize: 14,
+                }}
+              >
+                Content item {i + 1}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hero Transition */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Hero Transition</div>
+          <div
+            ref={heroRef}
+            style={{
+              height: 500,
+              overflowY: 'auto',
+              borderRadius: 12,
+              border: '1px solid var(--md-sys-color-outline-variant)',
+            }}
+          >
+            <HeroTransition
+              expandedHeight={280}
+              collapsedHeight={64}
+              headline="Explore"
+              supportingText="Discover amazing content"
+              src="https://picsum.photos/seed/hero/800/400"
+              onScrollProgress={(e: any) =>
+                console.log('hero:', e.detail.progress)
+              }
+            >
+              {Array.from({ length: 20 }, (_, i) => (
+                <div
+                  key={i}
+                  style={{
+                    padding: '16px 24px',
+                    borderBottom:
+                      '1px solid var(--md-sys-color-outline-variant)',
+                    fontSize: 14,
+                  }}
+                >
+                  Scrollable item {i + 1}
+                </div>
+              ))}
+            </HeroTransition>
           </div>
         </div>
 

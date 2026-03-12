@@ -50,11 +50,11 @@ export class MdFileUpload extends LitElement {
       gap: 8px;
       min-height: 160px;
       padding: 32px 24px;
-      border: 2px dashed var(--md-sys-color-outline-variant, #cac4d0);
+      border: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
       border-radius: var(--md-sys-shape-corner-large, 16px);
-      background: var(--md-sys-color-surface, #fef7ff);
+      background: var(--md-sys-color-surface-container-low, #f7f2fa);
       cursor: pointer;
-      transition: border-color 0.2s, background-color 0.2s, transform 0.15s;
+      transition: background-color 0.2s, border-color 0.2s;
       user-select: none;
     }
 
@@ -63,15 +63,13 @@ export class MdFileUpload extends LitElement {
     }
 
     .dropzone:hover:not(.drag-over) {
-      background: var(--md-sys-color-surface-container-lowest, #fff);
+      background: var(--md-sys-color-surface-container, #f3edf7);
       border-color: var(--md-sys-color-outline, #79747e);
     }
 
     .dropzone.drag-over {
       border-color: var(--md-sys-color-primary, #6750a4);
-      border-style: solid;
       background: var(--md-sys-color-primary-container, #eaddff);
-      transform: scale(1.01);
     }
 
     .default-content {
