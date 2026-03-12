@@ -69,6 +69,9 @@ import { Popover } from '../src/components/popover/index.js';
 import { Rating } from '../src/components/rating/index.js';
 import { Timeline, TimelineItem } from '../src/components/timeline/index.js';
 import { Avatar } from '../src/components/avatar/index.js';
+import { Breadcrumbs, BreadcrumbItem } from '../src/components/breadcrumbs/index.js';
+import { Alert, Banner } from '../src/components/alert/index.js';
+import { FileUpload } from '../src/components/file-upload/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -1240,20 +1243,32 @@ export function App() {
         <div style={styles.section}>
           <div style={styles.sectionTitle}>Timeline</div>
           <Timeline>
-            <TimelineItem>
+            <TimelineItem variant="filled">
+              <Icon slot="icon">check</Icon>
               <span slot="time">9:00 AM</span>
               <span slot="heading">Project Kickoff</span>
-              <span slot="content">Initial meeting with the team to discuss project scope and goals.</span>
+              <span>Initial meeting with the team to discuss project scope and goals.</span>
             </TimelineItem>
             <TimelineItem variant="filled">
+              <Icon slot="icon">check</Icon>
               <span slot="time">11:30 AM</span>
               <span slot="heading">Design Review</span>
-              <span slot="content">Reviewed wireframes and mockups with the design team.</span>
+              <span>Reviewed wireframes and mockups with the design team.</span>
             </TimelineItem>
             <TimelineItem>
               <span slot="time">2:00 PM</span>
               <span slot="heading">Development Sprint</span>
-              <span slot="content">Started implementation of the core features.</span>
+              <span>Currently implementing the core features and API layer.</span>
+            </TimelineItem>
+            <TimelineItem variant="outlined">
+              <span slot="time">4:00 PM</span>
+              <span slot="heading">Code Review</span>
+              <span>Review pull requests and merge approved changes.</span>
+            </TimelineItem>
+            <TimelineItem variant="outlined">
+              <span slot="time">5:30 PM</span>
+              <span slot="heading">Wrap Up</span>
+              <span>Daily standup notes and planning for tomorrow.</span>
             </TimelineItem>
           </Timeline>
         </div>
@@ -1267,6 +1282,104 @@ export function App() {
             <Avatar initials="CW" size="large" />
             <Avatar src="https://i.pravatar.cc/96?img=3" size="medium" />
             <Avatar size="medium" />
+          </div>
+        </div>
+
+        {/* Breadcrumbs */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Breadcrumbs</div>
+          <div style={{...styles.row, flexDirection: 'column', alignItems: 'flex-start', gap: 16}}>
+            <Breadcrumbs>
+              <BreadcrumbItem href="#/">Home</BreadcrumbItem>
+              <BreadcrumbItem href="#/products">Products</BreadcrumbItem>
+              <BreadcrumbItem href="#/products/electronics">Electronics</BreadcrumbItem>
+              <BreadcrumbItem>Smartphones</BreadcrumbItem>
+            </Breadcrumbs>
+
+            <Breadcrumbs separator=">">
+              <BreadcrumbItem href="#/">Home</BreadcrumbItem>
+              <BreadcrumbItem href="#/docs">Documents</BreadcrumbItem>
+              <BreadcrumbItem>Current Page</BreadcrumbItem>
+            </Breadcrumbs>
+
+            <Breadcrumbs separator="›">
+              <BreadcrumbItem href="#/">
+                <Icon slot="icon">home</Icon>
+                Home
+              </BreadcrumbItem>
+              <BreadcrumbItem href="#/settings">
+                <Icon slot="icon">settings</Icon>
+                Settings
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <Icon slot="icon">person</Icon>
+                Profile
+              </BreadcrumbItem>
+            </Breadcrumbs>
+          </div>
+        </div>
+
+        {/* Alert & Banner */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Alert & Banner</div>
+          <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 12}}>
+            <Alert severity="info">This is an informational message — check it out!</Alert>
+            <Alert severity="success">Operation completed successfully.</Alert>
+            <Alert severity="warning">Disk space is running low.</Alert>
+            <Alert severity="error">Something went wrong. Please try again.</Alert>
+
+            <Alert severity="success" closable onClose={() => console.log('Alert closed')}>
+              Closable alert — click the X to dismiss.
+            </Alert>
+
+            <Alert severity="warning" variant="filled">Filled warning: immediate attention needed.</Alert>
+            <Alert severity="error" variant="filled">Filled error: critical system failure.</Alert>
+
+            <Alert severity="info" variant="outlined">Outlined info: just a heads up.</Alert>
+            <Alert severity="success" variant="outlined">Outlined success: all checks passed.</Alert>
+
+            <Alert severity="error">
+              <Icon slot="icon">cloud_off</Icon>
+              Custom icon alert — connection lost.
+            </Alert>
+
+            <Banner severity="info" open>
+              This is a full-width banner for important announcements.
+            </Banner>
+
+            <Banner severity="warning" open>
+              Scheduled maintenance tonight from 2:00 AM to 4:00 AM.
+            </Banner>
+          </div>
+        </div>
+
+        {/* File Upload */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>File Upload</div>
+          <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 16}}>
+            <FileUpload
+              onFilesSelected={(e: any) => console.log('Selected:', e.detail.files)}
+              onFilesRejected={(e: any) => console.log('Rejected:', e.detail.files)}
+            />
+
+            <FileUpload accept="image/*" onFilesSelected={(e: any) => console.log('Images:', e.detail.files)}>
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8}}>
+                <Icon style={{fontSize: 40, color: 'var(--md-sys-color-primary)'}}>image</Icon>
+                <span style={{color: 'var(--md-sys-color-on-surface-variant)'}}>Drop images here or click to browse</span>
+                <span style={{fontSize: 12, opacity: 0.6, color: 'var(--md-sys-color-on-surface-variant)'}}>PNG, JPG, GIF, SVG</span>
+              </div>
+            </FileUpload>
+
+            <FileUpload
+              accept=".pdf,.docx"
+              multiple
+              maxFiles={3}
+              maxSize={5242880}
+              onFilesSelected={(e: any) => console.log('Docs:', e.detail.files)}
+              onFilesRejected={(e: any) => console.log('Rejected docs:', e.detail.files)}
+            />
+
+            <FileUpload disabled />
           </div>
         </div>
 

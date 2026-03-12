@@ -477,6 +477,36 @@
         "default": "./dist/components/avatar/index.cjs"
       }
     },
+    "./breadcrumbs": {
+      "import": {
+        "types": "./dist/components/breadcrumbs/index.d.ts",
+        "default": "./dist/components/breadcrumbs/index.js"
+      },
+      "require": {
+        "types": "./dist/components/breadcrumbs/index.d.cts",
+        "default": "./dist/components/breadcrumbs/index.cjs"
+      }
+    },
+    "./alert": {
+      "import": {
+        "types": "./dist/components/alert/index.d.ts",
+        "default": "./dist/components/alert/index.js"
+      },
+      "require": {
+        "types": "./dist/components/alert/index.d.cts",
+        "default": "./dist/components/alert/index.cjs"
+      }
+    },
+    "./file-upload": {
+      "import": {
+        "types": "./dist/components/file-upload/index.d.ts",
+        "default": "./dist/components/file-upload/index.js"
+      },
+      "require": {
+        "types": "./dist/components/file-upload/index.d.cts",
+        "default": "./dist/components/file-upload/index.cjs"
+      }
+    },
     "./theme/baseline.css": "./dist/baseline.css"
   },
   "sideEffects": [

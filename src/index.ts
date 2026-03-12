@@ -203,6 +203,18 @@ export { MdTimeline, MdTimelineItem } from './components/timeline/md-timeline.js
 export { Avatar } from './components/avatar/index.js';
 export { MdAvatar } from './components/avatar/md-avatar.js';
 
+// Breadcrumbs
+export { Breadcrumbs, BreadcrumbItem } from './components/breadcrumbs/index.js';
+export { MdBreadcrumbs, MdBreadcrumbItem } from './components/breadcrumbs/md-breadcrumbs.js';
+
+// Alert
+export { Alert, Banner } from './components/alert/index.js';
+export { MdAlert, MdBanner } from './components/alert/md-alert.js';
+
+// File Upload
+export { FileUpload } from './components/file-upload/index.js';
+export { MdFileUpload } from './components/file-upload/md-file-upload.js';
+
 // Theme
 export { ThemeProvider, useTheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';
