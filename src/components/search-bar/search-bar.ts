@@ -6,6 +6,7 @@ export const SearchBar = createComponent<MdSearchBar>({
   elementClass: MdSearchBar,
   events: {
     onSearchInput: event<CustomEvent>('search-input'),
+    onSearchSelect: event<CustomEvent>('search-select'),
     onSearchFocus: event<Event>('search-focus'),
     onSearchBlur: event<Event>('search-blur'),
   },

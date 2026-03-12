@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, nothing } from 'lit';
 import '@material/web/elevation/elevation.js';
 
 export class MdSearchBar extends LitElement {
@@ -7,12 +7,16 @@ export class MdSearchBar extends LitElement {
     placeholder: { type: String },
     expanded: { type: Boolean, reflect: true },
     disabled: { type: Boolean, reflect: true },
+    options: { type: Array },
+    _focusedIndex: { state: true },
   };
 
   declare value: string;
   declare placeholder: string;
   declare expanded: boolean;
   declare disabled: boolean;
+  declare options: string[];
+  declare _focusedIndex: number;
 
   constructor() {
     super();
@@ -20,6 +24,8 @@ export class MdSearchBar extends LitElement {
     this.placeholder = 'Search';
     this.expanded = false;
     this.disabled = false;
+    this.options = [];
+    this._focusedIndex = -1;
   }
 
   static override styles = css`
@@ -98,6 +104,24 @@ export class MdSearchBar extends LitElement {
       display: block;
     }
 
+    .option {
+      padding: 12px 16px 12px 52px;
+      font-size: 14px;
+      color: var(--md-sys-color-on-surface, #1d1b20);
+      cursor: pointer;
+      transition: background 100ms;
+    }
+
+    .option:hover, .option.focused {
+      background: color-mix(in srgb, var(--md-sys-color-on-surface, #1d1b20) 8%, transparent);
+    }
+
+    .no-results {
+      padding: 12px 16px 12px 52px;
+      font-size: 14px;
+      color: var(--md-sys-color-on-surface-variant, #49454f);
+    }
+
     md-elevation {
       --md-elevation-level: 2;
     }
@@ -107,7 +131,16 @@ export class MdSearchBar extends LitElement {
     }
   `;
 
+  private get _filtered(): string[] {
+    if (!this.value) return this.options;
+    const q = this.value.toLowerCase();
+    return this.options.filter(opt => opt.toLowerCase().includes(q));
+  }
+
   override render() {
+    const hasOptions = this.options.length > 0;
+    const filtered = this._filtered;
+
     return html`
       <div class="wrapper">
         <div class="container" @click=${this._focusInput}>
@@ -121,12 +154,23 @@ export class MdSearchBar extends LitElement {
             @input=${this._handleInput}
             @focus=${this._handleFocus}
             @blur=${this._handleBlur}
+            @keydown=${hasOptions ? this._handleKeydown : nothing}
           />
           <div class="trailing"><slot name="trailing"></slot></div>
         </div>
         <div class="suggestions">
           <md-elevation></md-elevation>
-          <slot name="suggestions"></slot>
+          ${hasOptions
+            ? filtered.length > 0
+              ? filtered.map((opt, i) => html`
+                <div class="option ${i === this._focusedIndex ? 'focused' : ''}"
+                  @mousedown=${() => this._selectOption(opt)}>
+                  ${opt}
+                </div>
+              `)
+              : this.value ? html`<div class="no-results">No results</div>` : nothing
+            : html`<slot name="suggestions"></slot>`
+          }
         </div>
       </div>
     `;
@@ -140,6 +184,8 @@ export class MdSearchBar extends LitElement {
   private _handleInput(e: Event) {
     const input = e.target as HTMLInputElement;
     this.value = input.value;
+    this._focusedIndex = -1;
+    this.expanded = true;
     this.dispatchEvent(new CustomEvent('search-input', {
       bubbles: true,
       composed: true,
@@ -153,11 +199,43 @@ export class MdSearchBar extends LitElement {
   }
 
   private _handleBlur() {
-    // Delay to allow click on suggestions
     setTimeout(() => {
       this.expanded = false;
       this.dispatchEvent(new Event('search-blur', { bubbles: true, composed: true }));
     }, 200);
+  }
+
+  private _handleKeydown(e: KeyboardEvent) {
+    const filtered = this._filtered;
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        this._focusedIndex = Math.min(this._focusedIndex + 1, filtered.length - 1);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        this._focusedIndex = Math.max(this._focusedIndex - 1, 0);
+        break;
+      case 'Enter':
+        if (this._focusedIndex >= 0 && filtered[this._focusedIndex]) {
+          this._selectOption(filtered[this._focusedIndex]);
+        }
+        break;
+      case 'Escape':
+        this.expanded = false;
+        break;
+    }
+  }
+
+  private _selectOption(opt: string) {
+    this.value = opt;
+    this.expanded = false;
+    this._focusedIndex = -1;
+    this.dispatchEvent(new CustomEvent('search-select', {
+      bubbles: true,
+      composed: true,
+      detail: { value: opt },
+    }));
   }
 }
 

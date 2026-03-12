@@ -641,20 +641,29 @@ export function App() {
               <IconButton slot="trailing"><Icon>mic</Icon></IconButton>
               <div slot="suggestions">
                 <List>
-                  <ListItem>
+                  <ListItem type="button">
                     <Icon slot="start">history</Icon>
                     <div slot="headline">Recent search 1</div>
                   </ListItem>
-                  <ListItem>
+                  <ListItem type="button">
                     <Icon slot="start">history</Icon>
                     <div slot="headline">Recent search 2</div>
                   </ListItem>
-                  <ListItem>
+                  <ListItem type="button">
                     <Icon slot="start">trending_up</Icon>
                     <div slot="headline">Trending topic</div>
                   </ListItem>
                 </List>
               </div>
+            </SearchBar>
+            <div style={{ height: 16 }} />
+            <span style={styles.label}>Autocomplete search bar</span>
+            <SearchBar
+              placeholder="Search frameworks..."
+              options={["React", "Angular", "Vue", "Svelte", "Solid", "Preact", "Lit", "Ember", "Next.js", "Nuxt", "Remix", "Astro", "Qwik", "SvelteKit"]}
+              onSearchSelect={(e: any) => console.log('Selected:', e.detail.value)}
+            >
+              <Icon slot="leading">search</Icon>
             </SearchBar>
           </div>
         </div>
@@ -1128,15 +1137,24 @@ export function App() {
             paginated
             pageSize={3}
           />
-          <span style={{ ...styles.label, marginTop: 16 }}>Wide table (scrollable)</span>
+          <span style={{ ...styles.label, marginTop: 16 }}>Vertical scroll (max-height: 200px)</span>
           <DataTable
-            columns={["ID", "Name", "Email", "Department", "Location", "Start Date", "Salary", "Status"]}
+            columns={["Name", "Email", "Department", "Status"]}
             rows={[
-              ["001", "Alice Johnson", "alice@example.com", "Engineering", "San Francisco", "2023-01-15", "$120,000", "Active"],
-              ["002", "Bob Smith", "bob@example.com", "Design", "New York", "2022-06-01", "$105,000", "Active"],
-              ["003", "Carol White", "carol@example.com", "Product", "London", "2024-03-10", "$115,000", "Away"],
+              ["Alice Johnson", "alice@example.com", "Engineering", "Active"],
+              ["Bob Smith", "bob@example.com", "Design", "Active"],
+              ["Carol White", "carol@example.com", "Product", "Away"],
+              ["Dave Brown", "dave@example.com", "Engineering", "Offline"],
+              ["Eve Davis", "eve@example.com", "Marketing", "Active"],
+              ["Frank Miller", "frank@example.com", "Sales", "Active"],
+              ["Grace Lee", "grace@example.com", "Engineering", "Away"],
+              ["Hank Wilson", "hank@example.com", "Support", "Active"],
+              ["Ivy Chen", "ivy@example.com", "Design", "Active"],
+              ["Jack Taylor", "jack@example.com", "Product", "Offline"],
+              ["Katherine Montgomery-Richardson", "katherine.montgomery-richardson@longcompanyname.example.com", "Research & Development", "Active"],
             ]}
             sortable
+            maxHeight="200px"
           />
         </div>
 

@@ -13,6 +13,7 @@ export class MdDataTable extends LitElement {
     sortable: { type: Boolean },
     paginated: { type: Boolean },
     pageSize: { type: Number, attribute: 'page-size' },
+    maxHeight: { type: String, attribute: 'max-height' },
     _sortCol: { state: true },
     _sortDir: { state: true },
     _page: { state: true },
@@ -23,6 +24,7 @@ export class MdDataTable extends LitElement {
   declare sortable: boolean;
   declare paginated: boolean;
   declare pageSize: number;
+  declare maxHeight: string;
   declare _sortCol: string;
   declare _sortDir: 'asc' | 'desc';
   declare _page: number;
@@ -34,6 +36,7 @@ export class MdDataTable extends LitElement {
     this.sortable = false;
     this.paginated = false;
     this.pageSize = 10;
+    this.maxHeight = '';
     this._sortCol = '';
     this._sortDir = 'asc';
     this._page = 0;
@@ -49,6 +52,7 @@ export class MdDataTable extends LitElement {
 
     .table-scroll {
       overflow-x: auto;
+      overflow-y: auto;
     }
 
     table {
@@ -71,6 +75,10 @@ export class MdDataTable extends LitElement {
       border-bottom: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
       white-space: nowrap;
       user-select: none;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--md-sys-color-surface-container, #f3edf7);
     }
 
     th.sortable {
@@ -109,6 +117,10 @@ export class MdDataTable extends LitElement {
       font-size: 14px;
       color: var(--md-sys-color-on-surface, #1d1b20);
       border-bottom: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 200px;
     }
 
     tr:last-child td {
@@ -205,7 +217,7 @@ export class MdDataTable extends LitElement {
   override render() {
     const cols = this._normalizedColumns;
     return html`
-      <div class="table-scroll">
+      <div class="table-scroll" style=${this.maxHeight ? `max-height:${this.maxHeight}` : ''}>
       <table>
         <thead>
           <tr>
@@ -235,7 +247,7 @@ export class MdDataTable extends LitElement {
           ${this._pagedRows.map(row => html`
             <tr>
               ${cols.map(col => html`
-                <td data-align=${col.align}>${this._getCellValue(row, col)}</td>
+                <td data-align=${col.align} title=${String(this._getCellValue(row, col))}>${this._getCellValue(row, col)}</td>
               `)}
             </tr>
           `)}
