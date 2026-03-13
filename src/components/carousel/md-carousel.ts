@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MD3 Carousel component.
@@ -91,8 +92,8 @@ export class MdCarousel extends LitElement {
       justify-content: center;
       opacity: 0;
       transition: opacity 200ms ease;
-      box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.15),
-                  0px 1px 2px 0px rgba(0,0,0,0.3);
+      --md-elevation-level: 1;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
     }
 
     :host(:hover) .nav-btn.visible {
@@ -126,6 +127,7 @@ export class MdCarousel extends LitElement {
       <button class="nav-btn prev ${this._showPrev ? 'visible' : ''}"
         @click=${this._scrollPrev}
         aria-label="Previous">
+        <md-elevation></md-elevation>
         <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
       </button>
       <div class="track" style=${trackStyle} @scroll=${this._handleScroll}>
@@ -137,6 +139,7 @@ export class MdCarousel extends LitElement {
       <button class="nav-btn next ${this._showNext ? 'visible' : ''}"
         @click=${this._scrollNext}
         aria-label="Next">
+        <md-elevation></md-elevation>
         <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
       </button>
     `;

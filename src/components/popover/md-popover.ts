@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MD3 Popover component.
@@ -34,11 +35,11 @@ export class MdPopover extends LitElement {
       z-index: 100;
       background: var(--md-sys-color-surface-container, #f3edf7);
       border-radius: var(--md-sys-shape-corner-medium, 12px);
-      box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.15),
-                  0px 1px 2px 0px rgba(0,0,0,0.3);
       padding: 16px;
       min-width: 200px;
       max-width: 360px;
+      --md-elevation-level: 2;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
       opacity: 0;
       visibility: hidden;
       transform: scale(0.95);
@@ -59,6 +60,7 @@ export class MdPopover extends LitElement {
   override render() {
     return html`
       <div class="popover">
+        <md-elevation></md-elevation>
         <slot></slot>
       </div>
     `;

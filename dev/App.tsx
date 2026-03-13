@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { SNIPPETS } from './snippets.js';
 
 import { ThemeProvider, type ColorScheme } from '../src/theme/index.js';
 import '../src/theme/baseline.css';
@@ -185,6 +186,68 @@ const THEME_PRESETS = {
   },
 };
 
+function CodeBlock({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div style={{
+      position: 'relative' as const,
+      background: 'var(--md-sys-color-surface-container)',
+      border: '1px solid var(--md-sys-color-outline-variant)',
+      borderRadius: 12,
+      padding: '16px 48px 16px 16px',
+      marginBottom: 16,
+      overflowX: 'auto' as const,
+    }}>
+      <pre style={{
+        margin: 0,
+        fontFamily: "'Roboto Mono', monospace",
+        fontSize: 13,
+        lineHeight: 1.5,
+        color: 'var(--md-sys-color-on-surface)',
+        whiteSpace: 'pre' as const,
+      }}>
+        {code}
+      </pre>
+      <div style={{ position: 'absolute' as const, top: 8, right: 8 }}>
+        <IconButton onClick={handleCopy}>
+          <Icon>{copied ? 'check' : 'content_copy'}</Icon>
+        </IconButton>
+      </div>
+    </div>
+  );
+}
+
+function SectionHeader({ title, snippetKey }: { title: string; snippetKey?: string }) {
+  const [showCode, setShowCode] = useState(false);
+  const snippet = snippetKey ? SNIPPETS[snippetKey] : undefined;
+
+  return (
+    <>
+      <div style={{
+        ...styles.sectionTitle,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        <span>{title}</span>
+        {snippet && (
+          <IconButton onClick={() => setShowCode(!showCode)}>
+            <Icon>{showCode ? 'code_off' : 'code'}</Icon>
+          </IconButton>
+        )}
+      </div>
+      {showCode && snippet && <CodeBlock code={snippet} />}
+    </>
+  );
+}
+
 export function App() {
   const [themeKey, setThemeKey] = useState<keyof typeof THEME_PRESETS>('purple');
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
@@ -234,7 +297,7 @@ export function App() {
 
         {/* Theme Switcher */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Theme</div>
+          <SectionHeader title="Theme" snippetKey="theme" />
           <div style={styles.themeControls}>
             {Object.entries(THEME_PRESETS).map(([key, preset]) => (
               <FilledButton
@@ -250,7 +313,7 @@ export function App() {
 
         {/* Buttons */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Buttons</div>
+          <SectionHeader title="Buttons" snippetKey="buttons" />
           <span style={styles.label}>Variants</span>
           <div style={styles.row}>
             <FilledButton onClick={() => console.log('Filled clicked')}>Filled</FilledButton>
@@ -283,7 +346,7 @@ export function App() {
 
         {/* Dialog */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Dialog</div>
+          <SectionHeader title="Dialog" snippetKey="dialog" />
           <div style={styles.row}>
             <FilledButton onClick={() => {
               setDialogOpen(true);
@@ -314,7 +377,7 @@ export function App() {
 
         {/* Menu */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Menu</div>
+          <SectionHeader title="Menu" snippetKey="menu" />
           <div style={{ ...styles.row, position: 'relative' }}>
             <FilledButton id="menu-anchor" onClick={() => setMenuOpen(!menuOpen)}>
               Open Menu
@@ -335,7 +398,7 @@ export function App() {
 
         {/* Tooltip */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Tooltip</div>
+          <SectionHeader title="Tooltip" snippetKey="tooltip" />
           <span style={styles.label}>Plain Tooltip (hover to see)</span>
           <div style={styles.row}>
             <span
@@ -392,7 +455,7 @@ export function App() {
 
         {/* Bottom Sheet */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Bottom Sheet</div>
+          <SectionHeader title="Bottom Sheet" snippetKey="bottom-sheet" />
           <span style={styles.label}>Modal Bottom Sheet</span>
           <div style={styles.row}>
             <FilledButton onClick={() => setBottomSheetOpen(true)}>
@@ -430,7 +493,7 @@ export function App() {
 
         {/* Date Picker */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Date Picker</div>
+          <SectionHeader title="Date Picker" snippetKey="date-picker" />
           <div style={styles.row}>
             <FilledButton onClick={() => setDatePickerOpen(true)}>
               Pick a Date
@@ -473,7 +536,7 @@ export function App() {
 
         {/* Time Picker */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Time Picker</div>
+          <SectionHeader title="Time Picker" snippetKey="time-picker" />
           <span style={styles.label}>24-Hour Format</span>
           <div style={styles.row}>
             <FilledButton onClick={() => setTimePickerOpen(true)}>
@@ -513,7 +576,7 @@ export function App() {
 
         {/* Side Sheet */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Side Sheet</div>
+          <SectionHeader title="Side Sheet" snippetKey="side-sheet" />
           <span style={styles.label}>Modal Side Sheet</span>
           <div style={styles.row}>
             <FilledButton onClick={() => setSideSheetOpen(true)}>
@@ -551,7 +614,7 @@ export function App() {
 
         {/* Popover */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Popover</div>
+          <SectionHeader title="Popover" snippetKey="popover" />
           <div style={styles.row}>
             <FilledButton id="popover-anchor" onClick={() => setPopoverOpen(!popoverOpen)}>
               Toggle Popover
@@ -567,7 +630,7 @@ export function App() {
 
         {/* Snackbar */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Snackbar</div>
+          <SectionHeader title="Snackbar" snippetKey="snackbar" />
           <div style={styles.row}>
             <FilledButton onClick={() => setSnackbarOpen(true)}>
               Show Snackbar
@@ -585,7 +648,7 @@ export function App() {
         </div>
         {/* Chips */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Chips</div>
+          <SectionHeader title="Chips" snippetKey="chips" />
           <span style={styles.label}>Assist</span>
           <ChipSet>
             <AssistChip label="Assist"><Icon slot="icon">event</Icon></AssistChip>
@@ -614,7 +677,7 @@ export function App() {
 
         {/* FAB */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Floating Action Button</div>
+          <SectionHeader title="Floating Action Button" snippetKey="fab" />
           <div style={styles.row}>
             <Fab label="Create"><Icon slot="icon">add</Icon></Fab>
             <Fab><Icon slot="icon">edit</Icon></Fab>
@@ -625,7 +688,7 @@ export function App() {
 
         {/* Speed Dial */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Speed Dial</div>
+          <SectionHeader title="Speed Dial" snippetKey="speed-dial" />
           <div style={styles.row}>
             <SpeedDial onOpen={() => console.log('Speed dial opened')} onClose={() => console.log('Speed dial closed')}>
               <SpeedDialAction label="Add" onActionClick={() => console.log('Add clicked')}>
@@ -643,7 +706,7 @@ export function App() {
 
         {/* Icon Buttons */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Icon Buttons</div>
+          <SectionHeader title="Icon Buttons" snippetKey="icon-buttons" />
           <span style={styles.label}>Variants</span>
           <div style={styles.row}>
             <IconButton><Icon>settings</Icon></IconButton>
@@ -667,7 +730,7 @@ export function App() {
 
         {/* Text Fields */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Text Fields</div>
+          <SectionHeader title="Text Fields" snippetKey="text-fields" />
           <div style={styles.row}>
             <FilledTextField
               label="Filled Text Field"
@@ -688,7 +751,7 @@ export function App() {
 
         {/* Checkbox, Radio, Switch */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Selection Controls</div>
+          <SectionHeader title="Selection Controls" snippetKey="selection-controls" />
 
           <span style={styles.label}>Checkbox</span>
           <div style={styles.row}>
@@ -743,7 +806,7 @@ export function App() {
 
         {/* Select */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Select</div>
+          <SectionHeader title="Select" snippetKey="select" />
           <div style={styles.row}>
             <FilledSelect label="Filled Select">
               <SelectOption value="1">Option 1</SelectOption>
@@ -760,7 +823,7 @@ export function App() {
 
         {/* Icon */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Icons</div>
+          <SectionHeader title="Icons" snippetKey="icons" />
           <div style={styles.row}>
             <Icon>home</Icon>
             <Icon>settings</Icon>
@@ -777,7 +840,7 @@ export function App() {
 
         {/* Card */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Cards</div>
+          <SectionHeader title="Cards" snippetKey="cards" />
           <div style={styles.cardGrid}>
             <Card variant="elevated">
               <div style={{ fontWeight: 500, fontSize: 16, marginBottom: 8 }}>Elevated Card</div>
@@ -802,7 +865,7 @@ export function App() {
 
         {/* Divider */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Divider</div>
+          <SectionHeader title="Divider" snippetKey="divider" />
           <p style={{ margin: '8px 0' }}>Content above the divider</p>
           <Divider />
           <p style={{ margin: '8px 0' }}>Content below the divider</p>
@@ -810,7 +873,7 @@ export function App() {
 
         {/* Top App Bar */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Top App Bar</div>
+          <SectionHeader title="Top App Bar" snippetKey="top-app-bar" />
           <span style={styles.label}>Small (default)</span>
           <div style={{ border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
             <TopAppBar variant="small" headline="Page Title">
@@ -847,7 +910,7 @@ export function App() {
 
         {/* Bottom App Bar */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Bottom App Bar</div>
+          <SectionHeader title="Bottom App Bar" snippetKey="bottom-app-bar" />
           <div style={{ position: 'relative', height: 80, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
             <BottomAppBar style={{ position: 'absolute' }}>
               <IconButton slot="icons"><Icon>search</Icon></IconButton>
@@ -860,7 +923,7 @@ export function App() {
 
         {/* Navigation Rail */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Navigation Rail</div>
+          <SectionHeader title="Navigation Rail" snippetKey="navigation-rail" />
           <div style={{ display: 'flex', height: 320, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12, overflow: 'hidden' }}>
             <NavigationRail alignment="center">
               <Fab slot="fab" size="small"><Icon slot="icon">edit</Icon></Fab>
@@ -885,7 +948,7 @@ export function App() {
 
         {/* Navigation Drawer */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Navigation Drawer</div>
+          <SectionHeader title="Navigation Drawer" snippetKey="navigation-drawer" />
           <span style={styles.label}>Modal Drawer</span>
           <div style={styles.row}>
             <FilledButton onClick={() => setDrawerOpen(true)}>
@@ -945,7 +1008,7 @@ export function App() {
 
         {/* Search Bar */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Search Bar</div>
+          <SectionHeader title="Search Bar" snippetKey="search-bar" />
           <div style={{ maxWidth: 480 }}>
             <SearchBar
               placeholder="Search..."
@@ -984,7 +1047,7 @@ export function App() {
 
         {/* Slider */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Slider</div>
+          <SectionHeader title="Slider" snippetKey="slider" />
           <span style={styles.label}>Basic Slider</span>
           <Slider value={50} onChange={(e: any) => console.log('Slider changed', e.target.value)} />
           <span style={styles.label}>Range Slider</span>
@@ -993,7 +1056,7 @@ export function App() {
 
         {/* List */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>List</div>
+          <SectionHeader title="List" snippetKey="list" />
           <List style={{ maxWidth: 360, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12 }}>
             <ListItem>
               <Icon slot="start">inbox</Icon>
@@ -1018,7 +1081,7 @@ export function App() {
 
         {/* Progress */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Progress</div>
+          <SectionHeader title="Progress" snippetKey="progress" />
           <span style={styles.label}>Circular</span>
           <div style={styles.row}>
             <CircularProgress indeterminate />
@@ -1035,7 +1098,7 @@ export function App() {
 
         {/* Tabs */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Tabs</div>
+          <SectionHeader title="Tabs" snippetKey="tabs" />
           <span style={styles.label}>Primary Tabs</span>
           <Tabs onChange={(e: any) => console.log('Tab changed', e)}>
             <PrimaryTab>
@@ -1061,7 +1124,7 @@ export function App() {
 
         {/* Badge */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Badge</div>
+          <SectionHeader title="Badge" snippetKey="badge" />
           <div style={styles.row}>
             <span style={{ position: 'relative', display: 'inline-flex' }}>
               <Icon style={{ fontSize: 32 }}>notifications</Icon>
@@ -1080,7 +1143,7 @@ export function App() {
 
         {/* Segmented Button */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Segmented Button</div>
+          <SectionHeader title="Segmented Button" snippetKey="segmented-button" />
           <span style={styles.label}>Single Select</span>
           <OutlinedSegmentedButtonSet onSelectionChange={(e: any) => console.log('Selection:', e.detail)}>
             <OutlinedSegmentedButton label="Day" selected />
@@ -1104,7 +1167,7 @@ export function App() {
 
         {/* Navigation Bar */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Navigation Bar</div>
+          <SectionHeader title="Navigation Bar" snippetKey="navigation-bar" />
           <NavBar activeIndex={0} style={{ maxWidth: 400, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12 }}>
             <NavTab label="Home">
               <Icon slot="inactive-icon">home</Icon>
@@ -1127,7 +1190,7 @@ export function App() {
 
         {/* Carousel */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Carousel</div>
+          <SectionHeader title="Carousel" snippetKey="carousel" />
           <span style={styles.label}>Multi-Browse (default)</span>
           <Carousel itemWidth={240} gap={12} padding={0}>
             {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -1188,7 +1251,7 @@ export function App() {
 
         {/* Accordion */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Accordion</div>
+          <SectionHeader title="Accordion" snippetKey="accordion" />
           <Accordion>
             <AccordionItem>
               <span slot="header">Getting Started</span>
@@ -1207,7 +1270,7 @@ export function App() {
 
         {/* Data Table */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Data Table</div>
+          <SectionHeader title="Data Table" snippetKey="data-table" />
           <DataTable
             columns={["Name", "Role", "Status"]}
             rows={[["Alice Johnson", "Engineer", "Active"], ["Bob Smith", "Designer", "Away"], ["Carol White", "Manager", "Active"], ["Dave Brown", "Developer", "Offline"]]}
@@ -1238,7 +1301,7 @@ export function App() {
 
         {/* Autocomplete */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Autocomplete</div>
+          <SectionHeader title="Autocomplete" snippetKey="autocomplete" />
           <div style={styles.row}>
             <Autocomplete
               label="Select a framework"
@@ -1250,7 +1313,7 @@ export function App() {
 
         {/* Stepper */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Stepper</div>
+          <SectionHeader title="Stepper" snippetKey="stepper" />
           <span style={styles.label}>Horizontal</span>
           <Stepper activeStep={1}>
             <StepperStep label="Account" description="Create your account" />
@@ -1269,7 +1332,7 @@ export function App() {
 
         {/* Skeleton */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Skeleton</div>
+          <SectionHeader title="Skeleton" snippetKey="skeleton" />
           <div style={styles.row}>
             <Skeleton variant="circular" width="48" height="48" />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
@@ -1282,7 +1345,7 @@ export function App() {
 
         {/* Rating */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Rating</div>
+          <SectionHeader title="Rating" snippetKey="rating" />
           <div style={styles.row}>
             <span style={styles.label}>Interactive:</span>
             <Rating value={ratingValue} onRatingChanged={(e: any) => setRatingValue(e.detail.value)} />
@@ -1300,7 +1363,7 @@ export function App() {
 
         {/* Timeline */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Timeline</div>
+          <SectionHeader title="Timeline" snippetKey="timeline" />
           <Timeline>
             <TimelineItem variant="filled">
               <Icon slot="icon">check</Icon>
@@ -1334,7 +1397,7 @@ export function App() {
 
         {/* Avatar */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Avatar</div>
+          <SectionHeader title="Avatar" snippetKey="avatar" />
           <div style={styles.row}>
             <Avatar initials="AJ" size="small" />
             <Avatar initials="BS" size="medium" />
@@ -1346,7 +1409,7 @@ export function App() {
 
         {/* Breadcrumbs */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Breadcrumbs</div>
+          <SectionHeader title="Breadcrumbs" snippetKey="breadcrumbs" />
           <div style={{...styles.row, flexDirection: 'column', alignItems: 'flex-start', gap: 16}}>
             <Breadcrumbs>
               <BreadcrumbItem href="#/">Home</BreadcrumbItem>
@@ -1380,7 +1443,7 @@ export function App() {
 
         {/* Alert & Banner */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Alert & Banner</div>
+          <SectionHeader title="Alert & Banner" snippetKey="alert-banner" />
           <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 12}}>
             <Alert severity="info">This is an informational message — check it out!</Alert>
             <Alert severity="success">Operation completed successfully.</Alert>
@@ -1414,7 +1477,7 @@ export function App() {
 
         {/* File Upload */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>File Upload</div>
+          <SectionHeader title="File Upload" snippetKey="file-upload" />
           <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 16}}>
             <FileUpload
               onFilesSelected={(e: any) => console.log('Selected:', e.detail.files)}
@@ -1444,7 +1507,7 @@ export function App() {
 
         {/* Pagination */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Pagination</div>
+          <SectionHeader title="Pagination" snippetKey="pagination" />
           <div style={{...styles.row, flexDirection: 'column', alignItems: 'flex-start', gap: 16}}>
             <Pagination
               page={1}
@@ -1473,7 +1536,7 @@ export function App() {
 
         {/* Chip Input */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Chip Input</div>
+          <SectionHeader title="Chip Input" snippetKey="chip-input" />
           <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 16}}>
             <ChipInput
               label="Tags"
@@ -1504,7 +1567,7 @@ export function App() {
 
         {/* Swipe Actions */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Swipe Actions</div>
+          <SectionHeader title="Swipe Actions" snippetKey="swipe-actions" />
           <div style={{...styles.row, flexDirection: 'column', alignItems: 'stretch', gap: 1, overflow: 'hidden', borderRadius: 12, border: '1px solid var(--md-sys-color-outline-variant)'}}>
             <SwipeActions onSwipeEnd={(e: any) => console.log('Swiped:', e.detail.direction)}>
               <SwipeAction slot="start" label="Archive">
@@ -1538,7 +1601,7 @@ export function App() {
 
         {/* Pull to Refresh */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Pull to Refresh</div>
+          <SectionHeader title="Pull to Refresh" snippetKey="pull-to-refresh" />
           <PullToRefresh
             style={{height: 200, border: '1px solid var(--md-sys-color-outline-variant)', borderRadius: 12}}
             onRefresh={(e: any) => {
@@ -1562,7 +1625,7 @@ export function App() {
 
         {/* Tree View */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Tree View</div>
+          <SectionHeader title="Tree View" snippetKey="tree-view" />
           <TreeView>
             <TreeItem label="src" value="src" expanded>
               <TreeItem label="components" value="components" expanded>
@@ -1587,7 +1650,7 @@ export function App() {
 
         {/* Image List */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Image List</div>
+          <SectionHeader title="Image List" snippetKey="image-list" />
           <span style={styles.label}>Standard (3 columns)</span>
           <ImageList columns={3} gap={8}>
             {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -1600,7 +1663,7 @@ export function App() {
 
         {/* Virtual List */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Virtual List</div>
+          <SectionHeader title="Virtual List" snippetKey="virtual-list" />
           <p style={{ marginBottom: 8, color: 'var(--md-sys-color-on-surface-variant)', fontSize: 14 }}>
             10,000 items — only {virtualRange.end - virtualRange.start} rendered (range: {virtualRange.start}–{virtualRange.end})
           </p>
@@ -1638,7 +1701,7 @@ export function App() {
 
         {/* Color Picker */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Color Picker</div>
+          <SectionHeader title="Color Picker" snippetKey="color-picker" />
           <div style={{...styles.row, alignItems: 'flex-start', gap: 24}}>
             <ColorPicker
               value="#6750a4"
@@ -1650,7 +1713,7 @@ export function App() {
 
         {/* Date Range Picker */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Date Range Picker</div>
+          <SectionHeader title="Date Range Picker" snippetKey="date-range-picker" />
           <DateRangePicker
             onChange={(e: any) => {
               console.log('Date range selected:', e.detail);
@@ -1660,7 +1723,7 @@ export function App() {
 
         {/* Multi-Select */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Multi-Select</div>
+          <SectionHeader title="Multi-Select" snippetKey="multi-select" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 360 }}>
             <MultiSelect
               label="Fruits"
@@ -1692,7 +1755,7 @@ export function App() {
 
         {/* Parallax Header */}
         <div style={styles.section}>
-          <div style={styles.sectionTitle}>Parallax Header</div>
+          <SectionHeader title="Parallax Header" snippetKey="parallax-header" />
           <div
             ref={parallaxRef}
             style={{

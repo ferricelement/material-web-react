@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MdImageList - A container that displays a grid of images.
@@ -77,7 +78,8 @@ export class MdImageListItem extends LitElement {
       border-radius: var(--md-sys-shape-corner-medium, 12px);
       overflow: hidden;
       background: var(--md-sys-color-surface-container, #f3edf7);
-      transition: box-shadow 200ms cubic-bezier(0.2, 0, 0, 1);
+      --md-elevation-level: 0;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
     }
 
     /* For masonry layout, prevent items from breaking across columns */
@@ -87,9 +89,7 @@ export class MdImageListItem extends LitElement {
     }
 
     :host(:hover) {
-      box-shadow:
-        0 1px 3px 1px rgba(0, 0, 0, 0.15),
-        0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --md-elevation-level: 1;
     }
 
     .container {
@@ -149,6 +149,7 @@ export class MdImageListItem extends LitElement {
   override render() {
     const hasOverlay = this.label || this.supportingText;
     return html`
+      <md-elevation></md-elevation>
       <div class="container" role="listitem">
         <div class="image-wrapper">
           <slot></slot>

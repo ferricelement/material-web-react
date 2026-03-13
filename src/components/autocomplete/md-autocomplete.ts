@@ -1,4 +1,5 @@
 import { LitElement, html, css, nothing } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MD3 Autocomplete / Combobox component.
@@ -106,9 +107,9 @@ export class MdAutocomplete extends LitElement {
       margin-top: 4px;
       background: var(--md-sys-color-surface-container, #f3edf7);
       border-radius: var(--md-sys-shape-corner-extra-small, 4px);
-      box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.15),
-                  0px 1px 2px 0px rgba(0,0,0,0.3);
       max-height: 256px;
+      --md-elevation-level: 2;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
       overflow-y: auto;
       display: none;
     }
@@ -195,6 +196,7 @@ export class MdAutocomplete extends LitElement {
         ` : nothing}
       </div>
       <div class="dropdown ${this._open && filtered.length > 0 ? 'open' : ''}">
+        <md-elevation></md-elevation>
         ${filtered.length > 0
           ? filtered.map((opt, i) => html`
             <div class="option ${i === this._focusedIndex ? 'focused' : ''} ${opt === this.value ? 'selected' : ''}"

@@ -1,4 +1,5 @@
 import { LitElement, html, svg, css, nothing } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MD3 Speed Dial Action — individual action button rendered as a small FAB.
@@ -32,6 +33,7 @@ export class MdSpeedDialAction extends LitElement {
     }
 
     .label {
+      position: relative;
       background: var(--md-sys-color-surface-container-high, #ece6f0);
       color: var(--md-sys-color-on-surface, #1d1b20);
       font-family: var(--md-sys-typescale-label-medium-font, var(--md-ref-typeface-plain, Roboto, sans-serif));
@@ -42,7 +44,8 @@ export class MdSpeedDialAction extends LitElement {
       padding: 4px 12px;
       border-radius: 100px;
       white-space: nowrap;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 1;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
     }
 
     .action-button {
@@ -57,17 +60,19 @@ export class MdSpeedDialAction extends LitElement {
       color: var(--md-sys-color-on-surface, #1d1b20);
       cursor: pointer;
       padding: 0;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
-      transition: background-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      --md-elevation-level: 1;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
+      transition: background-color 0.2s;
     }
 
     .action-button:hover {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 2;
       background: color-mix(in srgb, var(--md-sys-color-on-surface, #1d1b20) 8%, var(--md-sys-color-surface-container-high, #ece6f0));
     }
 
     .action-button:active {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 1;
     }
 
     .action-button:focus-visible {
@@ -84,13 +89,14 @@ export class MdSpeedDialAction extends LitElement {
 
   override render() {
     return html`
-      ${this.label ? html`<span class="label">${this.label}</span>` : nothing}
+      ${this.label ? html`<span class="label"><md-elevation></md-elevation>${this.label}</span>` : nothing}
       <button
         class="action-button"
         ?disabled=${this.disabled}
         @click=${this._handleClick}
         aria-label=${this.label || nothing}
       >
+        <md-elevation></md-elevation>
         <slot></slot>
       </button>
     `;
@@ -184,10 +190,11 @@ export class MdSpeedDial extends LitElement {
       color: var(--md-sys-color-on-primary-container, #21005d);
       cursor: pointer;
       padding: 0;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
-      transition: box-shadow 0.2s, background-color 0.2s;
       position: relative;
       z-index: 1;
+      --md-elevation-level: 3;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
+      transition: background-color 0.2s;
     }
 
     :host([disabled]) .trigger {
@@ -196,12 +203,12 @@ export class MdSpeedDial extends LitElement {
     }
 
     .trigger:hover:not(:disabled) {
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3), 0 6px 10px 4px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 4;
       background: color-mix(in srgb, var(--md-sys-color-on-primary-container, #21005d) 8%, var(--md-sys-color-primary-container, #eaddff));
     }
 
     .trigger:active:not(:disabled) {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 3;
     }
 
     .trigger:focus-visible {
@@ -322,6 +329,7 @@ export class MdSpeedDial extends LitElement {
           aria-expanded=${this.open}
           aria-label=${this.open ? 'Close actions' : 'Open actions'}
         >
+          <md-elevation></md-elevation>
           <span class="trigger-icon">
             <slot name="icon">
               <svg viewBox="0 0 24 24">

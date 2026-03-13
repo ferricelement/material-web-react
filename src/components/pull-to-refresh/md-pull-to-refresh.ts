@@ -1,4 +1,5 @@
 import { LitElement, html, svg, css } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MD3 Pull-to-Refresh component.
@@ -81,8 +82,9 @@ export class MdPullToRefresh extends LitElement {
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
-        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      position: relative;
+      --md-elevation-level: 1;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
       will-change: transform, opacity;
     }
 
@@ -185,6 +187,7 @@ export class MdPullToRefresh extends LitElement {
           class="indicator ${this._pulling ? 'pulling' : ''}"
           style="transform: scale(${indicatorScale}); opacity: ${indicatorOpacity}"
         >
+          <md-elevation></md-elevation>
           <svg class="spinner-svg" viewBox="0 0 24 24">
             ${svg`
               <circle

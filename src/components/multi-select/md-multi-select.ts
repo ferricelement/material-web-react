@@ -1,4 +1,5 @@
 import { LitElement, html, css, nothing, svg } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 const closeIcon = svg`<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>`;
 const checkIcon = svg`<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>`;
@@ -265,9 +266,9 @@ export class MdMultiSelect extends LitElement {
       margin-top: 4px;
       background: var(--md-sys-color-surface-container, #f3edf7);
       border-radius: var(--md-sys-shape-corner-medium, 12px);
-      box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.15),
-                  0px 1px 2px 0px rgba(0,0,0,0.3);
       max-height: 304px;
+      --md-elevation-level: 2;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
       overflow-y: auto;
       display: none;
       padding: 8px 0;
@@ -472,6 +473,7 @@ export class MdMultiSelect extends LitElement {
       </div>
 
       <div class="dropdown ${this._open ? 'open' : ''}" role="listbox" aria-multiselectable="true">
+        <md-elevation></md-elevation>
         ${this.searchable ? html`
           <div class="search-container">
             <input

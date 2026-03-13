@@ -1,4 +1,5 @@
 import { LitElement, html, svg, css, nothing } from 'lit';
+import '@material/web/elevation/elevation.js';
 
 /**
  * MD3 Split Button — a button divided into a leading action and a trailing
@@ -283,8 +284,8 @@ export class MdSplitButton extends LitElement {
     :host([variant='elevated']) button {
       background: var(--md-sys-color-surface-container-low, #f7f2fa);
       color: var(--md-sys-color-primary, #6750a4);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
-        0 1px 3px 1px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 1;
+      --md-elevation-shadow-color: var(--md-sys-color-shadow, #000);
     }
 
     :host([variant='elevated']) button::after {
@@ -292,8 +293,7 @@ export class MdSplitButton extends LitElement {
     }
 
     :host([variant='elevated']) button:hover {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
-        0 2px 6px 2px rgba(0, 0, 0, 0.15);
+      --md-elevation-level: 2;
     }
 
     :host([variant='elevated'][disabled]) button {
@@ -303,7 +303,7 @@ export class MdSplitButton extends LitElement {
         transparent
       );
       color: var(--md-sys-color-on-surface, #1d1b20);
-      box-shadow: none;
+      --md-elevation-level: 0;
     }
 
     /* ------------------------------------------------------------------ */
@@ -359,6 +359,7 @@ export class MdSplitButton extends LitElement {
           @click=${this._handleActionClick}
           @pointerdown=${this._ripple}
         >
+          <md-elevation></md-elevation>
           <slot name="leading-icon"></slot>
           ${this.label
             ? html`<span class="label-text">${this.label}</span>`
@@ -375,6 +376,7 @@ export class MdSplitButton extends LitElement {
           @click=${this._handleTrailingClick}
           @pointerdown=${this._ripple}
         >
+          <md-elevation></md-elevation>
           <slot name="trailing-icon">
             <span class="trailing-icon">
               <svg viewBox="0 0 24 24">${chevronDown}</svg>
