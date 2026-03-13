@@ -1,3 +1,5 @@
+export type ColorScheme = 'light' | 'dark' | 'system';
+
 export interface MD3Theme {
   // Primary
   colorPrimary?: string;

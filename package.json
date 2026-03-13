@@ -13,7 +13,7 @@
         "default": "./dist/index.js"
       },
       "require": {
-        "types": "./dist/index.d.cts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.cjs"
       }
     },
@@ -23,7 +23,7 @@
         "default": "./dist/components/button/index.js"
       },
       "require": {
-        "types": "./dist/components/button/index.d.cts",
+        "types": "./dist/components/button/index.d.ts",
         "default": "./dist/components/button/index.cjs"
       }
     },
@@ -33,7 +33,7 @@
         "default": "./dist/components/text-field/index.js"
       },
       "require": {
-        "types": "./dist/components/text-field/index.d.cts",
+        "types": "./dist/components/text-field/index.d.ts",
         "default": "./dist/components/text-field/index.cjs"
       }
     },
@@ -43,7 +43,7 @@
         "default": "./dist/components/checkbox/index.js"
       },
       "require": {
-        "types": "./dist/components/checkbox/index.d.cts",
+        "types": "./dist/components/checkbox/index.d.ts",
         "default": "./dist/components/checkbox/index.cjs"
       }
     },
@@ -53,7 +53,7 @@
         "default": "./dist/components/radio/index.js"
       },
       "require": {
-        "types": "./dist/components/radio/index.d.cts",
+        "types": "./dist/components/radio/index.d.ts",
         "default": "./dist/components/radio/index.cjs"
       }
     },
@@ -63,7 +63,7 @@
         "default": "./dist/components/switch/index.js"
       },
       "require": {
-        "types": "./dist/components/switch/index.d.cts",
+        "types": "./dist/components/switch/index.d.ts",
         "default": "./dist/components/switch/index.cjs"
       }
     },
@@ -73,7 +73,7 @@
         "default": "./dist/components/select/index.js"
       },
       "require": {
-        "types": "./dist/components/select/index.d.cts",
+        "types": "./dist/components/select/index.d.ts",
         "default": "./dist/components/select/index.cjs"
       }
     },
@@ -83,7 +83,7 @@
         "default": "./dist/components/card/index.js"
       },
       "require": {
-        "types": "./dist/components/card/index.d.cts",
+        "types": "./dist/components/card/index.d.ts",
         "default": "./dist/components/card/index.cjs"
       }
     },
@@ -93,7 +93,7 @@
         "default": "./dist/components/dialog/index.js"
       },
       "require": {
-        "types": "./dist/components/dialog/index.d.cts",
+        "types": "./dist/components/dialog/index.d.ts",
         "default": "./dist/components/dialog/index.cjs"
       }
     },
@@ -103,7 +103,7 @@
         "default": "./dist/components/snackbar/index.js"
       },
       "require": {
-        "types": "./dist/components/snackbar/index.d.cts",
+        "types": "./dist/components/snackbar/index.d.ts",
         "default": "./dist/components/snackbar/index.cjs"
       }
     },
@@ -113,7 +113,7 @@
         "default": "./dist/components/chips/index.js"
       },
       "require": {
-        "types": "./dist/components/chips/index.d.cts",
+        "types": "./dist/components/chips/index.d.ts",
         "default": "./dist/components/chips/index.cjs"
       }
     },
@@ -123,7 +123,7 @@
         "default": "./dist/components/fab/index.js"
       },
       "require": {
-        "types": "./dist/components/fab/index.d.cts",
+        "types": "./dist/components/fab/index.d.ts",
         "default": "./dist/components/fab/index.cjs"
       }
     },
@@ -133,7 +133,7 @@
         "default": "./dist/components/icon-button/index.js"
       },
       "require": {
-        "types": "./dist/components/icon-button/index.d.cts",
+        "types": "./dist/components/icon-button/index.d.ts",
         "default": "./dist/components/icon-button/index.cjs"
       }
     },
@@ -143,7 +143,7 @@
         "default": "./dist/components/icon/index.js"
       },
       "require": {
-        "types": "./dist/components/icon/index.d.cts",
+        "types": "./dist/components/icon/index.d.ts",
         "default": "./dist/components/icon/index.cjs"
       }
     },
@@ -153,7 +153,7 @@
         "default": "./dist/components/ripple/index.js"
       },
       "require": {
-        "types": "./dist/components/ripple/index.d.cts",
+        "types": "./dist/components/ripple/index.d.ts",
         "default": "./dist/components/ripple/index.cjs"
       }
     },
@@ -163,7 +163,7 @@
         "default": "./dist/components/elevation/index.js"
       },
       "require": {
-        "types": "./dist/components/elevation/index.d.cts",
+        "types": "./dist/components/elevation/index.d.ts",
         "default": "./dist/components/elevation/index.cjs"
       }
     },
@@ -173,7 +173,7 @@
         "default": "./dist/components/focus-ring/index.js"
       },
       "require": {
-        "types": "./dist/components/focus-ring/index.d.cts",
+        "types": "./dist/components/focus-ring/index.d.ts",
         "default": "./dist/components/focus-ring/index.cjs"
       }
     },
@@ -183,7 +183,7 @@
         "default": "./dist/components/divider/index.js"
       },
       "require": {
-        "types": "./dist/components/divider/index.d.cts",
+        "types": "./dist/components/divider/index.d.ts",
         "default": "./dist/components/divider/index.cjs"
       }
     },
@@ -193,7 +193,7 @@
         "default": "./dist/components/slider/index.js"
       },
       "require": {
-        "types": "./dist/components/slider/index.d.cts",
+        "types": "./dist/components/slider/index.d.ts",
         "default": "./dist/components/slider/index.cjs"
       }
     },
@@ -203,7 +203,7 @@
         "default": "./dist/components/list/index.js"
       },
       "require": {
-        "types": "./dist/components/list/index.d.cts",
+        "types": "./dist/components/list/index.d.ts",
         "default": "./dist/components/list/index.cjs"
       }
     },
@@ -213,7 +213,7 @@
         "default": "./dist/components/progress/index.js"
       },
       "require": {
-        "types": "./dist/components/progress/index.d.cts",
+        "types": "./dist/components/progress/index.d.ts",
         "default": "./dist/components/progress/index.cjs"
       }
     },
@@ -223,7 +223,7 @@
         "default": "./dist/components/tabs/index.js"
       },
       "require": {
-        "types": "./dist/components/tabs/index.d.cts",
+        "types": "./dist/components/tabs/index.d.ts",
         "default": "./dist/components/tabs/index.cjs"
       }
     },
@@ -233,7 +233,7 @@
         "default": "./dist/components/menu/index.js"
       },
       "require": {
-        "types": "./dist/components/menu/index.d.cts",
+        "types": "./dist/components/menu/index.d.ts",
         "default": "./dist/components/menu/index.cjs"
       }
     },
@@ -243,7 +243,7 @@
         "default": "./dist/theme/index.js"
       },
       "require": {
-        "types": "./dist/theme/index.d.cts",
+        "types": "./dist/theme/index.d.ts",
         "default": "./dist/theme/index.cjs"
       }
     },
@@ -253,7 +253,7 @@
         "default": "./dist/components/segmented-button/index.js"
       },
       "require": {
-        "types": "./dist/components/segmented-button/index.d.cts",
+        "types": "./dist/components/segmented-button/index.d.ts",
         "default": "./dist/components/segmented-button/index.cjs"
       }
     },
@@ -263,7 +263,7 @@
         "default": "./dist/components/badge/index.js"
       },
       "require": {
-        "types": "./dist/components/badge/index.d.cts",
+        "types": "./dist/components/badge/index.d.ts",
         "default": "./dist/components/badge/index.cjs"
       }
     },
@@ -273,7 +273,7 @@
         "default": "./dist/components/navigation-bar/index.js"
       },
       "require": {
-        "types": "./dist/components/navigation-bar/index.d.cts",
+        "types": "./dist/components/navigation-bar/index.d.ts",
         "default": "./dist/components/navigation-bar/index.cjs"
       }
     },
@@ -283,7 +283,7 @@
         "default": "./dist/components/tooltip/index.js"
       },
       "require": {
-        "types": "./dist/components/tooltip/index.d.cts",
+        "types": "./dist/components/tooltip/index.d.ts",
         "default": "./dist/components/tooltip/index.cjs"
       }
     },
@@ -293,7 +293,7 @@
         "default": "./dist/components/top-app-bar/index.js"
       },
       "require": {
-        "types": "./dist/components/top-app-bar/index.d.cts",
+        "types": "./dist/components/top-app-bar/index.d.ts",
         "default": "./dist/components/top-app-bar/index.cjs"
       }
     },
@@ -303,7 +303,7 @@
         "default": "./dist/components/bottom-app-bar/index.js"
       },
       "require": {
-        "types": "./dist/components/bottom-app-bar/index.d.cts",
+        "types": "./dist/components/bottom-app-bar/index.d.ts",
         "default": "./dist/components/bottom-app-bar/index.cjs"
       }
     },
@@ -313,7 +313,7 @@
         "default": "./dist/components/navigation-rail/index.js"
       },
       "require": {
-        "types": "./dist/components/navigation-rail/index.d.cts",
+        "types": "./dist/components/navigation-rail/index.d.ts",
         "default": "./dist/components/navigation-rail/index.cjs"
       }
     },
@@ -323,7 +323,7 @@
         "default": "./dist/components/search-bar/index.js"
       },
       "require": {
-        "types": "./dist/components/search-bar/index.d.cts",
+        "types": "./dist/components/search-bar/index.d.ts",
         "default": "./dist/components/search-bar/index.cjs"
       }
     },
@@ -333,7 +333,7 @@
         "default": "./dist/components/navigation-drawer/index.js"
       },
       "require": {
-        "types": "./dist/components/navigation-drawer/index.d.cts",
+        "types": "./dist/components/navigation-drawer/index.d.ts",
         "default": "./dist/components/navigation-drawer/index.cjs"
       }
     },
@@ -343,7 +343,7 @@
         "default": "./dist/components/bottom-sheet/index.js"
       },
       "require": {
-        "types": "./dist/components/bottom-sheet/index.d.cts",
+        "types": "./dist/components/bottom-sheet/index.d.ts",
         "default": "./dist/components/bottom-sheet/index.cjs"
       }
     },
@@ -353,7 +353,7 @@
         "default": "./dist/components/date-picker/index.js"
       },
       "require": {
-        "types": "./dist/components/date-picker/index.d.cts",
+        "types": "./dist/components/date-picker/index.d.ts",
         "default": "./dist/components/date-picker/index.cjs"
       }
     },
@@ -363,7 +363,7 @@
         "default": "./dist/components/time-picker/index.js"
       },
       "require": {
-        "types": "./dist/components/time-picker/index.d.cts",
+        "types": "./dist/components/time-picker/index.d.ts",
         "default": "./dist/components/time-picker/index.cjs"
       }
     },
@@ -373,7 +373,7 @@
         "default": "./dist/components/carousel/index.js"
       },
       "require": {
-        "types": "./dist/components/carousel/index.d.cts",
+        "types": "./dist/components/carousel/index.d.ts",
         "default": "./dist/components/carousel/index.cjs"
       }
     },
@@ -383,7 +383,7 @@
         "default": "./dist/components/side-sheet/index.js"
       },
       "require": {
-        "types": "./dist/components/side-sheet/index.d.cts",
+        "types": "./dist/components/side-sheet/index.d.ts",
         "default": "./dist/components/side-sheet/index.cjs"
       }
     },
@@ -393,7 +393,7 @@
         "default": "./dist/components/accordion/index.js"
       },
       "require": {
-        "types": "./dist/components/accordion/index.d.cts",
+        "types": "./dist/components/accordion/index.d.ts",
         "default": "./dist/components/accordion/index.cjs"
       }
     },
@@ -403,7 +403,7 @@
         "default": "./dist/components/data-table/index.js"
       },
       "require": {
-        "types": "./dist/components/data-table/index.d.cts",
+        "types": "./dist/components/data-table/index.d.ts",
         "default": "./dist/components/data-table/index.cjs"
       }
     },
@@ -413,7 +413,7 @@
         "default": "./dist/components/autocomplete/index.js"
       },
       "require": {
-        "types": "./dist/components/autocomplete/index.d.cts",
+        "types": "./dist/components/autocomplete/index.d.ts",
         "default": "./dist/components/autocomplete/index.cjs"
       }
     },
@@ -423,7 +423,7 @@
         "default": "./dist/components/stepper/index.js"
       },
       "require": {
-        "types": "./dist/components/stepper/index.d.cts",
+        "types": "./dist/components/stepper/index.d.ts",
         "default": "./dist/components/stepper/index.cjs"
       }
     },
@@ -433,7 +433,7 @@
         "default": "./dist/components/skeleton/index.js"
       },
       "require": {
-        "types": "./dist/components/skeleton/index.d.cts",
+        "types": "./dist/components/skeleton/index.d.ts",
         "default": "./dist/components/skeleton/index.cjs"
       }
     },
@@ -443,7 +443,7 @@
         "default": "./dist/components/popover/index.js"
       },
       "require": {
-        "types": "./dist/components/popover/index.d.cts",
+        "types": "./dist/components/popover/index.d.ts",
         "default": "./dist/components/popover/index.cjs"
       }
     },
@@ -453,7 +453,7 @@
         "default": "./dist/components/rating/index.js"
       },
       "require": {
-        "types": "./dist/components/rating/index.d.cts",
+        "types": "./dist/components/rating/index.d.ts",
         "default": "./dist/components/rating/index.cjs"
       }
     },
@@ -463,7 +463,7 @@
         "default": "./dist/components/timeline/index.js"
       },
       "require": {
-        "types": "./dist/components/timeline/index.d.cts",
+        "types": "./dist/components/timeline/index.d.ts",
         "default": "./dist/components/timeline/index.cjs"
       }
     },
@@ -473,7 +473,7 @@
         "default": "./dist/components/avatar/index.js"
       },
       "require": {
-        "types": "./dist/components/avatar/index.d.cts",
+        "types": "./dist/components/avatar/index.d.ts",
         "default": "./dist/components/avatar/index.cjs"
       }
     },
@@ -483,7 +483,7 @@
         "default": "./dist/components/breadcrumbs/index.js"
       },
       "require": {
-        "types": "./dist/components/breadcrumbs/index.d.cts",
+        "types": "./dist/components/breadcrumbs/index.d.ts",
         "default": "./dist/components/breadcrumbs/index.cjs"
       }
     },
@@ -493,7 +493,7 @@
         "default": "./dist/components/alert/index.js"
       },
       "require": {
-        "types": "./dist/components/alert/index.d.cts",
+        "types": "./dist/components/alert/index.d.ts",
         "default": "./dist/components/alert/index.cjs"
       }
     },
@@ -503,7 +503,7 @@
         "default": "./dist/components/file-upload/index.js"
       },
       "require": {
-        "types": "./dist/components/file-upload/index.d.cts",
+        "types": "./dist/components/file-upload/index.d.ts",
         "default": "./dist/components/file-upload/index.cjs"
       }
     },
@@ -513,7 +513,7 @@
         "default": "./dist/components/pagination/index.js"
       },
       "require": {
-        "types": "./dist/components/pagination/index.d.cts",
+        "types": "./dist/components/pagination/index.d.ts",
         "default": "./dist/components/pagination/index.cjs"
       }
     },
@@ -523,7 +523,7 @@
         "default": "./dist/components/chip-input/index.js"
       },
       "require": {
-        "types": "./dist/components/chip-input/index.d.cts",
+        "types": "./dist/components/chip-input/index.d.ts",
         "default": "./dist/components/chip-input/index.cjs"
       }
     },
@@ -533,7 +533,7 @@
         "default": "./dist/components/speed-dial/index.js"
       },
       "require": {
-        "types": "./dist/components/speed-dial/index.d.cts",
+        "types": "./dist/components/speed-dial/index.d.ts",
         "default": "./dist/components/speed-dial/index.cjs"
       }
     },
@@ -543,7 +543,7 @@
         "default": "./dist/components/swipe-actions/index.js"
       },
       "require": {
-        "types": "./dist/components/swipe-actions/index.d.cts",
+        "types": "./dist/components/swipe-actions/index.d.ts",
         "default": "./dist/components/swipe-actions/index.cjs"
       }
     },
@@ -553,7 +553,7 @@
         "default": "./dist/components/pull-to-refresh/index.js"
       },
       "require": {
-        "types": "./dist/components/pull-to-refresh/index.d.cts",
+        "types": "./dist/components/pull-to-refresh/index.d.ts",
         "default": "./dist/components/pull-to-refresh/index.cjs"
       }
     },
@@ -563,7 +563,7 @@
         "default": "./dist/components/tree-view/index.js"
       },
       "require": {
-        "types": "./dist/components/tree-view/index.d.cts",
+        "types": "./dist/components/tree-view/index.d.ts",
         "default": "./dist/components/tree-view/index.cjs"
       }
     },
@@ -573,7 +573,7 @@
         "default": "./dist/components/image-list/index.js"
       },
       "require": {
-        "types": "./dist/components/image-list/index.d.cts",
+        "types": "./dist/components/image-list/index.d.ts",
         "default": "./dist/components/image-list/index.cjs"
       }
     },
@@ -583,7 +583,7 @@
         "default": "./dist/components/virtual-list/index.js"
       },
       "require": {
-        "types": "./dist/components/virtual-list/index.d.cts",
+        "types": "./dist/components/virtual-list/index.d.ts",
         "default": "./dist/components/virtual-list/index.cjs"
       }
     },
@@ -593,7 +593,7 @@
         "default": "./dist/components/color-picker/index.js"
       },
       "require": {
-        "types": "./dist/components/color-picker/index.d.cts",
+        "types": "./dist/components/color-picker/index.d.ts",
         "default": "./dist/components/color-picker/index.cjs"
       }
     },
@@ -603,7 +603,7 @@
         "default": "./dist/components/date-range-picker/index.js"
       },
       "require": {
-        "types": "./dist/components/date-range-picker/index.d.cts",
+        "types": "./dist/components/date-range-picker/index.d.ts",
         "default": "./dist/components/date-range-picker/index.cjs"
       }
     },
@@ -613,7 +613,7 @@
         "default": "./dist/components/multi-select/index.js"
       },
       "require": {
-        "types": "./dist/components/multi-select/index.d.cts",
+        "types": "./dist/components/multi-select/index.d.ts",
         "default": "./dist/components/multi-select/index.cjs"
       }
     },
@@ -623,8 +623,48 @@
         "default": "./dist/components/parallax-header/index.js"
       },
       "require": {
-        "types": "./dist/components/parallax-header/index.d.cts",
+        "types": "./dist/components/parallax-header/index.d.ts",
         "default": "./dist/components/parallax-header/index.cjs"
+      }
+    },
+    "./button-group": {
+      "import": {
+        "types": "./dist/components/button-group/index.d.ts",
+        "default": "./dist/components/button-group/index.js"
+      },
+      "require": {
+        "types": "./dist/components/button-group/index.d.ts",
+        "default": "./dist/components/button-group/index.cjs"
+      }
+    },
+    "./split-button": {
+      "import": {
+        "types": "./dist/components/split-button/index.d.ts",
+        "default": "./dist/components/split-button/index.js"
+      },
+      "require": {
+        "types": "./dist/components/split-button/index.d.ts",
+        "default": "./dist/components/split-button/index.cjs"
+      }
+    },
+    "./floating-toolbar": {
+      "import": {
+        "types": "./dist/components/floating-toolbar/index.d.ts",
+        "default": "./dist/components/floating-toolbar/index.js"
+      },
+      "require": {
+        "types": "./dist/components/floating-toolbar/index.d.ts",
+        "default": "./dist/components/floating-toolbar/index.cjs"
+      }
+    },
+    "./loading-indicator": {
+      "import": {
+        "types": "./dist/components/loading-indicator/index.d.ts",
+        "default": "./dist/components/loading-indicator/index.js"
+      },
+      "require": {
+        "types": "./dist/components/loading-indicator/index.d.ts",
+        "default": "./dist/components/loading-indicator/index.cjs"
       }
     },
     "./theme/baseline.css": "./dist/baseline.css"
@@ -666,6 +706,14 @@
     "vite": "^6.2.0",
     "vite-plugin-dts": "^4.5.0",
     "vitest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthropics/react-material-web.git"
+  },
+  "homepage": "https://github.com/anthropics/react-material-web#readme",
+  "bugs": {
+    "url": "https://github.com/anthropics/react-material-web/issues"
   },
   "keywords": [
     "react",

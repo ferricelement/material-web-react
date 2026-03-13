@@ -74,15 +74,15 @@ export class MdAlert extends LitElement {
     /* Filled variant — prominent, uses main color */
     :host([variant='filled']) .alert {
       background: var(--_color);
-      color: #fff;
+      color: var(--md-sys-color-inverse-on-surface, #fff);
     }
 
     :host([variant='filled']) .icon-container {
-      color: #fff;
+      color: var(--md-sys-color-inverse-on-surface, #fff);
     }
 
     :host([variant='filled']) .close-btn {
-      color: #fff;
+      color: var(--md-sys-color-inverse-on-surface, #fff);
     }
 
     :host([variant='filled']) .close-btn:hover {

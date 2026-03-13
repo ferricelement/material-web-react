@@ -1,2 +1,2 @@
-export { ParallaxHeader, HeroTransition } from './parallax-header.js';
-export { MdParallaxHeader, MdHeroTransition } from './md-parallax-header.js';
+export { ParallaxHeader } from './parallax-header.js';
+export { MdParallaxHeader } from './md-parallax-header.js';

@@ -134,7 +134,7 @@ export class MdImageListItem extends LitElement {
       font-size: var(--md-sys-typescale-title-small-size, 14px);
       font-weight: var(--md-sys-typescale-title-small-weight, 500);
       line-height: var(--md-sys-typescale-title-small-line-height, 20px);
-      color: #fff;
+      color: var(--md-sys-color-inverse-on-surface, #fff);
     }
 
     .supporting-text {

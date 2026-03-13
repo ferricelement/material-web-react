@@ -83,7 +83,7 @@ import { VirtualList } from '../src/components/virtual-list/index.js';
 import { ColorPicker } from '../src/components/color-picker/index.js';
 import { DateRangePicker } from '../src/components/date-range-picker/index.js';
 import { MultiSelect } from '../src/components/multi-select/index.js';
-import { ParallaxHeader, HeroTransition } from '../src/components/parallax-header/index.js';
+import { ParallaxHeader } from '../src/components/parallax-header/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -210,7 +210,6 @@ export function App() {
   const [virtualRange, setVirtualRange] = useState({ start: 0, end: 20 });
   const dialogRef = useRef<MdDialog>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
 
@@ -274,6 +273,307 @@ export function App() {
           </div>
         </div>
 
+        {/* Dialog */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Dialog</div>
+          <div style={styles.row}>
+            <FilledButton onClick={() => {
+              setDialogOpen(true);
+              dialogRef.current?.show();
+            }}>
+              Open Dialog
+            </FilledButton>
+          </div>
+          <Dialog
+            ref={dialogRef}
+            onClose={() => setDialogOpen(false)}
+          >
+            <div slot="headline">Dialog Title</div>
+            <div slot="content">
+              This is a Material Design 3 dialog. It supports headlines, content,
+              and action buttons via slots.
+            </div>
+            <div slot="actions">
+              <TextButton onClick={() => dialogRef.current?.close()}>
+                Cancel
+              </TextButton>
+              <FilledButton onClick={() => dialogRef.current?.close()}>
+                Confirm
+              </FilledButton>
+            </div>
+          </Dialog>
+        </div>
+
+        {/* Menu */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Menu</div>
+          <div style={{ ...styles.row, position: 'relative' }}>
+            <FilledButton id="menu-anchor" onClick={() => setMenuOpen(!menuOpen)}>
+              Open Menu
+            </FilledButton>
+            <Menu anchor="menu-anchor" open={menuOpen} onClosed={() => setMenuOpen(false)}>
+              <MenuItem onClick={() => console.log('Cut')}>
+                <div slot="headline">Cut</div>
+              </MenuItem>
+              <MenuItem onClick={() => console.log('Copy')}>
+                <div slot="headline">Copy</div>
+              </MenuItem>
+              <MenuItem onClick={() => console.log('Paste')}>
+                <div slot="headline">Paste</div>
+              </MenuItem>
+            </Menu>
+          </div>
+        </div>
+
+        {/* Tooltip */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Tooltip</div>
+          <span style={styles.label}>Plain Tooltip (hover to see)</span>
+          <div style={styles.row}>
+            <span
+              style={{ position: 'relative', display: 'inline-flex' }}
+              onMouseEnter={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = true;
+              }}
+              onMouseLeave={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = false;
+              }}
+            >
+              <IconButton><Icon>delete</Icon></IconButton>
+              <Tooltip position="bottom">Delete item</Tooltip>
+            </span>
+            <span
+              style={{ position: 'relative', display: 'inline-flex' }}
+              onMouseEnter={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = true;
+              }}
+              onMouseLeave={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = false;
+              }}
+            >
+              <IconButton><Icon>share</Icon></IconButton>
+              <Tooltip position="top">Share this item</Tooltip>
+            </span>
+          </div>
+          <span style={styles.label}>Rich Tooltip</span>
+          <div style={styles.row}>
+            <span
+              style={{ position: 'relative', display: 'inline-flex' }}
+              onMouseEnter={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = true;
+              }}
+              onMouseLeave={(e) => {
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
+                if (tooltip) (tooltip as any).open = false;
+              }}
+            >
+              <IconButton><Icon>info</Icon></IconButton>
+              <Tooltip variant="rich" position="right">
+                <span slot="headline">Rich Tooltip</span>
+                This tooltip provides more detailed information with a headline and supporting text.
+              </Tooltip>
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom Sheet */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Bottom Sheet</div>
+          <span style={styles.label}>Modal Bottom Sheet</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setBottomSheetOpen(true)}>
+              Open Bottom Sheet
+            </FilledButton>
+          </div>
+          <BottomSheet
+            open={bottomSheetOpen}
+            variant="modal"
+            onBottomSheetChanged={(e: any) => setBottomSheetOpen(e.detail.open)}
+          >
+            <div style={{ fontSize: 22, fontWeight: 500, marginBottom: 16, color: 'var(--md-sys-color-on-surface)' }}>
+              Share
+            </div>
+            <List>
+              <ListItem type="button">
+                <Icon slot="start">link</Icon>
+                <div slot="headline">Copy link</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">mail</Icon>
+                <div slot="headline">Email</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">chat</Icon>
+                <div slot="headline">Messages</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">share</Icon>
+                <div slot="headline">More options</div>
+              </ListItem>
+            </List>
+          </BottomSheet>
+        </div>
+
+        {/* Date Picker */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Date Picker</div>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setDatePickerOpen(true)}>
+              Pick a Date
+            </FilledButton>
+            {selectedDate && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                Selected: {selectedDate}
+              </span>
+            )}
+          </div>
+          <DatePicker
+            open={datePickerOpen}
+            value={selectedDate}
+            onDatePickerChanged={(e: any) => setDatePickerOpen(e.detail.open)}
+            onDatePickerValueChanged={(e: any) => setSelectedDate(e.detail.value)}
+          />
+          <span style={styles.label}>Date Range</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setDateRangePickerOpen(true)}>
+              Pick a Date Range
+            </FilledButton>
+            {rangeStart && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                {rangeStart} – {rangeEnd || '...'}
+              </span>
+            )}
+          </div>
+          <DatePicker
+            type="daterange"
+            open={dateRangePickerOpen}
+            value={rangeStart}
+            valueEnd={rangeEnd}
+            onDatePickerChanged={(e: any) => setDateRangePickerOpen(e.detail.open)}
+            onDatePickerValueChanged={(e: any) => {
+              setRangeStart(e.detail.value);
+              setRangeEnd(e.detail.valueEnd || '');
+            }}
+          />
+        </div>
+
+        {/* Time Picker */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Time Picker</div>
+          <span style={styles.label}>24-Hour Format</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setTimePickerOpen(true)}>
+              Pick a Time
+            </FilledButton>
+            {selectedTime && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                Selected: {selectedTime}
+              </span>
+            )}
+          </div>
+          <TimePicker
+            open={timePickerOpen}
+            value={selectedTime}
+            onTimePickerChanged={(e: any) => setTimePickerOpen(e.detail.open)}
+            onTimePickerValueChanged={(e: any) => setSelectedTime(e.detail.value)}
+          />
+          <span style={styles.label}>12-Hour Format</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setTimePicker12Open(true)}>
+              Pick a Time (12h)
+            </FilledButton>
+            {selectedTime12 && (
+              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
+                Selected: {selectedTime12}
+              </span>
+            )}
+          </div>
+          <TimePicker
+            format="12h"
+            open={timePicker12Open}
+            value={selectedTime12}
+            onTimePickerChanged={(e: any) => setTimePicker12Open(e.detail.open)}
+            onTimePickerValueChanged={(e: any) => setSelectedTime12(e.detail.value)}
+          />
+        </div>
+
+        {/* Side Sheet */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Side Sheet</div>
+          <span style={styles.label}>Modal Side Sheet</span>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setSideSheetOpen(true)}>
+              Open Side Sheet
+            </FilledButton>
+          </div>
+          <SideSheet
+            open={sideSheetOpen}
+            variant="modal"
+            onSideSheetChanged={(e: any) => setSideSheetOpen(e.detail.open)}
+          >
+            <div style={{ fontSize: 22, fontWeight: 500, marginBottom: 16, color: 'var(--md-sys-color-on-surface)' }}>
+              Filters
+            </div>
+            <List>
+              <ListItem type="button">
+                <Icon slot="start">sort</Icon>
+                <div slot="headline">Sort by</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">filter_list</Icon>
+                <div slot="headline">Filter</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">date_range</Icon>
+                <div slot="headline">Date range</div>
+              </ListItem>
+              <ListItem type="button">
+                <Icon slot="start">label</Icon>
+                <div slot="headline">Labels</div>
+              </ListItem>
+            </List>
+          </SideSheet>
+        </div>
+
+        {/* Popover */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Popover</div>
+          <div style={styles.row}>
+            <FilledButton id="popover-anchor" onClick={() => setPopoverOpen(!popoverOpen)}>
+              Toggle Popover
+            </FilledButton>
+            <Popover open={popoverOpen} anchor="popover-anchor" position="bottom" onPopoverChanged={(e: any) => setPopoverOpen(e.detail.open)}>
+              <div style={{ padding: 16 }}>
+                <div style={{ fontWeight: 500, marginBottom: 8 }}>Popover Content</div>
+                <div style={{ color: 'var(--md-sys-color-on-surface-variant)' }}>This is a popover panel with custom content.</div>
+              </div>
+            </Popover>
+          </div>
+        </div>
+
+        {/* Snackbar */}
+        <div style={styles.section}>
+          <div style={styles.sectionTitle}>Snackbar</div>
+          <div style={styles.row}>
+            <FilledButton onClick={() => setSnackbarOpen(true)}>
+              Show Snackbar
+            </FilledButton>
+          </div>
+          <Snackbar
+            open={snackbarOpen}
+            message="This is a snackbar notification"
+            onClose={() => setSnackbarOpen(false)}
+          >
+            <TextButton slot="action" onClick={() => setSnackbarOpen(false)}>
+              Dismiss
+            </TextButton>
+          </Snackbar>
+        </div>
         {/* Chips */}
         <div style={styles.section}>
           <div style={styles.sectionTitle}>Chips</div>
@@ -489,37 +789,6 @@ export function App() {
               </div>
             </Card>
           </div>
-        </div>
-
-        {/* Dialog */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Dialog</div>
-          <div style={styles.row}>
-            <FilledButton onClick={() => {
-              setDialogOpen(true);
-              dialogRef.current?.show();
-            }}>
-              Open Dialog
-            </FilledButton>
-          </div>
-          <Dialog
-            ref={dialogRef}
-            onClose={() => setDialogOpen(false)}
-          >
-            <div slot="headline">Dialog Title</div>
-            <div slot="content">
-              This is a Material Design 3 dialog. It supports headlines, content,
-              and action buttons via slots.
-            </div>
-            <div slot="actions">
-              <TextButton onClick={() => dialogRef.current?.close()}>
-                Cancel
-              </TextButton>
-              <FilledButton onClick={() => dialogRef.current?.close()}>
-                Confirm
-              </FilledButton>
-            </div>
-          </Dialog>
         </div>
 
         {/* Divider */}
@@ -781,27 +1050,6 @@ export function App() {
           </Tabs>
         </div>
 
-        {/* Menu */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Menu</div>
-          <div style={{ ...styles.row, position: 'relative' }}>
-            <FilledButton id="menu-anchor" onClick={() => setMenuOpen(!menuOpen)}>
-              Open Menu
-            </FilledButton>
-            <Menu anchor="menu-anchor" open={menuOpen} onClosed={() => setMenuOpen(false)}>
-              <MenuItem onClick={() => console.log('Cut')}>
-                <div slot="headline">Cut</div>
-              </MenuItem>
-              <MenuItem onClick={() => console.log('Copy')}>
-                <div slot="headline">Copy</div>
-              </MenuItem>
-              <MenuItem onClick={() => console.log('Paste')}>
-                <div slot="headline">Paste</div>
-              </MenuItem>
-            </Menu>
-          </div>
-        </div>
-
         {/* Badge */}
         <div style={styles.section}>
           <div style={styles.sectionTitle}>Badge</div>
@@ -868,183 +1116,6 @@ export function App() {
           </NavBar>
         </div>
 
-        {/* Tooltip */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Tooltip</div>
-          <span style={styles.label}>Plain Tooltip (hover to see)</span>
-          <div style={styles.row}>
-            <span
-              style={{ position: 'relative', display: 'inline-flex' }}
-              onMouseEnter={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = true;
-              }}
-              onMouseLeave={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = false;
-              }}
-            >
-              <IconButton><Icon>delete</Icon></IconButton>
-              <Tooltip position="bottom">Delete item</Tooltip>
-            </span>
-            <span
-              style={{ position: 'relative', display: 'inline-flex' }}
-              onMouseEnter={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = true;
-              }}
-              onMouseLeave={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = false;
-              }}
-            >
-              <IconButton><Icon>share</Icon></IconButton>
-              <Tooltip position="top">Share this item</Tooltip>
-            </span>
-          </div>
-          <span style={styles.label}>Rich Tooltip</span>
-          <div style={styles.row}>
-            <span
-              style={{ position: 'relative', display: 'inline-flex' }}
-              onMouseEnter={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = true;
-              }}
-              onMouseLeave={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = false;
-              }}
-            >
-              <IconButton><Icon>info</Icon></IconButton>
-              <Tooltip variant="rich" position="right">
-                <span slot="headline">Rich Tooltip</span>
-                This tooltip provides more detailed information with a headline and supporting text.
-              </Tooltip>
-            </span>
-          </div>
-        </div>
-
-        {/* Bottom Sheet */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Bottom Sheet</div>
-          <span style={styles.label}>Modal Bottom Sheet</span>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setBottomSheetOpen(true)}>
-              Open Bottom Sheet
-            </FilledButton>
-          </div>
-          <BottomSheet
-            open={bottomSheetOpen}
-            variant="modal"
-            onBottomSheetChanged={(e: any) => setBottomSheetOpen(e.detail.open)}
-          >
-            <div style={{ fontSize: 22, fontWeight: 500, marginBottom: 16, color: 'var(--md-sys-color-on-surface)' }}>
-              Share
-            </div>
-            <List>
-              <ListItem type="button">
-                <Icon slot="start">link</Icon>
-                <div slot="headline">Copy link</div>
-              </ListItem>
-              <ListItem type="button">
-                <Icon slot="start">mail</Icon>
-                <div slot="headline">Email</div>
-              </ListItem>
-              <ListItem type="button">
-                <Icon slot="start">chat</Icon>
-                <div slot="headline">Messages</div>
-              </ListItem>
-              <ListItem type="button">
-                <Icon slot="start">share</Icon>
-                <div slot="headline">More options</div>
-              </ListItem>
-            </List>
-          </BottomSheet>
-        </div>
-
-        {/* Date Picker */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Date Picker</div>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setDatePickerOpen(true)}>
-              Pick a Date
-            </FilledButton>
-            {selectedDate && (
-              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
-                Selected: {selectedDate}
-              </span>
-            )}
-          </div>
-          <DatePicker
-            open={datePickerOpen}
-            value={selectedDate}
-            onDatePickerChanged={(e: any) => setDatePickerOpen(e.detail.open)}
-            onDatePickerValueChanged={(e: any) => setSelectedDate(e.detail.value)}
-          />
-          <span style={styles.label}>Date Range</span>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setDateRangePickerOpen(true)}>
-              Pick a Date Range
-            </FilledButton>
-            {rangeStart && (
-              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
-                {rangeStart} – {rangeEnd || '...'}
-              </span>
-            )}
-          </div>
-          <DatePicker
-            type="daterange"
-            open={dateRangePickerOpen}
-            value={rangeStart}
-            valueEnd={rangeEnd}
-            onDatePickerChanged={(e: any) => setDateRangePickerOpen(e.detail.open)}
-            onDatePickerValueChanged={(e: any) => {
-              setRangeStart(e.detail.value);
-              setRangeEnd(e.detail.valueEnd || '');
-            }}
-          />
-        </div>
-
-        {/* Time Picker */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Time Picker</div>
-          <span style={styles.label}>24-Hour Format</span>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setTimePickerOpen(true)}>
-              Pick a Time
-            </FilledButton>
-            {selectedTime && (
-              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
-                Selected: {selectedTime}
-              </span>
-            )}
-          </div>
-          <TimePicker
-            open={timePickerOpen}
-            value={selectedTime}
-            onTimePickerChanged={(e: any) => setTimePickerOpen(e.detail.open)}
-            onTimePickerValueChanged={(e: any) => setSelectedTime(e.detail.value)}
-          />
-          <span style={styles.label}>12-Hour Format</span>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setTimePicker12Open(true)}>
-              Pick a Time (12h)
-            </FilledButton>
-            {selectedTime12 && (
-              <span style={{ marginLeft: 16, color: 'var(--md-sys-color-on-surface-variant)' }}>
-                Selected: {selectedTime12}
-              </span>
-            )}
-          </div>
-          <TimePicker
-            format="12h"
-            open={timePicker12Open}
-            value={selectedTime12}
-            onTimePickerChanged={(e: any) => setTimePicker12Open(e.detail.open)}
-            onTimePickerValueChanged={(e: any) => setSelectedTime12(e.detail.value)}
-          />
-        </div>
-
         {/* Carousel */}
         <div style={styles.section}>
           <div style={styles.sectionTitle}>Carousel</div>
@@ -1054,11 +1125,11 @@ export function App() {
               <div key={i} style={{
                 width: 240,
                 height: 160,
-                background: `hsl(${i * 50 + 200}, 40%, ${60 + i * 3}%)`,
+                background: 'var(--md-sys-color-surface-container)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#fff',
+                color: 'var(--md-sys-color-on-surface)',
                 fontSize: 20,
                 fontWeight: 500,
                 borderRadius: 28,
@@ -1072,11 +1143,11 @@ export function App() {
             {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} style={{
                 height: 200,
-                background: `hsl(${i * 40 + 10}, 50%, 55%)`,
+                background: 'var(--md-sys-color-surface-container)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#fff',
+                color: 'var(--md-sys-color-on-surface)',
                 fontSize: 20,
                 fontWeight: 500,
                 borderRadius: 28,
@@ -1091,11 +1162,11 @@ export function App() {
               <div key={i} style={{
                 width: 180,
                 height: 120,
-                background: `hsl(${i * 30 + 120}, 45%, 50%)`,
+                background: 'var(--md-sys-color-surface-container)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#fff',
+                color: 'var(--md-sys-color-on-surface)',
                 fontSize: 16,
                 fontWeight: 500,
                 borderRadius: 28,
@@ -1104,44 +1175,6 @@ export function App() {
               </div>
             ))}
           </Carousel>
-        </div>
-
-        {/* Side Sheet */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Side Sheet</div>
-          <span style={styles.label}>Modal Side Sheet</span>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setSideSheetOpen(true)}>
-              Open Side Sheet
-            </FilledButton>
-          </div>
-          <SideSheet
-            open={sideSheetOpen}
-            variant="modal"
-            onSideSheetChanged={(e: any) => setSideSheetOpen(e.detail.open)}
-          >
-            <div style={{ fontSize: 22, fontWeight: 500, marginBottom: 16, color: 'var(--md-sys-color-on-surface)' }}>
-              Filters
-            </div>
-            <List>
-              <ListItem type="button">
-                <Icon slot="start">sort</Icon>
-                <div slot="headline">Sort by</div>
-              </ListItem>
-              <ListItem type="button">
-                <Icon slot="start">filter_list</Icon>
-                <div slot="headline">Filter</div>
-              </ListItem>
-              <ListItem type="button">
-                <Icon slot="start">date_range</Icon>
-                <div slot="headline">Date range</div>
-              </ListItem>
-              <ListItem type="button">
-                <Icon slot="start">label</Icon>
-                <div slot="headline">Labels</div>
-              </ListItem>
-            </List>
-          </SideSheet>
         </div>
 
         {/* Accordion */}
@@ -1236,22 +1269,6 @@ export function App() {
             </div>
           </div>
           <Skeleton variant="rectangular" width="100%" height="120" />
-        </div>
-
-        {/* Popover */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Popover</div>
-          <div style={styles.row}>
-            <FilledButton id="popover-anchor" onClick={() => setPopoverOpen(!popoverOpen)}>
-              Toggle Popover
-            </FilledButton>
-            <Popover open={popoverOpen} anchor="popover-anchor" position="bottom" onPopoverChanged={(e: any) => setPopoverOpen(e.detail.open)}>
-              <div style={{ padding: 16 }}>
-                <div style={{ fontWeight: 500, marginBottom: 8 }}>Popover Content</div>
-                <div style={{ color: 'var(--md-sys-color-on-surface-variant)' }}>This is a popover panel with custom content.</div>
-              </div>
-            </Popover>
-          </div>
         </div>
 
         {/* Rating */}
@@ -1710,63 +1727,7 @@ export function App() {
           </div>
         </div>
 
-        {/* Hero Transition */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Hero Transition</div>
-          <div
-            ref={heroRef}
-            style={{
-              height: 500,
-              overflowY: 'auto',
-              borderRadius: 12,
-              border: '1px solid var(--md-sys-color-outline-variant)',
-            }}
-          >
-            <HeroTransition
-              expandedHeight={280}
-              collapsedHeight={64}
-              headline="Explore"
-              supportingText="Discover amazing content"
-              src="https://picsum.photos/seed/hero/800/400"
-              onScrollProgress={(e: any) =>
-                console.log('hero:', e.detail.progress)
-              }
-            >
-              {Array.from({ length: 20 }, (_, i) => (
-                <div
-                  key={i}
-                  style={{
-                    padding: '16px 24px',
-                    borderBottom:
-                      '1px solid var(--md-sys-color-outline-variant)',
-                    fontSize: 14,
-                  }}
-                >
-                  Scrollable item {i + 1}
-                </div>
-              ))}
-            </HeroTransition>
-          </div>
-        </div>
 
-        {/* Snackbar */}
-        <div style={styles.section}>
-          <div style={styles.sectionTitle}>Snackbar</div>
-          <div style={styles.row}>
-            <FilledButton onClick={() => setSnackbarOpen(true)}>
-              Show Snackbar
-            </FilledButton>
-          </div>
-          <Snackbar
-            open={snackbarOpen}
-            message="This is a snackbar notification"
-            onClose={() => setSnackbarOpen(false)}
-          >
-            <TextButton slot="action" onClick={() => setSnackbarOpen(false)}>
-              Dismiss
-            </TextButton>
-          </Snackbar>
-        </div>
       </div>
     </ThemeProvider>
   );

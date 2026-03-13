@@ -259,12 +259,28 @@ export { MdDateRangePicker } from './components/date-range-picker/md-date-range-
 export { MultiSelect } from './components/multi-select/index.js';
 export { MdMultiSelect } from './components/multi-select/md-multi-select.js';
 
+// Button Group
+export { ButtonGroup } from './components/button-group/index.js';
+export { MdButtonGroup } from './components/button-group/md-button-group.js';
+
+// Split Button
+export { SplitButton } from './components/split-button/index.js';
+export { MdSplitButton } from './components/split-button/md-split-button.js';
+
+// Floating Toolbar
+export { FloatingToolbar, FloatingToolbarItem, FloatingToolbarDivider } from './components/floating-toolbar/index.js';
+export { MdFloatingToolbar, MdFloatingToolbarItem, MdFloatingToolbarDivider } from './components/floating-toolbar/md-floating-toolbar.js';
+
+// Loading Indicator
+export { LoadingIndicator } from './components/loading-indicator/index.js';
+export { MdLoadingIndicator } from './components/loading-indicator/md-loading-indicator.js';
+
 // Parallax Header
-export { ParallaxHeader, HeroTransition } from './components/parallax-header/index.js';
-export { MdParallaxHeader, MdHeroTransition } from './components/parallax-header/md-parallax-header.js';
+export { ParallaxHeader } from './components/parallax-header/index.js';
+export { MdParallaxHeader } from './components/parallax-header/md-parallax-header.js';
 
 // Theme
-export { ThemeProvider, useTheme } from './theme/index.js';
+export { ThemeProvider, useTheme, useColorScheme } from './theme/index.js';
 export type { ThemeProviderProps } from './theme/index.js';
-export type { MD3Theme } from './theme/tokens.js';
+export type { MD3Theme, ColorScheme } from './theme/tokens.js';
 export { themeToStyleVars } from './theme/tokens.js';
