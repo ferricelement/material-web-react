@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-import { ThemeProvider } from '../src/theme/index.js';
+import { ThemeProvider, type ColorScheme } from '../src/theme/index.js';
 import '../src/theme/baseline.css';
 
 import {
@@ -187,6 +187,7 @@ const THEME_PRESETS = {
 
 export function App() {
   const [themeKey, setThemeKey] = useState<keyof typeof THEME_PRESETS>('purple');
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -214,13 +215,20 @@ export function App() {
   const activeTheme = THEME_PRESETS[themeKey].theme;
 
   return (
-    <ThemeProvider theme={activeTheme}>
+    <ThemeProvider theme={activeTheme} colorScheme={colorScheme}>
       <div style={styles.page}>
         {/* Header */}
         <div style={styles.header}>
-          <div style={styles.title}>React Material Web</div>
-          <div style={styles.subtitle}>
-            Material Design 3 component library for React — wrapping @material/web
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <div style={styles.title}>React Material Web</div>
+              <div style={styles.subtitle}>
+                Material Design 3 component library for React — wrapping @material/web
+              </div>
+            </div>
+            <IconButton onClick={() => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}>
+              <Icon>{colorScheme === 'dark' ? 'light_mode' : 'dark_mode'}</Icon>
+            </IconButton>
           </div>
         </div>
 
@@ -368,14 +376,15 @@ export function App() {
                 if (tooltip) (tooltip as any).open = true;
               }}
               onMouseLeave={(e) => {
-                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip');
-                if (tooltip) (tooltip as any).open = false;
+                const tooltip = (e.currentTarget as HTMLElement).querySelector('md-tooltip') as any;
+                if (tooltip) tooltip.scheduleClose();
               }}
             >
               <IconButton><Icon>info</Icon></IconButton>
               <Tooltip variant="rich" position="right">
-                <span slot="headline">Rich Tooltip</span>
-                This tooltip provides more detailed information with a headline and supporting text.
+                <span slot="headline">Feature Info</span>
+                This action provides detailed information about the selected item.
+                <TextButton slot="action">Learn more</TextButton>
               </Tooltip>
             </span>
           </div>

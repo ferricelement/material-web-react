@@ -48,8 +48,8 @@ export class MdSnackbar extends LitElement {
       max-width: 560px;
       padding: 14px 16px;
       border-radius: var(--md-sys-shape-corner-extra-small, 4px);
-      background: var(--md-sys-color-inverse-surface, #313033);
-      color: var(--md-sys-color-inverse-on-surface, #f4eff4);
+      background: var(--md-sys-color-surface-container-highest, #E6E0E9);
+      color: var(--md-sys-color-on-surface, #1C1B1F);
       font-family: var(--md-ref-typeface-plain, 'Roboto', sans-serif);
       font-size: 14px;
       line-height: 20px;
@@ -68,7 +68,7 @@ export class MdSnackbar extends LitElement {
     }
 
     ::slotted([slot='action']) {
-      --md-text-button-label-text-color: var(--md-sys-color-inverse-primary, #d0bcff);
+      --md-text-button-label-text-color: var(--md-sys-color-primary, #6750A4);
     }
   `;
 
