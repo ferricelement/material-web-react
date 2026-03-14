@@ -7,7 +7,7 @@ export default defineConfig({
   root: resolve(__dirname),
   resolve: {
     alias: {
-      'react-material-web': resolve(__dirname, '../src'),
+      'material-web-react': resolve(__dirname, '../src'),
     },
   },
 });

@@ -1,6 +1,6 @@
 export const SNIPPETS: Record<string, string> = {
-  theme: `import { ThemeProvider } from 'react-material-web';
-import 'react-material-web/theme/baseline.css';
+  theme: `import { ThemeProvider } from 'material-web-react';
+import 'material-web-react/theme/baseline.css';
 
 const theme = {
   colorPrimary: '#6750A4',
@@ -15,8 +15,8 @@ const theme = {
   buttons: `import {
   FilledButton, OutlinedButton, TextButton,
   ElevatedButton, TonalButton,
-} from 'react-material-web';
-import { Icon } from 'react-material-web';
+} from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <FilledButton onClick={() => console.log('click')}>Filled</FilledButton>
 <OutlinedButton>Outlined</OutlinedButton>
@@ -30,8 +30,8 @@ import { Icon } from 'react-material-web';
   Send
 </FilledButton>`,
 
-  dialog: `import { Dialog } from 'react-material-web';
-import { FilledButton, TextButton } from 'react-material-web';
+  dialog: `import { Dialog } from 'material-web-react';
+import { FilledButton, TextButton } from 'material-web-react';
 import { useRef } from 'react';
 
 const dialogRef = useRef<MdDialog>(null);
@@ -48,8 +48,8 @@ const dialogRef = useRef<MdDialog>(null);
   </div>
 </Dialog>`,
 
-  menu: `import { Menu, MenuItem } from 'react-material-web';
-import { FilledButton } from 'react-material-web';
+  menu: `import { Menu, MenuItem } from 'material-web-react';
+import { FilledButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -65,8 +65,8 @@ const [open, setOpen] = useState(false);
   </Menu>
 </div>`,
 
-  tooltip: `import { Tooltip } from 'react-material-web';
-import { IconButton, Icon } from 'react-material-web';
+  tooltip: `import { Tooltip } from 'material-web-react';
+import { IconButton, Icon } from 'material-web-react';
 
 {/* Plain tooltip */}
 <span
@@ -91,8 +91,8 @@ import { IconButton, Icon } from 'react-material-web';
   <TextButton slot="action">Learn more</TextButton>
 </Tooltip>`,
 
-  'bottom-sheet': `import { BottomSheet } from 'react-material-web';
-import { FilledButton } from 'react-material-web';
+  'bottom-sheet': `import { BottomSheet } from 'material-web-react';
+import { FilledButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -105,8 +105,8 @@ const [open, setOpen] = useState(false);
   </div>
 </BottomSheet>`,
 
-  'date-picker': `import { DatePicker } from 'react-material-web';
-import { FilledButton } from 'react-material-web';
+  'date-picker': `import { DatePicker } from 'material-web-react';
+import { FilledButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -120,8 +120,8 @@ const [date, setDate] = useState('');
   onClosed={() => setOpen(false)}
 />`,
 
-  'time-picker': `import { TimePicker } from 'react-material-web';
-import { FilledButton } from 'react-material-web';
+  'time-picker': `import { TimePicker } from 'material-web-react';
+import { FilledButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -135,8 +135,8 @@ const [time, setTime] = useState('');
   onClosed={() => setOpen(false)}
 />`,
 
-  'side-sheet': `import { SideSheet } from 'react-material-web';
-import { FilledButton } from 'react-material-web';
+  'side-sheet': `import { SideSheet } from 'material-web-react';
+import { FilledButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -149,8 +149,8 @@ const [open, setOpen] = useState(false);
   </div>
 </SideSheet>`,
 
-  popover: `import { Popover } from 'react-material-web';
-import { FilledButton } from 'react-material-web';
+  popover: `import { Popover } from 'material-web-react';
+import { FilledButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -167,8 +167,8 @@ const [open, setOpen] = useState(false);
   <div style={{ padding: 16 }}>Popover content</div>
 </Popover>`,
 
-  snackbar: `import { Snackbar } from 'react-material-web';
-import { FilledButton, TextButton } from 'react-material-web';
+  snackbar: `import { Snackbar } from 'material-web-react';
+import { FilledButton, TextButton } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -187,8 +187,8 @@ const [open, setOpen] = useState(false);
   chips: `import {
   ChipSet, AssistChip, FilterChip,
   InputChip, SuggestionChip,
-} from 'react-material-web';
-import { Icon } from 'react-material-web';
+} from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <ChipSet>
   <AssistChip label="Assist"><Icon slot="icon">event</Icon></AssistChip>
@@ -197,8 +197,8 @@ import { Icon } from 'react-material-web';
   <SuggestionChip label="Suggestion" />
 </ChipSet>`,
 
-  fab: `import { Fab, BrandedFab } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  fab: `import { Fab, BrandedFab } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <Fab><Icon slot="icon">add</Icon></Fab>
 <Fab size="small"><Icon slot="icon">edit</Icon></Fab>
@@ -207,8 +207,8 @@ import { Icon } from 'react-material-web';
   <Icon slot="icon">add</Icon>
 </Fab>`,
 
-  'speed-dial': `import { SpeedDial, SpeedDialAction } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'speed-dial': `import { SpeedDial, SpeedDialAction } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <SpeedDial>
   <Icon slot="icon">add</Icon>
@@ -220,8 +220,8 @@ import { Icon } from 'react-material-web';
   'icon-buttons': `import {
   IconButton, FilledIconButton,
   FilledTonalIconButton, OutlinedIconButton,
-} from 'react-material-web';
-import { Icon } from 'react-material-web';
+} from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <IconButton><Icon>settings</Icon></IconButton>
 <FilledIconButton><Icon>edit</Icon></FilledIconButton>
@@ -231,16 +231,16 @@ import { Icon } from 'react-material-web';
 {/* Toggle icon button */}
 <IconButton toggle selected><Icon>star</Icon></IconButton>`,
 
-  'text-fields': `import { FilledTextField, OutlinedTextField } from 'react-material-web';
+  'text-fields': `import { FilledTextField, OutlinedTextField } from 'material-web-react';
 
 <FilledTextField label="Filled" />
 <OutlinedTextField label="Outlined" />
 <FilledTextField label="With helper" supportingText="Helper text" />
 <OutlinedTextField label="Password" type="password" />`,
 
-  'selection-controls': `import { Checkbox } from 'react-material-web';
-import { Radio } from 'react-material-web';
-import { Switch } from 'react-material-web';
+  'selection-controls': `import { Checkbox } from 'material-web-react';
+import { Radio } from 'material-web-react';
+import { Switch } from 'material-web-react';
 
 <Checkbox />
 <Checkbox checked />
@@ -249,7 +249,7 @@ import { Switch } from 'react-material-web';
 <Switch />
 <Switch selected />`,
 
-  select: `import { FilledSelect, OutlinedSelect, SelectOption } from 'react-material-web';
+  select: `import { FilledSelect, OutlinedSelect, SelectOption } from 'material-web-react';
 
 <FilledSelect label="Choose">
   <SelectOption value="1">Option 1</SelectOption>
@@ -262,14 +262,14 @@ import { Switch } from 'react-material-web';
   <SelectOption value="b">Choice B</SelectOption>
 </OutlinedSelect>`,
 
-  icons: `import { Icon } from 'react-material-web';
+  icons: `import { Icon } from 'material-web-react';
 
 <Icon>home</Icon>
 <Icon>favorite</Icon>
 <Icon>settings</Icon>
 <Icon>search</Icon>`,
 
-  cards: `import { Card } from 'react-material-web';
+  cards: `import { Card } from 'material-web-react';
 
 <Card variant="elevated" style={{ padding: 24, maxWidth: 300 }}>
   <h3>Elevated Card</h3>
@@ -279,15 +279,15 @@ import { Switch } from 'react-material-web';
 <Card variant="filled">...</Card>
 <Card variant="outlined">...</Card>`,
 
-  divider: `import { Divider } from 'react-material-web';
+  divider: `import { Divider } from 'material-web-react';
 
 <Divider />
 <Divider inset />
 <Divider insetStart />
 <Divider insetEnd />`,
 
-  'top-app-bar': `import { TopAppBar } from 'react-material-web';
-import { IconButton, Icon } from 'react-material-web';
+  'top-app-bar': `import { TopAppBar } from 'material-web-react';
+import { IconButton, Icon } from 'material-web-react';
 
 <TopAppBar variant="small">
   <IconButton slot="leading"><Icon>menu</Icon></IconButton>
@@ -296,8 +296,8 @@ import { IconButton, Icon } from 'react-material-web';
   <IconButton slot="trailing"><Icon>more_vert</Icon></IconButton>
 </TopAppBar>`,
 
-  'bottom-app-bar': `import { BottomAppBar } from 'react-material-web';
-import { IconButton, Fab, Icon } from 'react-material-web';
+  'bottom-app-bar': `import { BottomAppBar } from 'material-web-react';
+import { IconButton, Fab, Icon } from 'material-web-react';
 
 <BottomAppBar>
   <IconButton slot="icons"><Icon>search</Icon></IconButton>
@@ -306,8 +306,8 @@ import { IconButton, Fab, Icon } from 'react-material-web';
   <Fab slot="fab"><Icon slot="icon">add</Icon></Fab>
 </BottomAppBar>`,
 
-  'navigation-rail': `import { NavigationRail, NavigationRailItem } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'navigation-rail': `import { NavigationRail, NavigationRailItem } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <NavigationRail>
   <NavigationRailItem label="Home" selected>
@@ -321,8 +321,8 @@ import { Icon } from 'react-material-web';
   </NavigationRailItem>
 </NavigationRail>`,
 
-  'navigation-drawer': `import { NavigationDrawer } from 'react-material-web';
-import { List, ListItem, Icon } from 'react-material-web';
+  'navigation-drawer': `import { NavigationDrawer } from 'material-web-react';
+import { List, ListItem, Icon } from 'material-web-react';
 import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
@@ -336,8 +336,8 @@ const [open, setOpen] = useState(false);
   </List>
 </NavigationDrawer>`,
 
-  'search-bar': `import { SearchBar } from 'react-material-web';
-import { IconButton, Icon } from 'react-material-web';
+  'search-bar': `import { SearchBar } from 'material-web-react';
+import { IconButton, Icon } from 'material-web-react';
 
 {/* Basic */}
 <SearchBar placeholder="Search...">
@@ -350,15 +350,15 @@ import { IconButton, Icon } from 'react-material-web';
   options={['Apple', 'Banana', 'Cherry', 'Date']}
 />`,
 
-  slider: `import { Slider } from 'react-material-web';
+  slider: `import { Slider } from 'material-web-react';
 
 <Slider />
 <Slider value={50} />
 <Slider labeled />
 <Slider range valueStart={25} valueEnd={75} />`,
 
-  list: `import { List, ListItem } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  list: `import { List, ListItem } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <List>
   <ListItem>Simple item</ListItem>
@@ -372,15 +372,15 @@ import { Icon } from 'react-material-web';
   </ListItem>
 </List>`,
 
-  progress: `import { CircularProgress, LinearProgress } from 'react-material-web';
+  progress: `import { CircularProgress, LinearProgress } from 'material-web-react';
 
 <CircularProgress indeterminate />
 <CircularProgress value={0.7} />
 <LinearProgress indeterminate />
 <LinearProgress value={0.5} />`,
 
-  tabs: `import { Tabs, PrimaryTab, SecondaryTab } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  tabs: `import { Tabs, PrimaryTab, SecondaryTab } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <Tabs>
   <PrimaryTab>
@@ -397,7 +397,7 @@ import { Icon } from 'react-material-web';
   </PrimaryTab>
 </Tabs>`,
 
-  badge: `import { Badge } from 'react-material-web';
+  badge: `import { Badge } from 'material-web-react';
 
 <Badge value={3} />
 <Badge value={99} />
@@ -406,8 +406,8 @@ import { Icon } from 'react-material-web';
   'segmented-button': `import {
   OutlinedSegmentedButtonSet,
   OutlinedSegmentedButton,
-} from 'react-material-web';
-import { Icon } from 'react-material-web';
+} from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <OutlinedSegmentedButtonSet>
   <OutlinedSegmentedButton selected label="Day">
@@ -421,8 +421,8 @@ import { Icon } from 'react-material-web';
   </OutlinedSegmentedButton>
 </OutlinedSegmentedButtonSet>`,
 
-  'navigation-bar': `import { NavigationBar, NavigationTab } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'navigation-bar': `import { NavigationBar, NavigationTab } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <NavigationBar>
   <NavigationTab label="Home">
@@ -439,7 +439,7 @@ import { Icon } from 'react-material-web';
   </NavigationTab>
 </NavigationBar>`,
 
-  carousel: `import { Carousel } from 'react-material-web';
+  carousel: `import { Carousel } from 'material-web-react';
 
 <Carousel>
   <div>Slide 1</div>
@@ -447,7 +447,7 @@ import { Icon } from 'react-material-web';
   <div>Slide 3</div>
 </Carousel>`,
 
-  accordion: `import { Accordion, AccordionItem } from 'react-material-web';
+  accordion: `import { Accordion, AccordionItem } from 'material-web-react';
 
 <Accordion>
   <AccordionItem header="Getting Started">
@@ -461,7 +461,7 @@ import { Icon } from 'react-material-web';
   </AccordionItem>
 </Accordion>`,
 
-  'data-table': `import { DataTable } from 'react-material-web';
+  'data-table': `import { DataTable } from 'material-web-react';
 
 <DataTable>
   <table>
@@ -475,14 +475,14 @@ import { Icon } from 'react-material-web';
   </table>
 </DataTable>`,
 
-  autocomplete: `import { Autocomplete } from 'react-material-web';
+  autocomplete: `import { Autocomplete } from 'material-web-react';
 
 <Autocomplete
   label="Country"
   options={['Australia', 'Austria', 'Brazil', 'Canada']}
 />`,
 
-  stepper: `import { Stepper, StepperStep } from 'react-material-web';
+  stepper: `import { Stepper, StepperStep } from 'material-web-react';
 
 <Stepper activeStep={1}>
   <StepperStep label="Account" />
@@ -490,13 +490,13 @@ import { Icon } from 'react-material-web';
   <StepperStep label="Confirm" />
 </Stepper>`,
 
-  skeleton: `import { Skeleton } from 'react-material-web';
+  skeleton: `import { Skeleton } from 'material-web-react';
 
 <Skeleton variant="text" width={200} />
 <Skeleton variant="circular" width={40} height={40} />
 <Skeleton variant="rectangular" width={300} height={140} />`,
 
-  rating: `import { Rating } from 'react-material-web';
+  rating: `import { Rating } from 'material-web-react';
 import { useState } from 'react';
 
 const [value, setValue] = useState(3);
@@ -507,8 +507,8 @@ const [value, setValue] = useState(3);
 />
 <Rating value={4} readOnly />`,
 
-  timeline: `import { Timeline, TimelineItem } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  timeline: `import { Timeline, TimelineItem } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <Timeline>
   <TimelineItem headline="Order placed">
@@ -525,13 +525,13 @@ import { Icon } from 'react-material-web';
   </TimelineItem>
 </Timeline>`,
 
-  avatar: `import { Avatar } from 'react-material-web';
+  avatar: `import { Avatar } from 'material-web-react';
 
 <Avatar label="A" />
 <Avatar src="https://i.pravatar.cc/40" />
 <Avatar label="JD" size={48} />`,
 
-  breadcrumbs: `import { Breadcrumbs, BreadcrumbItem } from 'react-material-web';
+  breadcrumbs: `import { Breadcrumbs, BreadcrumbItem } from 'material-web-react';
 
 <Breadcrumbs>
   <BreadcrumbItem href="/">Home</BreadcrumbItem>
@@ -539,8 +539,8 @@ import { Icon } from 'react-material-web';
   <BreadcrumbItem>Current Page</BreadcrumbItem>
 </Breadcrumbs>`,
 
-  'alert-banner': `import { Alert, Banner } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'alert-banner': `import { Alert, Banner } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <Alert severity="info">
   <Icon slot="icon">info</Icon>
@@ -552,7 +552,7 @@ import { Icon } from 'react-material-web';
 
 <Banner open message="This is a banner notification" />`,
 
-  'file-upload': `import { FileUpload } from 'react-material-web';
+  'file-upload': `import { FileUpload } from 'material-web-react';
 
 <FileUpload
   accept="image/*"
@@ -560,7 +560,7 @@ import { Icon } from 'react-material-web';
 />
 <FileUpload multiple accept=".pdf,.doc" />`,
 
-  pagination: `import { Pagination } from 'react-material-web';
+  pagination: `import { Pagination } from 'material-web-react';
 import { useState } from 'react';
 
 const [page, setPage] = useState(1);
@@ -571,7 +571,7 @@ const [page, setPage] = useState(1);
   onPageChanged={(e) => setPage(e.detail.page)}
 />`,
 
-  'chip-input': `import { ChipInput } from 'react-material-web';
+  'chip-input': `import { ChipInput } from 'material-web-react';
 import { useState } from 'react';
 
 const [chips, setChips] = useState(['Apple', 'Banana']);
@@ -582,8 +582,8 @@ const [chips, setChips] = useState(['Apple', 'Banana']);
   onChipsChanged={(e) => setChips(e.detail.chips)}
 />`,
 
-  'swipe-actions': `import { SwipeActions, SwipeAction } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'swipe-actions': `import { SwipeActions, SwipeAction } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <SwipeActions>
   <SwipeAction slot="start" color="#4CAF50">
@@ -595,7 +595,7 @@ import { Icon } from 'react-material-web';
   </SwipeAction>
 </SwipeActions>`,
 
-  'pull-to-refresh': `import { PullToRefresh } from 'react-material-web';
+  'pull-to-refresh': `import { PullToRefresh } from 'material-web-react';
 
 <PullToRefresh onRefresh={async () => {
   await fetchData();
@@ -603,8 +603,8 @@ import { Icon } from 'react-material-web';
   <div>Pull down to refresh this content.</div>
 </PullToRefresh>`,
 
-  'tree-view': `import { TreeView, TreeItem } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'tree-view': `import { TreeView, TreeItem } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <TreeView>
   <TreeItem label="Documents">
@@ -621,7 +621,7 @@ import { Icon } from 'react-material-web';
   </TreeItem>
 </TreeView>`,
 
-  'image-list': `import { ImageList, ImageListItem } from 'react-material-web';
+  'image-list': `import { ImageList, ImageListItem } from 'material-web-react';
 
 <ImageList columns={3} gap={8}>
   <ImageListItem src="photo1.jpg" label="Photo 1" />
@@ -629,7 +629,7 @@ import { Icon } from 'react-material-web';
   <ImageListItem src="photo3.jpg" label="Photo 3" />
 </ImageList>`,
 
-  'virtual-list': `import { VirtualList } from 'react-material-web';
+  'virtual-list': `import { VirtualList } from 'material-web-react';
 
 const items = Array.from({ length: 10000 }, (_, i) => ({
   id: i,
@@ -642,7 +642,7 @@ const items = Array.from({ length: 10000 }, (_, i) => ({
   renderItem={(item) => <div>{item.label}</div>}
 />`,
 
-  'date-range-picker': `import { DateRangePicker } from 'react-material-web';
+  'date-range-picker': `import { DateRangePicker } from 'material-web-react';
 import { useState } from 'react';
 
 const [start, setStart] = useState('');
@@ -657,15 +657,15 @@ const [end, setEnd] = useState('');
   }}
 />`,
 
-  'multi-select': `import { MultiSelect } from 'react-material-web';
+  'multi-select': `import { MultiSelect } from 'material-web-react';
 
 <MultiSelect
   label="Select tags"
   options={['React', 'TypeScript', 'Material Design', 'Lit']}
 />`,
 
-  'button-group': `import { ButtonGroup } from 'react-material-web';
-import { OutlinedButton } from 'react-material-web';
+  'button-group': `import { ButtonGroup } from 'material-web-react';
+import { OutlinedButton } from 'material-web-react';
 
 <ButtonGroup>
   <OutlinedButton>Left</OutlinedButton>
@@ -673,8 +673,8 @@ import { OutlinedButton } from 'react-material-web';
   <OutlinedButton>Right</OutlinedButton>
 </ButtonGroup>`,
 
-  'split-button': `import { SplitButton } from 'react-material-web';
-import { Icon } from 'react-material-web';
+  'split-button': `import { SplitButton } from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <SplitButton label="Save" onAction={() => save()}>
   <Icon slot="icon">save</Icon>
@@ -683,8 +683,8 @@ import { Icon } from 'react-material-web';
   'floating-toolbar': `import {
   FloatingToolbar, FloatingToolbarItem,
   FloatingToolbarDivider,
-} from 'react-material-web';
-import { Icon } from 'react-material-web';
+} from 'material-web-react';
+import { Icon } from 'material-web-react';
 
 <FloatingToolbar>
   <FloatingToolbarItem><Icon>format_bold</Icon></FloatingToolbarItem>
@@ -693,7 +693,7 @@ import { Icon } from 'react-material-web';
   <FloatingToolbarItem><Icon>format_list_bulleted</Icon></FloatingToolbarItem>
 </FloatingToolbar>`,
 
-  'loading-indicator': `import { LoadingIndicator } from 'react-material-web';
+  'loading-indicator': `import { LoadingIndicator } from 'material-web-react';
 
 <LoadingIndicator />
 <LoadingIndicator size="small" />

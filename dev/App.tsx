@@ -1252,7 +1252,7 @@ export function App() {
           <Accordion>
             <AccordionItem>
               <span slot="header">Getting Started</span>
-              <div>Install the package with npm install react-material-web and import the components you need.</div>
+              <div>Install the package with npm install material-web-react and import the components you need.</div>
             </AccordionItem>
             <AccordionItem>
               <span slot="header">Configuration</span>
