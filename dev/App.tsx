@@ -81,10 +81,8 @@ import { PullToRefresh } from '../src/components/pull-to-refresh/index.js';
 import { TreeView, TreeItem } from '../src/components/tree-view/index.js';
 import { ImageList, ImageListItem } from '../src/components/image-list/index.js';
 import { VirtualList } from '../src/components/virtual-list/index.js';
-import { ColorPicker } from '../src/components/color-picker/index.js';
 import { DateRangePicker } from '../src/components/date-range-picker/index.js';
 import { MultiSelect } from '../src/components/multi-select/index.js';
-import { ParallaxHeader } from '../src/components/parallax-header/index.js';
 
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
@@ -273,7 +271,6 @@ export function App() {
   const [ratingValue, setRatingValue] = useState(3);
   const [virtualRange, setVirtualRange] = useState({ start: 0, end: 20 });
   const dialogRef = useRef<MdDialog>(null);
-  const parallaxRef = useRef<HTMLDivElement>(null);
 
   const activeTheme = THEME_PRESETS[themeKey].theme;
 
@@ -1699,18 +1696,6 @@ export function App() {
           </VirtualList>
         </div>
 
-        {/* Color Picker */}
-        <div style={styles.section}>
-          <SectionHeader title="Color Picker" snippetKey="color-picker" />
-          <div style={{...styles.row, alignItems: 'flex-start', gap: 24}}>
-            <ColorPicker
-              value="#6750a4"
-              onChange={(e: any) => console.log('Color changed:', e.detail.value)}
-            />
-            <ColorPicker value="#b3261e" disabled />
-          </div>
-        </div>
-
         {/* Date Range Picker */}
         <div style={styles.section}>
           <SectionHeader title="Date Range Picker" snippetKey="date-range-picker" />
@@ -1750,52 +1735,6 @@ export function App() {
               values={JSON.stringify(['blue', 'green'])}
               onChange={(e: any) => console.log('Colors:', e.detail.values)}
             />
-          </div>
-        </div>
-
-        {/* Parallax Header */}
-        <div style={styles.section}>
-          <SectionHeader title="Parallax Header" snippetKey="parallax-header" />
-          <div
-            ref={parallaxRef}
-            style={{
-              height: 500,
-              overflowY: 'auto',
-              borderRadius: 12,
-              border: '1px solid var(--md-sys-color-outline-variant)',
-            }}
-          >
-            <ParallaxHeader
-              height={300}
-              parallaxFactor={0.5}
-              src="https://picsum.photos/seed/parallax/800/400"
-              overlay
-              onScrollProgress={(e: any) =>
-                console.log('parallax:', e.detail.progress)
-              }
-            >
-              <div style={{ color: 'white' }}>
-                <div style={{ fontSize: 32, fontWeight: 400, margin: 0 }}>
-                  Mountain Vista
-                </div>
-                <div style={{ fontSize: 14, marginTop: 8, opacity: 0.85 }}>
-                  Parallax scrolling header — scroll to see the effect
-                </div>
-              </div>
-            </ParallaxHeader>
-            {Array.from({ length: 20 }, (_, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: '16px 24px',
-                  borderBottom:
-                    '1px solid var(--md-sys-color-outline-variant)',
-                  fontSize: 14,
-                }}
-              >
-                Content item {i + 1}
-              </div>
-            ))}
           </div>
         </div>
 

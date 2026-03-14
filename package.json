@@ -587,16 +587,6 @@
         "default": "./dist/components/virtual-list/index.cjs"
       }
     },
-    "./color-picker": {
-      "import": {
-        "types": "./dist/components/color-picker/index.d.ts",
-        "default": "./dist/components/color-picker/index.js"
-      },
-      "require": {
-        "types": "./dist/components/color-picker/index.d.ts",
-        "default": "./dist/components/color-picker/index.cjs"
-      }
-    },
     "./date-range-picker": {
       "import": {
         "types": "./dist/components/date-range-picker/index.d.ts",
@@ -615,16 +605,6 @@
       "require": {
         "types": "./dist/components/multi-select/index.d.ts",
         "default": "./dist/components/multi-select/index.cjs"
-      }
-    },
-    "./parallax-header": {
-      "import": {
-        "types": "./dist/components/parallax-header/index.d.ts",
-        "default": "./dist/components/parallax-header/index.js"
-      },
-      "require": {
-        "types": "./dist/components/parallax-header/index.d.ts",
-        "default": "./dist/components/parallax-header/index.cjs"
       }
     },
     "./button-group": {

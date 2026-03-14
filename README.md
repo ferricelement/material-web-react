@@ -100,7 +100,6 @@ function App() {
 | Date Picker | `react-material-web/date-picker` |
 | Date Range Picker | `react-material-web/date-range-picker` |
 | Time Picker | `react-material-web/time-picker` |
-| Color Picker | `react-material-web/color-picker` |
 | Multi Select | `react-material-web/multi-select` |
 | Chip Input | `react-material-web/chip-input` |
 | File Upload | `react-material-web/file-upload` |
@@ -137,7 +136,6 @@ function App() {
 | Floating Toolbar | `react-material-web/floating-toolbar` |
 | Swipe Actions | `react-material-web/swipe-actions` |
 | Pull to Refresh | `react-material-web/pull-to-refresh` |
-| Parallax Header | `react-material-web/parallax-header` |
 
 ## Tree-Shakeable
 

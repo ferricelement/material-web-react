@@ -247,10 +247,6 @@ export { MdImageList, MdImageListItem } from './components/image-list/md-image-l
 export { VirtualList } from './components/virtual-list/index.js';
 export { MdVirtualList } from './components/virtual-list/md-virtual-list.js';
 
-// Color Picker
-export { ColorPicker } from './components/color-picker/index.js';
-export { MdColorPicker } from './components/color-picker/md-color-picker.js';
-
 // Date Range Picker
 export { DateRangePicker } from './components/date-range-picker/index.js';
 export { MdDateRangePicker } from './components/date-range-picker/md-date-range-picker.js';
@@ -274,10 +270,6 @@ export { MdFloatingToolbar, MdFloatingToolbarItem, MdFloatingToolbarDivider } fr
 // Loading Indicator
 export { LoadingIndicator } from './components/loading-indicator/index.js';
 export { MdLoadingIndicator } from './components/loading-indicator/md-loading-indicator.js';
-
-// Parallax Header
-export { ParallaxHeader } from './components/parallax-header/index.js';
-export { MdParallaxHeader } from './components/parallax-header/md-parallax-header.js';
 
 // Theme
 export { ThemeProvider, useTheme, useColorScheme } from './theme/index.js';

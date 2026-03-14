@@ -642,16 +642,6 @@ const items = Array.from({ length: 10000 }, (_, i) => ({
   renderItem={(item) => <div>{item.label}</div>}
 />`,
 
-  'color-picker': `import { ColorPicker } from 'react-material-web';
-import { useState } from 'react';
-
-const [color, setColor] = useState('#6750A4');
-
-<ColorPicker
-  value={color}
-  onColorChanged={(e) => setColor(e.detail.value)}
-/>`,
-
   'date-range-picker': `import { DateRangePicker } from 'react-material-web';
 import { useState } from 'react';
 
@@ -673,16 +663,6 @@ const [end, setEnd] = useState('');
   label="Select tags"
   options={['React', 'TypeScript', 'Material Design', 'Lit']}
 />`,
-
-  'parallax-header': `import { ParallaxHeader } from 'react-material-web';
-
-<ParallaxHeader
-  src="hero-image.jpg"
-  height={300}
-  parallaxAmount={0.5}
->
-  <h1>Hero Title</h1>
-</ParallaxHeader>`,
 
   'button-group': `import { ButtonGroup } from 'react-material-web';
 import { OutlinedButton } from 'react-material-web';
