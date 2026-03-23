@@ -87,14 +87,16 @@ import { MultiSelect } from '../src/components/multi-select/index.js';
 import type { MdDialog } from '@material/web/dialog/dialog.js';
 
 const styles = {
-  page: {
+  pageOuter: {
     fontFamily: "'Roboto', sans-serif",
-    maxWidth: 960,
-    margin: '0 auto',
-    padding: '32px 24px',
     color: 'var(--md-sys-color-on-surface)',
     background: 'var(--md-sys-color-surface)',
     minHeight: '100vh',
+  } as React.CSSProperties,
+  page: {
+    maxWidth: 960,
+    margin: '0 auto',
+    padding: '32px 24px',
   } as React.CSSProperties,
   header: {
     marginBottom: 48,
@@ -276,6 +278,7 @@ export function App() {
 
   return (
     <ThemeProvider theme={activeTheme} colorScheme={colorScheme}>
+      <div style={styles.pageOuter}>
       <div style={styles.page}>
         {/* Header */}
         <div style={styles.header}>
@@ -1739,6 +1742,7 @@ export function App() {
         </div>
 
 
+      </div>
       </div>
     </ThemeProvider>
   );
