@@ -2,9 +2,9 @@
 
 React components wrapping Google's [Material Design 3](https://m3.material.io/) web components (`@material/web`) with additional custom components built on [Lit](https://lit.dev/).
 
-![Component Preview](docs/preview.png)
+[![Live Demo](docs/preview.png)](https://ferricelement.github.io/material-web-react/)
 
-[Live Demo](https://ferricelement.github.io/material-web-react/)
+> **[Try the interactive demo →](https://ferricelement.github.io/material-web-react/)**
 
 ## Installation
 
