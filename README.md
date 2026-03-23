@@ -4,6 +4,8 @@ React components wrapping Google's [Material Design 3](https://m3.material.io/) 
 
 ![Component Preview](docs/preview.png)
 
+[Live Demo](https://ferricelement.github.io/material-web-react/)
+
 ## Installation
 
 ```bash

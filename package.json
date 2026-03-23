@@ -660,6 +660,7 @@
   "scripts": {
     "dev": "vite --config dev/vite.config.ts",
     "build": "vite build && cp src/theme/baseline.css dist/baseline.css",
+    "build:demo": "vite build --config dev/vite.config.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run build"
